@@ -1,0 +1,121 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WorldCup2014WP.Pages.LivePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:WorldCup2014WP.Controls"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+        <SolidColorBrush x:Key="LivePage_Description_SplitBar_Color" Color="#ff808080"/>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="#ffe0e0e0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--top bar-->
+        <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
+
+        <Rectangle Grid.Row="1" Width="4" Fill="#ffffffff" HorizontalAlignment="Left" Margin="55,0,0,0"/>
+
+        <!--content-->
+        <ScrollViewer x:Name="scrollViewer" Grid.Row="1">
+            <Grid x:Name="ContentPanel">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--title panel-->
+                <Grid Grid.Row="0" Height="180" Background="#ffffffff">
+                    <controls:FadingImage x:Name="titleImage" Stretch="UniformToFill"/>
+                    <TextBlock x:Name="titleTextBlock2" Style="{StaticResource LivePage_Title_Text_Style}"
+                               VerticalAlignment="Bottom" Margin="25,0,23,23" Foreground="#ff000000"/>
+                    <TextBlock x:Name="titleTextBlock1" Style="{StaticResource LivePage_Title_Text_Style}"
+                               VerticalAlignment="Bottom" Margin="24,0,24,24" />
+                </Grid>
+
+                <!--score panel-->
+                <Grid x:Name="scorePanel" Grid.Row="1" Background="#ffffffff" Visibility="Collapsed">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Grid.ColumnSpan="5" Style="{StaticResource Item_SplitBar_Bottom_Style}"/>
+
+                    <Image Grid.Column="0" Source="{Binding Image1}" HorizontalAlignment="Right" Margin="0,12,24,12" Width="64" Height="64" Stretch="Uniform"/>
+                    <Image Grid.Column="4" Source="{Binding Image2}" HorizontalAlignment="Left" Margin="24,12,24,12" Width="64" Height="64" Stretch="Uniform"/>
+
+                    <TextBlock Grid.Column="1" Text="{Binding Score1}" Style="{StaticResource LivePage_Score_Text_Style}"/>
+                    <TextBlock Grid.Column="3" Text="{Binding Score2}" Style="{StaticResource LivePage_Score_Text_Style}"/>
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="12,0,12,0" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Player1}" Style="{StaticResource LivePage_Country_Text_Style}"/>
+                        <TextBlock Text=" VS " Style="{StaticResource LivePage_Country_Text_Style}"/>
+                        <TextBlock Text="{Binding Player2}" Style="{StaticResource LivePage_Country_Text_Style}"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- ranklist panel-->
+                <ItemsControl Grid.Row="2" x:Name="rankListBox">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Margin="0,0,0,0" Background="#ffffffff"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="64" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48"/>
+                                    <ColumnDefinition Width="32"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="80"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.ColumnSpan="5" Style="{StaticResource Item_SplitBar_Bottom_Style}"/>
+                                <TextBlock Grid.Column="0" Text="{Binding Rank}" Style="{StaticResource GameResultPanel_Text_Style}" HorizontalAlignment="Center"/>
+                                <Image Grid.Column="1" Width="32" Height="32" Stretch="Uniform" Source="{Binding Image}"/>
+                                <TextBlock Grid.Column="2" Text="{Binding Country}" Style="{StaticResource GameResultPanel_Text_Style}"/>
+                                <TextBlock Grid.Column="3" Text="{Binding Player}" Style="{StaticResource GameResultPanel_Text_Style}"/>
+                                <TextBlock Grid.Column="4" Text="{Binding Score}" Style="{StaticResource GameResultPanel_Text_Style}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <!--live content panel-->
+                <Grid Grid.Row="3">
+                    <StackPanel x:Name="lineItemsStackPanel" Margin="0,0,0,24" />
+                </Grid>
+
+                <!--shadow-->
+                <Rectangle Grid.Row="0" IsHitTestVisible="False" VerticalAlignment="Bottom" Height="8" Margin="0,0,0,-8">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#ff808080" Offset="0"/>
+                            <GradientStop Color="#00808080" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+            </Grid>
+        </ScrollViewer>
+
+        <controls:Snow x:Name="snow1" Grid.Row="1"/>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

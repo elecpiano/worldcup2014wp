@@ -1,0 +1,144 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:WorldCup2014WP.Controls"
+    xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    x:Class="WorldCup2014WP.Pages.HomePage"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--top bar-->
+        <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
+
+        <!--content panel-->
+        <Grid Grid.Row="1" x:Name="contentPanel">
+            <phone:Panorama x:Name="panorama" Foreground="#ff000000" Margin="0,0,0,0" SelectionChanged="Panorama_SelectionChanged">
+                <phone:Panorama.Title>
+                    <Grid Height="0"/>
+                </phone:Panorama.Title>
+
+                <phone:Panorama.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid Height="48" Margin="-12,0,0,-36">
+                            <TextBlock Text="{Binding}" Style="{StaticResource HomePage_PivotHeader_Text_Style}"/>
+                        </Grid>
+                    </DataTemplate>
+                </phone:Panorama.HeaderTemplate>
+
+                <!--splash image-->
+                <phone:PanoramaItem>
+                    <Grid Margin="-12,-48,0,0">
+                        <!--<Image x:Name="splashImage" Stretch="UniformToFill" Tap="splashImage_Tap"/>-->
+                        <controls:FadingImage x:Name="splashImage" Tap="splashImage_Tap"/>
+                        <controls:BigSnow x:Name="bigSnow" VerticalAlignment="Top"/>
+                        <!--<controls:Snow x:Name="snow" Width="80" Height="80"/>-->
+                    </Grid>
+                </phone:PanoramaItem>
+
+                <!--today-->
+                <phone:PanoramaItem Header="今天">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <controls:BannerControl x:Name="bannerControl" Visibility="Collapsed"/>
+                    </Grid> 
+                </phone:PanoramaItem>
+
+                <!--news-->
+                <phone:PanoramaItem Header="快讯">
+                    <Grid>
+                        <ScrollViewer x:Name="newsListScrollViewer" IsHitTestVisible="False">
+                            <ItemsControl x:Name="newsListBox">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <controls:NewsDataTemplateSelector Content="{Binding}" HorizontalContentAlignment="Stretch">
+                                            <controls:NewsDataTemplateSelector.NewsTemplate>
+                                                <DataTemplate>
+                                                    <controls:ContentButton Margin="0,0,0,12" Tap="NewsItem_Tap">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Border Width="120" Height="100" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}">
+                                                                <controls:FadingImage Stretch="UniformToFill" Source="{Binding Image}"/>
+                                                            </Border>
+                                                            <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                                                                <TextBlock Text="{Binding Title}" Style="{StaticResource NewsList_ItemTitle_Text_Style}"/>
+                                                                <TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                    </controls:ContentButton>
+                                                </DataTemplate>
+                                            </controls:NewsDataTemplateSelector.NewsTemplate>
+                                            <controls:NewsDataTemplateSelector.VideoTemplate>
+                                                <DataTemplate>
+                                                    <controls:ContentButton Margin="0,0,0,12" Tap="NewsItem_Tap">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Border Width="120" Height="100" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}">
+                                                                <Grid>
+                                                                    <controls:FadingImage Stretch="UniformToFill" Source="{Binding Image}"/>
+                                                                    <Image Source="/Assets/Images/PlayButton48.png" Stretch="None"/>
+                                                                </Grid>
+                                                            </Border>
+                                                            <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                                                                <TextBlock Text="{Binding Title}" Style="{StaticResource NewsList_ItemTitle_Text_Style}"/>
+                                                                <TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                    </controls:ContentButton>
+                                                </DataTemplate>
+                                            </controls:NewsDataTemplateSelector.VideoTemplate>
+                                            <controls:NewsDataTemplateSelector.MoreButtonTemplate>
+                                                <DataTemplate>
+                                                    <controls:ContentButton Height="64" Margin="0,0,0,12" Tap="NewsItem_Tap">
+                                                        <Grid>
+                                                            <Border Style="{StaticResource Image_Border_Style}" Background="#fff0f0f0"/>
+                                                            <TextBlock Text="更多" Style="{StaticResource ListMoreButton_Text_Style}"/>
+                                                        </Grid>
+                                                    </controls:ContentButton>
+                                                </DataTemplate>
+                                            </controls:NewsDataTemplateSelector.MoreButtonTemplate>
+                                        </controls:NewsDataTemplateSelector>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                        <controls:Snow x:Name="snowNews"/>
+                    </Grid>
+                </phone:PanoramaItem>
+
+                <!--more-->
+                <phone:PanoramaItem Header="精彩冬奥会">
+                    <Grid>
+                    </Grid>
+                </phone:PanoramaItem>
+            </phone:Panorama>
+
+        </Grid>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,122 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WorldCup2014WP.Pages.CategoryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:WorldCup2014WP.Controls"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:TopBar x:Name="topBar"/>
+
+        <!--content-->
+        <Grid x:Name="contentPanel" Grid.Row="1">
+            <phone:Pivot>
+                <phone:Pivot.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid Height="50" Margin="0,0,0,-24">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Width="72" Height="48" Stretch="Uniform" Source="{Binding Image}" Margin="0,0,8,0"/>
+                            <TextBlock Grid.Column="1" Text="{Binding Title}" Style="{StaticResource CategoryPage_PivotHeader_Text_Style}"/>
+                        </Grid>
+                    </DataTemplate>
+                </phone:Pivot.HeaderTemplate>
+
+                <phone:PivotItem x:Name="pivotItem1">
+                    <Grid>
+                        <ScrollViewer>
+                            <ItemsControl x:Name="scheduleListBox">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Loaded="scheduleListBoxItemsPanel_Loaded" Margin="0,0,0,0"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="120" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="48"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Rectangle Grid.ColumnSpan="2" Style="{StaticResource Item_SplitBar_Bottom_Style}"/>
+
+                                            <controls:ContentButton Grid.Column="1" HorizontalAlignment="Stretch" Tap="Schedule_Tap">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="80"/>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <StackPanel Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8,8,8,0">
+                                                        <TextBlock Text="{Binding StartTime,Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='MM/dd'}" 
+                                                               Style="{StaticResource CategoryPage_Date_Text_Style}"/>
+                                                        <Rectangle Style="{StaticResource Item_SplitBar_Bottom_Style}" HorizontalAlignment="Stretch"/>
+                                                        <TextBlock Text="{Binding StartTime,Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='hh:mm'}" 
+                                                               Style="{StaticResource CategoryPage_Date_Text_Style}"/>
+                                                    </StackPanel>
+                                                    <Grid Grid.Column="1" Width="40" Height="40" VerticalAlignment="Top" Margin="0,8,0,0">
+                                                        <Rectangle Fill="{StaticResource App_Theme_Color}" RadiusX="4" RadiusY="4"/>
+                                                        <Image Stretch="Uniform" Source="{Binding Image}"/>
+                                                    </Grid>
+                                                    <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="8,8,8,0">
+                                                        <TextBlock Text="{Binding Category}" Style="{StaticResource CategoryPage_Schedule_Title_Text_Style}"/>
+                                                        <TextBlock Text="{Binding Match}" Style="{StaticResource CategoryPage_Schedule_SubTitle_Text_Style}"/>
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                                        <TextBlock Text="赛果" Style="{StaticResource CategoryPage_Schedule_Title_Text_Style}"
+                                                                       Foreground="{StaticResource ArrowButton_Color}" />
+                                                        <Image Margin="4,0,0,0" Source="{Binding ArrowImage}" Stretch="None"/>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </controls:ContentButton>
+
+                                            <controls:ImageToggleButton Grid.Column="0" VerticalAlignment="Top" Padding="0,0,0,0"
+                                                                        UnCheckedBackground="/Assets/Images/Subscribe.png" 
+                                                                        CheckedBackground="/Assets/Images/UnSubscribe.png" 
+                                                                        Tap="Subscribe_Tap"
+                                                                        Checked="{Binding Subscribed}"
+                                                                        Visibility="{Binding StartTime, Converter={StaticResource AnythingToVisibilityConverter}}"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                        <Rectangle Style="{StaticResource Item_SplitBar_Top_Style}"/>
+                        <controls:Snow x:Name="snow1"/>
+                    </Grid>
+                </phone:PivotItem>
+
+                <phone:PivotItem x:Name="pivotItem2">
+                    <Grid>
+                        <phone:WebBrowser x:Name="browser"/>
+                        <Rectangle Style="{StaticResource Item_SplitBar_Top_Style}"/>
+                        <controls:Snow x:Name="snow2"/>
+                    </Grid>
+                </phone:PivotItem>
+            </phone:Pivot>
+        </Grid>
+        
+        <controls:CuteToast x:Name="toast" Grid.RowSpan="2"/>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>

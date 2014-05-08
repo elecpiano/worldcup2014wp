@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="WorldCup2014WP.Controls.QuickSelector"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="clr-namespace:WorldCup2014WP.Converters"
+    mc:Ignorable="d"
+    d:DesignHeight="480" Width="48"
+    HorizontalAlignment="Right">
+
+    <UserControl.Resources>
+        <converters:QuickSelectorItemOpacityConverter x:Key="QuickSelectorItemOpacityConverter"/>
+    </UserControl.Resources>
+
+    <Grid Background="{StaticResource QuickSelector_Base_Color}" >
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0"/>
+                    <VisualTransition From="SelectionPreviewShown" GeneratedDuration="0:0:0.9" To="SelectionPreviewHidden"/>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="SelectionPreviewShown">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="selectionPreview" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="SelectionPreviewHidden"/>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid x:Name="InterActionArea" Background="#00000000"
+              VerticalAlignment="Top" Margin="0,12,0,0"
+              MouseLeftButtonDown="InterActionArea_MouseLeftButtonDown" 
+              MouseMove="InterActionArea_MouseMove" MouseLeave="InterActionArea_MouseLeave" 
+              MouseLeftButtonUp="InterActionArea_MouseLeftButtonUp">
+            <Rectangle IsHitTestVisible="False" Height="20" x:Name="selectionHint" Fill="#ff2d2d2d" VerticalAlignment="Center" 
+                   RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform x:Name="selectionHintTransform" TranslateY="0"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <ItemsControl x:Name="itemsControl" IsHitTestVisible="False" VerticalAlignment="Center">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Opacity="{Binding Value, Converter={StaticResource QuickSelectorItemOpacityConverter}}" 
+                                   Text="{Binding Key, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='HH:mm'}" 
+                                   Style="{StaticResource QuickSelector_Item_Text_Style}"
+                               Height="26"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <Grid x:Name="selectionPreview" Margin="-170,0,0,0" IsHitTestVisible="False" Opacity="0">
+                <Grid.RenderTransform>
+                    <CompositeTransform x:Name="selectionPreviewTransform" TranslateY="0"/>
+                </Grid.RenderTransform>
+                <Image Source="/Assets/Images/QuickSelectorPreview.png" Stretch="None" />
+                <TextBlock x:Name="selectionPreviewText" Style="{StaticResource QuickSelector_Preview_Text_Style}" Margin="-10,0,0,0"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,66 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WorldCup2014WP.Pages.NewsListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--top bar-->
+        <Grid Background="{StaticResource App_Theme_Color}">
+            <Image Source="/Assets/Images/TopBarIcon.png" Stretch="None" Margin="24,12,0,12" HorizontalAlignment="Left"/>
+        </Grid>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="快讯" Style="{StaticResource Page_Header_Text_Style}"/>
+            <ScrollViewer Grid.Row="1">
+                <ItemsControl x:Name="newsListBox">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Rectangle Height="1" Fill="{StaticResource App_Theme_Color}" VerticalAlignment="Top"/>
+                                <Button Style="{StaticResource ContentButtonStyle}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Width="150" Height="120" Margin="12,10,0,10" Source="/Assets/Sample/SportSample.jpg" Stretch="UniformToFill"/>
+                                        <StackPanel Grid.Column="1" Margin="12,10,12,10">
+                                            <TextBlock Text="高山滑雪男子超级大逆转：斯文达尔夺冠" Style="{StaticResource NewsList_ItemTitle_Text_Style}"/>
+                                            <TextBlock Text="2014-02-07 02:35" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

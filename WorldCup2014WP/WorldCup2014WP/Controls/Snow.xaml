@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="WorldCup2014WP.Controls.Snow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Height="150" Width="150"
+             IsHitTestVisible="False"
+             Opacity="0">
+    
+	<UserControl.Resources>
+		<Storyboard x:Name="Storyboard1" RepeatBehavior="forever">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="bigSnow">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="360"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+    
+    <Grid x:Name="rootGrid">
+        <Image x:Name="bigSnow" Source="/Assets/Images/Snow/BigSnow.png" Stretch="None" RenderTransformOrigin="0.5,0.5">
+        	<Image.RenderTransform>
+        		<CompositeTransform/>
+        	</Image.RenderTransform>
+        </Image>
+    </Grid>
+</UserControl>

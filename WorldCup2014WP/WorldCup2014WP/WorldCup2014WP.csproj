@@ -90,12 +90,138 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Animations\AnimationBase.cs" />
+    <Compile Include="Animations\FadeAnimation.cs" />
+    <Compile Include="Animations\MoveAnimation.cs" />
+    <Compile Include="Animations\RotateAnimation.cs" />
+    <Compile Include="Animations\ScaleAnimation.cs" />
+    <Compile Include="Animations\VibrateAnimation.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BannerControl.xaml.cs">
+      <DependentUpon>BannerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BigSnow.xaml.cs">
+      <DependentUpon>BigSnow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CategoryButton.xaml.cs">
+      <DependentUpon>CategoryButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ContentButton.cs" />
+    <Compile Include="Controls\CuteToast.xaml.cs">
+      <DependentUpon>CuteToast.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EPGList.xaml.cs">
+      <DependentUpon>EPGList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FadingImage.xaml.cs">
+      <DependentUpon>FadingImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GameResultPanel.xaml.cs">
+      <DependentUpon>GameResultPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HeaderMoreButton.xaml.cs">
+      <DependentUpon>HeaderMoreButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ImageToggleButton.cs" />
+    <Compile Include="Controls\ListMoreButton.xaml.cs">
+      <DependentUpon>ListMoreButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LivePageItemAlbum.xaml.cs">
+      <DependentUpon>LivePageItemAlbum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LivePageItemLiveText.xaml.cs">
+      <DependentUpon>LivePageItemLiveText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LivePageItemNews.xaml.cs">
+      <DependentUpon>LivePageItemNews.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LivePageItemVideo.xaml.cs">
+      <DependentUpon>LivePageItemVideo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NewsDataTemplateSelector.cs" />
+    <Compile Include="Controls\QuickSelector.xaml.cs">
+      <DependentUpon>QuickSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Snow.xaml.cs">
+      <DependentUpon>Snow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TopBar.xaml.cs">
+      <DependentUpon>TopBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\AnythingToVisibilityConverter.cs" />
+    <Compile Include="Converters\DateTimeToStringConverter.cs" />
+    <Compile Include="Converters\QuickSelectorItemOpacityConverter.cs" />
+    <Compile Include="DataContext\ImageCacheDataContext.cs" />
+    <Compile Include="DataContext\SubscriptionDataContext.cs" />
+    <Compile Include="Global\ApplicationExtension.cs" />
+    <Compile Include="Global\Constants.cs" />
+    <Compile Include="Infrastructures\BindableBase.cs" />
     <Compile Include="LocalizedStrings.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Compile Include="Models\AlbumItem.cs" />
+    <Compile Include="Models\Banner.cs" />
+    <Compile Include="Models\CalendarItem.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CategoryPivotHeaderData.cs" />
+    <Compile Include="Models\Enum.cs" />
+    <Compile Include="Models\EPG.cs" />
+    <Compile Include="Models\GameResult.cs" />
+    <Compile Include="Models\GameSchedule.cs" />
+    <Compile Include="Models\HTML.cs" />
+    <Compile Include="Models\LiveData.cs" />
+    <Compile Include="Models\MedalScore.cs" />
+    <Compile Include="Models\News.cs" />
+    <Compile Include="Models\Splash.cs" />
+    <Compile Include="Models\Stadium.cs" />
+    <Compile Include="Models\VOD.cs" />
+    <Compile Include="Pages\AlbumPage.xaml.cs">
+      <DependentUpon>AlbumPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CalendarPage.xaml.cs">
+      <DependentUpon>CalendarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CategoryListPage.xaml.cs">
+      <DependentUpon>CategoryListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CategoryPage.xaml.cs">
+      <DependentUpon>CategoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EmptyPage.xaml.cs">
+      <DependentUpon>EmptyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EPGListPage.xaml.cs">
+      <DependentUpon>EPGListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LivePage.xaml.cs">
+      <DependentUpon>LivePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MySubscriptionPage.xaml.cs">
+      <DependentUpon>MySubscriptionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NewsDetailPage.xaml.cs">
+      <DependentUpon>NewsDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NewsListPage.xaml.cs">
+      <DependentUpon>NewsListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SplashPage.xaml.cs">
+      <DependentUpon>SplashPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StadiumDetailPage.xaml.cs">
+      <DependentUpon>StadiumDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StadiumListPage.xaml.cs">
+      <DependentUpon>StadiumListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\VideoPage.xaml.cs">
+      <DependentUpon>VideoPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
@@ -103,16 +229,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utility\BitmapImageExtension.cs" />
+    <Compile Include="Utility\Cryptography\CryptographyHelper.cs" />
+    <Compile Include="Utility\Cryptography\MD5.cs" />
+    <Compile Include="Utility\DataContextGetter.cs" />
+    <Compile Include="Utility\DataLoader.cs" />
+    <Compile Include="Utility\DataTemplateSelector.cs" />
+    <Compile Include="Utility\HttpExtensions.cs" />
+    <Compile Include="Utility\ImageHelper.cs" />
+    <Compile Include="Utility\IsolatedStorageHelper.cs" />
+    <Compile Include="Utility\JsonSerializer.cs" />
+    <Compile Include="Utility\NetworkHelper.cs" />
+    <Compile Include="Utility\ReminderHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
@@ -147,6 +281,141 @@
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\BannerControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\BigSnow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\CategoryButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\CuteToast.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\EPGList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FadingImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\GameResultPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\HeaderMoreButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ListMoreButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LivePageItemAlbum.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LivePageItemLiveText.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LivePageItemNews.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\LivePageItemVideo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\QuickSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Snow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TopBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\AlbumPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\CalendarPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\CategoryListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\CategoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\EmptyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\EPGListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\LivePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MySubscriptionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\NewsDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\NewsListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SplashPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\StadiumDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\StadiumListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\VideoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\AppStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

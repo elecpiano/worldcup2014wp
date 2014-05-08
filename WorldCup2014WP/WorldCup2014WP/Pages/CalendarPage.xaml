@@ -1,0 +1,72 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WorldCup2014WP.Pages.CalendarPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:WorldCup2014WP.Controls"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--top bar-->
+        <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
+
+        <!--content-->
+        <Grid x:Name="contentPanel" Grid.Row="1">
+            <ScrollViewer x:Name="scrollViewer">
+                <ItemsControl x:Name="daysListBox">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel Margin="0,0,0,0"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="180" Margin="0,0,0,1">
+                                <Grid.Clip>
+                                    <RectangleGeometry Rect="0,0,480,180"/>
+                                </Grid.Clip>
+
+                                <controls:ContentButton Tap="Day_Tap">
+                                    <Grid>
+                                        <controls:FadingImage Source="{Binding Image}" Stretch="UniformToFill" Margin="-13,-5"/>
+                                        <Rectangle Width="240" HorizontalAlignment="Left" IsHitTestVisible="False" Margin="-13,-5">
+                                            <Rectangle.Fill>
+                                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
+                                                    <GradientStop Color="#7F000000" Offset="0"/>
+                                                    <GradientStop Offset="1"/>
+                                                </LinearGradientBrush>
+                                            </Rectangle.Fill>
+                                        </Rectangle>
+                                        <StackPanel Margin="24,24,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                            <TextBlock  Text="{Binding GameDate}" Style="{StaticResource CalendarPage_DayTitle_Text_Style}"/>
+                                            <TextBlock Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='M月d日 dddd'}" Style="{StaticResource CalendarPage_Date_Text_Style}"/>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,24,0,0">
+                                                <TextBlock Text="产生" Style="{StaticResource CalendarPage_MedalCount_Text_Style}"/>
+                                                <TextBlock Text="{Binding Gold}" Style="{StaticResource CalendarPage_MedalCount_Number_Style}"/>
+                                                <TextBlock Text="枚金牌" Style="{StaticResource CalendarPage_MedalCount_Text_Style}"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </Grid>
+                                </controls:ContentButton>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+
+        <controls:Snow x:Name="snow1" Grid.Row="1"/>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>
