@@ -14,6 +14,11 @@
     shell:SystemTray.IsVisible="True">
 
     <Grid x:Name="LayoutRoot" Background="White">
+    	<VisualStateManager.VisualStateGroups>
+    		<VisualStateGroup x:Name="vsgHeaderBar">
+    			<VisualState x:Name="VisualState"/>
+    		</VisualStateGroup>
+    	</VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>

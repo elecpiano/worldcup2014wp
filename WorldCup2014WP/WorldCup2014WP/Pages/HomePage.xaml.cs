@@ -247,6 +247,8 @@ namespace WorldCup2014WP.Pages
                 default:
                     break;
             }
+
+            VisualStateManager.GoToState(this, "vsHeaderBar" + panorama.SelectedIndex, true);
         }
 
         #endregion
