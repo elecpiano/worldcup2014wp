@@ -185,7 +185,8 @@ namespace WorldCup2014WP.Pages
 
         void appBarSetting_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/SettingsPage.xaml", UriKind.Relative));
+            SnsShare();
+            //NavigationService.Navigate(new Uri("/Pages/SettingsPage.xaml", UriKind.Relative));
         }
 
         private void ClearAppBar()
@@ -366,6 +367,15 @@ namespace WorldCup2014WP.Pages
             {
                 newsList.Add(newsMoreButtonItem);
             }
+        }
+
+        #endregion
+
+        #region SNS Share
+
+        private void SnsShare()
+        {
+            WechatHelper.Current.Send("世界杯测试title", "世界杯测试desc", "Assets/ApplicationIcon.png", "http://google.com");
         }
 
         #endregion

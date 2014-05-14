@@ -237,10 +237,12 @@
     <Compile Include="Utility\DataTemplateSelector.cs" />
     <Compile Include="Utility\HttpExtensions.cs" />
     <Compile Include="Utility\ImageHelper.cs" />
+    <Compile Include="Utility\IOHelper.cs" />
     <Compile Include="Utility\IsolatedStorageHelper.cs" />
     <Compile Include="Utility\JsonSerializer.cs" />
     <Compile Include="Utility\NetworkHelper.cs" />
     <Compile Include="Utility\ReminderHelper.cs" />
+    <Compile Include="Utility\SNS\WechatHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -415,6 +417,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Google.ProtocolBuffersLite, Version=2.4.1.473, Culture=neutral, PublicKeyToken=55f7125234beb589, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ThirdPartyComponents\Google.ProtocolBuffersLite.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroMsgSDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ThirdPartyComponents\MicroMsgSDK.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
