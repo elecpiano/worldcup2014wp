@@ -24,12 +24,15 @@
     			<VisualState x:Name="vsHeaderBar1">
     				<Storyboard>
     					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
     				</Storyboard>
     			</VisualState>
     			<VisualState x:Name="vsHeaderBar2">
     				<Storyboard>
     					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
     					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
     				</Storyboard>
     			</VisualState>
     			<VisualState x:Name="vsHeaderBar3">
@@ -37,6 +40,9 @@
     					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
     					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
     					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
     				</Storyboard>
     			</VisualState>
     			<VisualState x:Name="vsHeaderBar4">
@@ -45,9 +51,27 @@
     					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
     					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
     					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase4" d:IsOptimized="True"/>
     				</Storyboard>
     			</VisualState>
     			<VisualState x:Name="vsHeaderBar0"/>
+    			<VisualState x:Name="vsHeaderBar5">
+    				<Storyboard>
+    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase4" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase5" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase4" d:IsOptimized="True"/>
+    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase5" d:IsOptimized="True"/>
+    				</Storyboard>
+    			</VisualState>
     		</VisualStateGroup>
     	</VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
@@ -57,22 +81,27 @@
 
         <!--top bar-->
         <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
-        <Grid x:Name="headerBarBase1" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ffaed255" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="headerBarBase1" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ff46c6e9" RenderTransformOrigin="0.5,0.5" Opacity="0">
             <Grid.RenderTransform>
                 <CompositeTransform TranslateX="480"/>
             </Grid.RenderTransform>
         </Grid>
-        <Grid x:Name="headerBarBase2" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ff46c6e9" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="headerBarBase2" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ffaed255" RenderTransformOrigin="0.5,0.5" Opacity="0">
             <Grid.RenderTransform>
                 <CompositeTransform TranslateX="480"/>
             </Grid.RenderTransform>
         </Grid>
-        <Grid x:Name="headerBarBase3" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#fff7d144" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="headerBarBase3" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#fff7d144" RenderTransformOrigin="0.5,0.5" Opacity="0">
             <Grid.RenderTransform>
                 <CompositeTransform TranslateX="480"/>
             </Grid.RenderTransform>
         </Grid>
-        <Grid x:Name="headerBarBase4" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#fff69662" RenderTransformOrigin="0.5,0.5">
+        <Grid x:Name="headerBarBase4" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#fff69662" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateX="480"/>
+            </Grid.RenderTransform>
+        </Grid>
+        <Grid x:Name="headerBarBase5" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#FFA371E0" RenderTransformOrigin="0.5,0.5" Opacity="0">
             <Grid.RenderTransform>
                 <CompositeTransform TranslateX="480"/>
             </Grid.RenderTransform>
@@ -197,6 +226,12 @@
                             </ItemsControl>
                         </ScrollViewer>
                         <controls:Snow x:Name="snowNews"/>
+                    </Grid>
+                </phone:PanoramaItem>
+
+                <!--more-->
+                <phone:PanoramaItem Header="我的世界杯">
+                    <Grid>
                     </Grid>
                 </phone:PanoramaItem>
 

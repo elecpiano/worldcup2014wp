@@ -8,7 +8,7 @@ namespace WorldCup2014WP
 {
     public class Constants
     {
-        public const string DOMAIN = "http://115.28.21.97";// "http://api.gootrip.com"; //"http://115.28.253.73";
+        public const string DOMAIN = "api1.gootrip.com";// "http://115.28.21.97";// "http://api.gootrip.com"; //"http://115.28.253.73";
 
         //splash
         public const string SPLASH_MODULE = "splash";
