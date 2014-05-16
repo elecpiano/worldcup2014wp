@@ -9,6 +9,7 @@ using WorldCup2014WP.Models;
 using WorldCup2014WP.Utility;
 using WorldCup2014WP.Controls;
 using System.Collections.ObjectModel;
+using Microsoft.Phone.Tasks;
 
 namespace WorldCup2014WP.Pages
 {
@@ -185,7 +186,8 @@ namespace WorldCup2014WP.Pages
 
         void appBarSetting_Click(object sender, EventArgs e)
         {
-            SnsShare();
+            //SnsShareWechat();
+            SnsShareWeibo();
             //NavigationService.Navigate(new Uri("/Pages/SettingsPage.xaml", UriKind.Relative));
         }
 
@@ -373,9 +375,25 @@ namespace WorldCup2014WP.Pages
 
         #region SNS Share
 
-        private void SnsShare()
+        private void SnsShareWechat()
         {
             WechatHelper.Current.Send("世界杯测试title", "世界杯测试desc", "Assets/ApplicationIcon.png", "http://google.com");
+        }
+
+        private void SnsShareWeibo()
+        {
+            PhotoChooserTask task = new PhotoChooserTask();
+            task.Show();
+            task.Completed += task_Completed;
+        }
+
+        void task_Completed(object sender, PhotoResult e)
+        {
+            (sender as PhotoChooserTask).Completed -= task_Completed;
+            if (e.ChosenPhoto != null)
+            {
+                WeiboAssociation.Share(e.ChosenPhoto, "CCTV 世界杯 微博测试");
+            }
         }
 
         #endregion

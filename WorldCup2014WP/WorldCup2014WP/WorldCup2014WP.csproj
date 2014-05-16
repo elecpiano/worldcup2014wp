@@ -243,6 +243,7 @@
     <Compile Include="Utility\NetworkHelper.cs" />
     <Compile Include="Utility\ReminderHelper.cs" />
     <Compile Include="Utility\SNS\WechatHelper.cs" />
+    <Compile Include="Utility\SNS\WeiboAssociation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -427,6 +428,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ThirdPartyComponents\MicroMsgSDK.dll</HintPath>
     </Reference>
+    
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
