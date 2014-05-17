@@ -262,6 +262,11 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Images\CCTV1.png" />
+    <Content Include="Assets\Images\CCTV5+.png" />
+    <Content Include="Assets\Images\CCTV5.png" />
+    <Content Include="Assets\Images\Live.png" />
+    <Content Include="Assets\Images\Video.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -428,7 +433,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ThirdPartyComponents\MicroMsgSDK.dll</HintPath>
     </Reference>
-    
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

@@ -15,22 +15,22 @@ namespace WorldCup2014WP.Controls
 
         public Page HostingPage { get; set; }
 
-        private QuickSelector quickSelector = null;
-        public QuickSelector QuickSelector
-        {
-            get
-            {
-                return quickSelector;
-            }
-            set
-            {
-                quickSelector = value;
-                if (quickSelector != null)
-                {
-                    InitQuickSelector();
-                }
-            }
-        }
+        //private QuickSelector quickSelector = null;
+        //public QuickSelector QuickSelector
+        //{
+        //    get
+        //    {
+        //        return quickSelector;
+        //    }
+        //    set
+        //    {
+        //        quickSelector = value;
+        //        if (quickSelector != null)
+        //        {
+        //            InitQuickSelector();
+        //        }
+        //    }
+        //}
 
         //ItemsPanelMargin
         public Thickness ItemsPanelMargin
@@ -103,25 +103,20 @@ namespace WorldCup2014WP.Controls
                     if (list != null)
                     {
                         epgList.Clear();
-                        List<DateTime> validHours = new List<DateTime>();
+                        //List<DateTime> validHours = new List<DateTime>();
 
                         foreach (var item in list)
                         {
                             epgList.Add(item);
-                            validHours.Add(item.Start);
+                            //validHours.Add(item.Start);
                         }
 
-                        SetQuickSelectorValidItems(validHours);
+                        //SetQuickSelectorValidItems(validHours);
 
                         epgListBox.ScrollIntoView(list.FirstOrDefault());
                         snow1.IsBusy = false;
                     }
                 });
-        }
-
-        private bool Comparison(EPG item1, EPG item2)
-        {
-            return item1.ID == item2.ID && item1.Image == item2.Image && item1.Description == item2.Description;
         }
 
         private void EpgItem_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -141,39 +136,39 @@ namespace WorldCup2014WP.Controls
 
         Dictionary<DateTime, bool> hoursOfDay = new Dictionary<DateTime, bool>();
 
-        private void InitQuickSelector()
-        {
-            DateTime dt = DateTime.Today;
-            for (int i = 0; i < 24; i++)
-            {
-                hoursOfDay.Add(dt, false);
-                dt = dt.AddHours(1);
-            }
+        //private void InitQuickSelector()
+        //{
+        //    DateTime dt = DateTime.Today;
+        //    for (int i = 0; i < 24; i++)
+        //    {
+        //        hoursOfDay.Add(dt, false);
+        //        dt = dt.AddHours(1);
+        //    }
 
-            //initial values, all are invalid items
-            quickSelector.SetItems(hoursOfDay);
-            quickSelector.SelectionChanged += QuickSelector_SelectionChanged;
-        }
+        //    //initial values, all are invalid items
+        //    quickSelector.SetItems(hoursOfDay);
+        //    quickSelector.SelectionChanged += QuickSelector_SelectionChanged;
+        //}
 
-        private void SetQuickSelectorValidItems(IEnumerable<DateTime> validItems)
-        {
-            var keyList = hoursOfDay.Keys.ToList();
-            foreach (var key in keyList)
-            {
-                if (validItems.Any(x => x.Hour == key.Hour))
-                {
-                    hoursOfDay[key] = true;
-                }
-            }
+        //private void SetQuickSelectorValidItems(IEnumerable<DateTime> validItems)
+        //{
+        //    var keyList = hoursOfDay.Keys.ToList();
+        //    foreach (var key in keyList)
+        //    {
+        //        if (validItems.Any(x => x.Hour == key.Hour))
+        //        {
+        //            hoursOfDay[key] = true;
+        //        }
+        //    }
 
-            //update again
-            quickSelector.SetItems(hoursOfDay);
-        }
+        //    //update again
+        //    quickSelector.SetItems(hoursOfDay);
+        //}
 
-        private void QuickSelector_SelectionChanged(object sender, DateTime selectedDateTime)
-        {
-            epgListBox.ScrollIntoView(epgList.FirstOrDefault(x => x.Start.Hour == selectedDateTime.Hour));
-        }
+        //private void QuickSelector_SelectionChanged(object sender, DateTime selectedDateTime)
+        //{
+        //    epgListBox.ScrollIntoView(epgList.FirstOrDefault(x => x.Start.Hour == selectedDateTime.Hour));
+        //}
 
         #endregion
 

@@ -28,6 +28,7 @@ namespace WorldCup2014WP.Pages
             InitializeComponent();
             BuildApplicationBar();
             InitBannerControl();
+            InitEpgList();
             newsListBox.ItemsSource = newsList;
         }
 
@@ -37,6 +38,7 @@ namespace WorldCup2014WP.Pages
 
             LoadSplashImage();
             LoadBanner();
+            LoadEpg(false);
             LoadNews();
             //fadeAnimation.InstanceFade(this.contentPanel, 0d, 1d, Constants.NAVIGATION_DURATION, null);
         }
@@ -149,7 +151,7 @@ namespace WorldCup2014WP.Pages
 
         #region App Bar
 
-        ApplicationBarIconButton appBarRefreshHome;
+        ApplicationBarIconButton appBarRefreshEpg;
         ApplicationBarIconButton appBarRefreshNews;
         ApplicationBarMenuItem appBarSetting;
 
@@ -159,10 +161,10 @@ namespace WorldCup2014WP.Pages
             //ApplicationBar.Opacity = 0.9;
             ApplicationBar.Mode = ApplicationBarMode.Minimized;
 
-            // refresh home
-            appBarRefreshHome = new ApplicationBarIconButton(new Uri("/Assets/AppBar/refresh.png", UriKind.Relative));
-            appBarRefreshHome.Text = "刷新";
-            appBarRefreshHome.Click += appBarRefreshHome_Click;
+            // refresh epg
+            appBarRefreshEpg = new ApplicationBarIconButton(new Uri("/Assets/AppBar/refresh.png", UriKind.Relative));
+            appBarRefreshEpg.Text = "刷新";
+            appBarRefreshEpg.Click += appBarRefreshEpg_Click;
 
             // refresh news
             appBarRefreshNews = new ApplicationBarIconButton(new Uri("/Assets/AppBar/refresh.png", UriKind.Relative));
@@ -175,8 +177,9 @@ namespace WorldCup2014WP.Pages
             SetAppBarForSplash();
         }
 
-        void appBarRefreshHome_Click(object sender, EventArgs e)
+        void appBarRefreshEpg_Click(object sender, EventArgs e)
         {
+            LoadEpg(true);
         }
 
         void appBarRefreshNews_Click(object sender, EventArgs e)
@@ -207,7 +210,7 @@ namespace WorldCup2014WP.Pages
         private void SetAppBarForHome()
         {
             ClearAppBar();
-            ApplicationBar.Buttons.Add(appBarRefreshHome);
+            ApplicationBar.Buttons.Add(appBarRefreshEpg);
             ApplicationBar.MenuItems.Add(appBarSetting);
             //ApplicationBar.Mode = ApplicationBarMode.Default;
         }
@@ -252,6 +255,33 @@ namespace WorldCup2014WP.Pages
             }
 
             VisualStateManager.GoToState(this, "vsHeaderBar" + panorama.SelectedIndex, true);
+        }
+
+        #endregion
+
+        #region EPG
+
+        private void InitEpgList()
+        {
+            epgList.HostingPage = this;
+        }
+
+        private void LoadEpg(bool reload)
+        {
+            DateTime today = new DateTime(2014, 2, 18);// TO-DO: DateTime.Today;
+            if (reload)
+            {
+                epgList.ReloadEpg(today);
+            }
+            else
+            {
+                epgList.LoadEpg(today);
+            }
+        }
+
+        private void EpgMoreButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/CalendarPage.xaml", UriKind.Relative));
         }
 
         #endregion
@@ -397,6 +427,7 @@ namespace WorldCup2014WP.Pages
         }
 
         #endregion
+
 
     }
 }

@@ -7,7 +7,7 @@
     >
 
     <!--colors-->
-    <SolidColorBrush x:Key="App_Theme_Color" Color="#ff0056a6"/>
+    <SolidColorBrush x:Key="App_Theme_Color" Color="#ff5a9a20"/>
     <SolidColorBrush x:Key="App_Theme_Color_Secondary" Color="#ff3c97ce"/>
     <SolidColorBrush x:Key="QuickSelector_Base_Color" Color="#ff2a2a2a"/>
     <SolidColorBrush x:Key="ArrowButton_Color" Color="#ff0a7cc2"/>
@@ -249,16 +249,17 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
-    <Style x:Key="PlayButton_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+    <!--epg-->
+    <Style x:Key="EPG_Tag_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="Foreground" Value="#ff3e4656"/>
-        <Setter Property="Margin" Value="4,0,0,0"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="{StaticResource App_Theme_Color}"/>
+        <Setter Property="Margin" Value="16,0,0,0"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
-    <!--epg-->
-    <Style x:Key="EPG_Tag_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
-        <Setter Property="FontSize" Value="22"/>
+    <Style x:Key="EPG_Time_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="32"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="#ffffffff"/>
         <Setter Property="Margin" Value="16,0,0,0"/>

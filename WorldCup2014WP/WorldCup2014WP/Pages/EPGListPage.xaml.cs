@@ -39,7 +39,7 @@ namespace WorldCup2014WP.Pages
         private void InitEpgList()
         {
             epgList.HostingPage = this;
-            epgList.QuickSelector = this.quickSelector;
+            //epgList.QuickSelector = this.quickSelector;
         }
 
         private void LoadEPGList()

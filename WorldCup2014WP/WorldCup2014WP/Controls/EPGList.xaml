@@ -28,21 +28,27 @@
                             <RowDefinition Height="180"/>
                         </Grid.RowDefinitions>
                         <Ellipse Width="12" Height="12" Fill="#ff4d4d4d" VerticalAlignment="Top" Margin="0,10,0,0"/>
-                        <Grid Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left">
-                            <Image Source="/Assets/Images/TimelineTag.png" Stretch="None"/>
-                            <TextBlock Text="{Binding Start, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='HH:mm'}" Style="{StaticResource EPG_Tag_Text_Style}"/>
+
+                        <!--live or video-->
+                        <Grid Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="92,0,0,0" >
+                            <StackPanel Orientation="Horizontal" Visibility="{Binding IsLive}">
+                                <Image Source="/Assets/Images/Live.png" Stretch="None"/>
+                                <TextBlock Text="直播" Style="{StaticResource EPG_Tag_Text_Style}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Visibility="{Binding IsVideo}">
+                                <Image Source="/Assets/Images/Video.png" Stretch="None"/>
+                                <TextBlock Text="录像" Style="{StaticResource EPG_Tag_Text_Style}"/>
+                            </StackPanel>
                         </Grid>
-                        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Background="#00000000" 
-                                                    HorizontalAlignment="Left" Margin="92,0,0,0" >
-                            <Image Source="/Assets/Images/PlayButton.png" Stretch="None"/>
-                            <TextBlock Text="点播" Style="{StaticResource PlayButton_Text_Style}"/>
-                        </StackPanel>
+
+                        <!--channel-->
                         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
                             <Image Source="/Assets/Images/CCTV1.png" Visibility="{Binding CCTV1}" Stretch="Uniform" Height="16"/>
                             <Image Source="/Assets/Images/CCTV5.png" Visibility="{Binding CCTV5}" Stretch="Uniform" Height="16" Margin="4,0,0,0"/>
                             <Image Source="/Assets/Images/CCTV5+.png" Visibility="{Binding CCTV5Plus}" Stretch="Uniform" Height="16" Margin="4,0,0,0"/>
                         </StackPanel>
 
+                        <!--image-->
                         <Grid Width="393" Height="175" Grid.Row="1" Grid.Column="1" Margin="7,5,0,0">
                             <Grid.Clip>
                                 <RectangleGeometry Rect="0,0,393,175"/>
@@ -66,6 +72,12 @@
                             </controls:ContentButton>
                         </Grid>
 
+                        <!--time-->
+                        <Grid Grid.Row="1" Grid.Column="1" Width="120" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                              Background="{StaticResource App_Theme_Color}">
+                            <TextBlock Text="{Binding Start, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='HH:mm'}" Style="{StaticResource EPG_Time_Style}"/>
+                        </Grid>
+
                         <Border Width="393" Height="175" Grid.Row="1" Grid.Column="1" Margin="7,5,0,0" Style="{StaticResource Image_Border_Style}"/>
 
                     </Grid>
@@ -76,4 +88,5 @@
         <controls:Snow x:Name="snow1"/>
 
     </Grid>
+
 </UserControl>

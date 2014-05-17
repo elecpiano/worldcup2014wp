@@ -140,6 +140,9 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <controls:BannerControl x:Name="bannerControl" Visibility="Collapsed"/>
+                        <controls:EPGList Grid.Row="1" x:Name="epgList"/>
+                        <controls:HeaderMoreButton VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-48,8,0" 
+                                                   Tap="EpgMoreButton_Tap"/>
                     </Grid> 
                 </phone:PanoramaItem>
 
