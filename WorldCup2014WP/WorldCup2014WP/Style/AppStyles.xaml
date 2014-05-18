@@ -291,6 +291,16 @@
         <Setter Property="Margin" Value="0,0,0,16"/>
     </Style>
 
+    <!--recommendation page-->
+    <Style x:Key="Recommendation_Focus_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Foreground" Value="#ffffffff"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+    
     <!--news list page-->
     <Style x:Key="NewsList_ItemTitle_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="22"/>

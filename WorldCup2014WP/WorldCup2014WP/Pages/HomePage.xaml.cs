@@ -31,6 +31,7 @@ namespace WorldCup2014WP.Pages
             InitBannerControl();
             InitEpgList();
             newsListBox.ItemsSource = newsList;
+            recommendationNewsListBox.ItemsSource = recommendationNewsList;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -40,6 +41,7 @@ namespace WorldCup2014WP.Pages
             LoadSplashImage();
             LoadBanner();
             LoadEpg(false);
+            LoadRecommendation();
             LoadNews();
             //fadeAnimation.InstanceFade(this.contentPanel, 0d, 1d, Constants.NAVIGATION_DURATION, null);
         }
@@ -390,6 +392,9 @@ namespace WorldCup2014WP.Pages
                     string naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}", NaviParam.NEWS_ID, news.ID);
                     NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
                     break;
+                case "31":
+                    MessageBox.Show("subject");
+                    break;
                 default:
                     break;
             }
@@ -409,6 +414,42 @@ namespace WorldCup2014WP.Pages
             {
                 newsList.Add(newsMoreButtonItem);
             }
+        }
+
+        #endregion
+
+        #region Recommendation
+
+        GenericDataLoader<Recommendation> recommendationLoader = new GenericDataLoader<Recommendation>();
+        ObservableCollection<News> recommendationNewsList = new ObservableCollection<News>();
+
+        private void LoadRecommendation()
+        {
+            if (recommendationLoader.Loaded || recommendationLoader.Busy)
+            {
+                return;
+            }
+
+            //busy
+            //snowNews.IsBusy = true;
+
+            //load
+            recommendationLoader.Load("getrecommends", string.Empty, true, Constants.RECOMMENDATION_MODULE, Constants.RECOMMENDATION_FILE_NAME,
+                result =>
+                {
+                    recommendationSlideShow.SetItemsSource(result.focus);
+
+                    recommendationNewsListScrollViewer.ScrollToVerticalOffset(0);
+                    recommendationNewsList.Clear();
+
+                    foreach (var item in result.data)
+                    {
+                        recommendationNewsList.Add(item);
+                    }
+
+                    //not busy
+                    //snowNews.IsBusy = false;
+                });
         }
 
         #endregion

@@ -27,6 +27,11 @@ namespace WorldCup2014WP
         public const string NEWS_LIST_FILE_NAME_FORMAT = "news_list_page_{0}.txt";
         public const string NEWS_DETAIL_FILE_NAME_FORMAT = "news_{0}.txt";
 
+        //recommendation 
+        public const string RECOMMENDATION_MODULE = "recommendation";
+        public const string RECOMMENDATION_FILE_NAME = "recommendation.txt";
+        public const string RECOMMENDATION_NEWS_DETAIL_FILE_NAME_FORMAT = "recommendation_news_{0}.txt";
+
         //medal tally
         public const string MEDAL_TALLY_MODULE = "medaltally";
         public const string MEDAL_TALLY_FILE_NAME = "medaltally.txt";
@@ -66,6 +71,8 @@ namespace WorldCup2014WP
 
         //animation duration
         public static TimeSpan NAVIGATION_DURATION = TimeSpan.FromMilliseconds(200);
+        public static TimeSpan SLIDE_SHOW_TRANSITION_DURATION = TimeSpan.FromMilliseconds(700);
+        public static TimeSpan SLIDE_SHOW_INTERVAL = TimeSpan.FromMilliseconds(3000);
 
         //vod
         public const string VOD_MODULE = "vod";

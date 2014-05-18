@@ -134,8 +134,8 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <controls:BannerControl x:Name="bannerControl"  Margin="0,8,0,8" Visibility="Collapsed"/>
-                        <controls:EPGList Grid.Row="1" x:Name="epgList"/>
+                        <controls:BannerControl x:Name="bannerControl"  Margin="0,12,0,12" Visibility="Collapsed"/>
+                        <controls:EPGList Grid.Row="1" x:Name="epgList" Margin="0,0,0,0"/>
                         <controls:HeaderMoreButton VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-48,8,0" 
                                                    Tap="EpgMoreButton_Tap"/>
                     </Grid>
@@ -143,8 +143,73 @@
 
                 <!--recommendations-->
                 <phone:PanoramaItem Header="热门推荐">
-                    <Grid>
-                    </Grid>
+                    <ScrollViewer x:Name="recommendationNewsListScrollViewer" Margin="12,0,0,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <controls:SlideShow x:Name="recommendationSlideShow" Height="150" Margin="0,12,0,12"/>
+
+                            <ItemsControl Grid.Row="1"  x:Name="recommendationNewsListBox">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <controls:NewsDataTemplateSelector Content="{Binding}" HorizontalContentAlignment="Stretch">
+                                            <controls:NewsDataTemplateSelector.NewsTemplate>
+                                                <DataTemplate>
+                                                    <controls:ContentButton Margin="0,0,0,12" Tap="NewsItem_Tap">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Border Width="120" Height="100" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}">
+                                                                <controls:FadingImage Stretch="UniformToFill" Source="{Binding Image}"/>
+                                                            </Border>
+                                                            <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                                                                <TextBlock Text="{Binding Title}" Style="{StaticResource NewsList_ItemTitle_Text_Style}"/>
+                                                                <TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                    </controls:ContentButton>
+                                                </DataTemplate>
+                                            </controls:NewsDataTemplateSelector.NewsTemplate>
+                                            <controls:NewsDataTemplateSelector.VideoTemplate>
+                                                <DataTemplate>
+                                                    <controls:ContentButton Margin="0,0,0,12" Tap="NewsItem_Tap">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="Auto"/>
+                                                                <ColumnDefinition Width="*"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Border Width="120" Height="100" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}">
+                                                                <Grid>
+                                                                    <controls:FadingImage Stretch="UniformToFill" Source="{Binding Image}"/>
+                                                                    <Image Source="/Assets/Images/PlayButton48.png" Stretch="None"/>
+                                                                </Grid>
+                                                            </Border>
+                                                            <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                                                                <TextBlock Text="{Binding Title}" Style="{StaticResource NewsList_ItemTitle_Text_Style}"/>
+                                                                <TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                    </controls:ContentButton>
+                                                </DataTemplate>
+                                            </controls:NewsDataTemplateSelector.VideoTemplate>
+                                        </controls:NewsDataTemplateSelector>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+
+                        </Grid>
+                    </ScrollViewer>
                 </phone:PanoramaItem>
 
                 <!--live-->
@@ -155,9 +220,9 @@
 
                 <!--news-->
                 <phone:PanoramaItem Header="新闻">
-                    <Grid>
+                    <Grid Margin="12,0,0,0">
                         <ScrollViewer x:Name="newsListScrollViewer">
-                            <ItemsControl x:Name="newsListBox">
+                            <ItemsControl x:Name="newsListBox" Margin="0,12,0,0">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <VirtualizingStackPanel/>

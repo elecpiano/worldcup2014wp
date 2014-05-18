@@ -42,6 +42,9 @@ namespace WorldCup2014WP.Controls
                         case "1"://news
                             return NewsTemplate;
                             break;
+                        case "31"://subject
+                            return NewsTemplate;
+                            break;
                         default:
                             break;
                     }
