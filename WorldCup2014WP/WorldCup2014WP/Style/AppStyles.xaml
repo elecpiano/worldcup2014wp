@@ -193,7 +193,7 @@
 
     <Style x:Key="Image_Border_Style" TargetType="Border">
         <Setter Property="BorderBrush" Value="#ffa0a0a0"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="IsHitTestVisible" Value="False"/>
     </Style>
 
