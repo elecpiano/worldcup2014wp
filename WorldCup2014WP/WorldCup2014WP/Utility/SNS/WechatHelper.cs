@@ -11,7 +11,7 @@ namespace WorldCup2014WP.Utility
 {
     public class WechatHelper
     {
-        private const string WECHAT_APP_ID = "wx175b3cda253e2178";
+        private const string WECHAT_APP_ID = "wx5ca05c4a5ddeb5d2";
 
         #region Singleton
 

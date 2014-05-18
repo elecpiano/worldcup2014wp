@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="WorldCup2014WP.Controls.EpgTag"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Height="32" Width="32">
+	<UserControl.Resources>
+		<Storyboard x:Name="Storyboard1" RepeatBehavior="Forever">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="circle2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.7"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="circle2">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.7"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="circle1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.4"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="circle1">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0.4"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="circle3b">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="circle3b">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="circle2b">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0.7"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="circle2b">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0.7"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="circle1b">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0.4"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="circle1b">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0.4"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+    
+    <Grid>
+        <Ellipse Fill="#ffffffff" Width="32" Height="32"/>
+        <Rectangle Width="4" Fill="#ff51881e" HorizontalAlignment="Center" />
+        <Ellipse x:Name="circle3" Fill="#ff51881e" Width="28" Height="28" RenderTransformOrigin="0.5,0.5">
+        	<Ellipse.RenderTransform>
+        		<CompositeTransform ScaleX="1" ScaleY="1"/>
+        	</Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="circle2" Fill="#ffe8c00a" Width="28" Height="28" RenderTransformOrigin="0.5,0.5">
+        	<Ellipse.RenderTransform>
+        		<CompositeTransform ScaleX="0.7" ScaleY="0.7"/>
+        	</Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="circle1" Fill="#ffffffff" Width="28" Height="28" RenderTransformOrigin="0.5,0.5">
+        	<Ellipse.RenderTransform>
+        		<CompositeTransform ScaleX="0.4" ScaleY="0.4"/>
+        	</Ellipse.RenderTransform>
+        </Ellipse>
+
+        <Ellipse x:Name="circle3b" Fill="#ff51881e" Width="28" Height="28" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <CompositeTransform ScaleX="0" ScaleY="0"/>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="circle2b" Fill="#ffe8c00a" Width="28" Height="28" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <CompositeTransform ScaleX="0" ScaleY="0"/>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+        <Ellipse x:Name="circle1b" Fill="#ffffffff" Width="28" Height="28" RenderTransformOrigin="0.5,0.5">
+            <Ellipse.RenderTransform>
+                <CompositeTransform ScaleX="0" ScaleY="0"/>
+            </Ellipse.RenderTransform>
+        </Ellipse>
+    </Grid>
+</UserControl>

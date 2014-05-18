@@ -26,6 +26,12 @@ namespace WorldCup2014WP.Models
 
         [IgnoreDataMember]
         public bool IsMoreButton { get; set; }
+
+        [IgnoreDataMember]
+        public bool IsDateHeader { get; set; }
+
+        [IgnoreDataMember]
+        public DateTime HeaderDate { get; set; }
     }
 
     [DataContract]

@@ -17,6 +17,8 @@ namespace WorldCup2014WP.Controls
 
         public DataTemplate MoreButtonTemplate { get; set; }
 
+        public DataTemplate DateHeaderTemplate { get; set; }
+
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
             News news = item as News;
@@ -25,6 +27,10 @@ namespace WorldCup2014WP.Controls
                 if (news.IsMoreButton)
                 {
                     return MoreButtonTemplate;
+                }
+                else if (news.IsDateHeader)
+                {
+                    return DateHeaderTemplate;
                 }
                 else
                 {

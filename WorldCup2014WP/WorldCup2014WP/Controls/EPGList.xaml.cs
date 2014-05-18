@@ -179,5 +179,10 @@ namespace WorldCup2014WP.Controls
             ItemsPanel.Margin = ItemsPanelMargin;
         }
 
+        private void Subscribe_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+
+        }
+
     }
 }

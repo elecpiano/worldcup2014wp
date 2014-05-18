@@ -10,6 +10,7 @@ using WorldCup2014WP.Utility;
 using WorldCup2014WP.Controls;
 using System.Collections.ObjectModel;
 using Microsoft.Phone.Tasks;
+using System.Collections.Generic;
 
 namespace WorldCup2014WP.Pages
 {
@@ -294,6 +295,7 @@ namespace WorldCup2014WP.Pages
         int newsPageCount = 1;
         bool newsReloading = false;
         News newsMoreButtonItem = new News() { IsMoreButton = true };
+        List<DateTime> newsListDateHeaders = new List<DateTime>();
 
         private void LoadNews()
         {
@@ -318,10 +320,18 @@ namespace WorldCup2014WP.Pages
                     {
                         newsListScrollViewer.ScrollToVerticalOffset(0);
                         newsList.Clear();
+                        newsListDateHeaders.Clear();
                     }
 
                     foreach (var item in list.data)
                     {
+                        if (!newsListDateHeaders.Contains(item.Time.Date))
+                        {
+                            newsListDateHeaders.Add(item.Time.Date);
+                            News dateHeader = new News() { IsDateHeader = true, HeaderDate = item.Time.Date };
+                            newsList.Add(dateHeader);
+                        }
+
                         newsList.Add(item);
                     }
 

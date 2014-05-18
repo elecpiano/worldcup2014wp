@@ -254,7 +254,7 @@
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="{StaticResource App_Theme_Color}"/>
-        <Setter Property="Margin" Value="16,0,0,0"/>
+        <Setter Property="Margin" Value="8,0,0,0"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
@@ -262,29 +262,24 @@
         <Setter Property="FontSize" Value="32"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="#ffffffff"/>
-        <Setter Property="Margin" Value="16,0,0,0"/>
+        <Setter Property="Margin" Value="12,0,0,0"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
-    <Style x:Key="EPG_GameName_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+    <Style x:Key="EPG_Description_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="FontSize" Value="24"/>
-        <Setter Property="Foreground" Value="#ffffffff"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="Margin" Value="12,4,12,4"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Width" Value="300"/>
     </Style>
 
-    <Style x:Key="EPG_GameSubName_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
-        <Setter Property="FontSize" Value="24"/>
-        <Setter Property="Foreground" Value="#ffffffff"/>
-        <Setter Property="Margin" Value="0,0,0,0"/>
-    </Style>
-
     <Style x:Key="EPG_SeePoint_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="FontSize" Value="18"/>
-        <Setter Property="Foreground" Value="#FF61E8E2"/>
-        <Setter Property="Margin" Value="0,24,0,0"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="Margin" Value="12,4,12,4"/>
     </Style>
 
     <!--more page-->
@@ -304,7 +299,14 @@
         <!--<Setter Property="TextTrimming" Value="WordEllipsis"/>-->
         <Setter Property="MaxHeight" Value="55"/>
     </Style>
-    
+
+    <Style x:Key="NewsList_DateHeader_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Foreground" Value="#ffffffff"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="8,4,0,4"/>
+    </Style>
+
     <Style x:Key="NewsList_ItemTime_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="Foreground" Value="#ff808080"/>

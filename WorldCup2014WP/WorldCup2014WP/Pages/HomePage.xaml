@@ -12,68 +12,58 @@
     shell:SystemTray.IsVisible="True">
 
     <Grid x:Name="LayoutRoot" Background="White">
-    	<VisualStateManager.VisualStateGroups>
-    		<VisualStateGroup x:Name="vsgHeaderBar">
-    			<VisualStateGroup.Transitions>
-    				<VisualTransition GeneratedDuration="0:0:0.5">
-    					<VisualTransition.GeneratedEasingFunction>
-    						<PowerEase EasingMode="EaseInOut"/>
-    					</VisualTransition.GeneratedEasingFunction>
-    				</VisualTransition>
-    			</VisualStateGroup.Transitions>
-    			<VisualState x:Name="vsHeaderBar1">
-    				<Storyboard>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
-    				</Storyboard>
-    			</VisualState>
-    			<VisualState x:Name="vsHeaderBar2">
-    				<Storyboard>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
-    				</Storyboard>
-    			</VisualState>
-    			<VisualState x:Name="vsHeaderBar3">
-    				<Storyboard>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
-    				</Storyboard>
-    			</VisualState>
-    			<VisualState x:Name="vsHeaderBar4">
-    				<Storyboard>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase4" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase4" d:IsOptimized="True"/>
-    				</Storyboard>
-    			</VisualState>
-    			<VisualState x:Name="vsHeaderBar0"/>
-    			<VisualState x:Name="vsHeaderBar5">
-    				<Storyboard>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase4" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase5" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase4" d:IsOptimized="True"/>
-    					<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="headerBarBase5" d:IsOptimized="True"/>
-    				</Storyboard>
-    			</VisualState>
-    		</VisualStateGroup>
-    	</VisualStateManager.VisualStateGroups>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="vsgHeaderBar">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.5">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <PowerEase EasingMode="EaseInOut"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="vsHeaderBar1">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="480" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase0" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="vsHeaderBar2">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="480" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase0" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="vsHeaderBar3">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="480" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase0" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="vsHeaderBar4">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase4" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="480" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase0" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="vsHeaderBar0"/>
+                <VisualState x:Name="vsHeaderBar5">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase4" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase5" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="480" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase0" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -81,29 +71,34 @@
 
         <!--top bar-->
         <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
-        <Grid x:Name="headerBarBase1" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ff46c6e9" RenderTransformOrigin="0.5,0.5" Opacity="0">
+        <Grid x:Name="headerBarBase1" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ff46c6e9" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform TranslateX="480"/>
             </Grid.RenderTransform>
         </Grid>
-        <Grid x:Name="headerBarBase2" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ffaed255" RenderTransformOrigin="0.5,0.5" Opacity="0">
+        <Grid x:Name="headerBarBase2" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ffaed255" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform TranslateX="480"/>
             </Grid.RenderTransform>
         </Grid>
-        <Grid x:Name="headerBarBase3" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#fff7d144" RenderTransformOrigin="0.5,0.5" Opacity="0">
+        <Grid x:Name="headerBarBase3" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#fff7d144" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform TranslateX="480"/>
             </Grid.RenderTransform>
         </Grid>
-        <Grid x:Name="headerBarBase4" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#fff69662" RenderTransformOrigin="0.5,0.5" Opacity="0">
+        <Grid x:Name="headerBarBase4" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#fff69662" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform TranslateX="480"/>
             </Grid.RenderTransform>
         </Grid>
-        <Grid x:Name="headerBarBase5" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#FFA371E0" RenderTransformOrigin="0.5,0.5" Opacity="0">
+        <Grid x:Name="headerBarBase5" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#FFA371E0" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <CompositeTransform TranslateX="480"/>
+            </Grid.RenderTransform>
+        </Grid>
+        <Grid x:Name="headerBarBase0" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ffffffff" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateX="0"/>
             </Grid.RenderTransform>
         </Grid>
 
@@ -139,11 +134,11 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <controls:BannerControl x:Name="bannerControl" Visibility="Collapsed"/>
+                        <controls:BannerControl x:Name="bannerControl"  Margin="0,8,0,8" Visibility="Collapsed"/>
                         <controls:EPGList Grid.Row="1" x:Name="epgList"/>
                         <controls:HeaderMoreButton VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-48,8,0" 
                                                    Tap="EpgMoreButton_Tap"/>
-                    </Grid> 
+                    </Grid>
                 </phone:PanoramaItem>
 
                 <!--recommendations-->
@@ -223,6 +218,14 @@
                                                     </controls:ContentButton>
                                                 </DataTemplate>
                                             </controls:NewsDataTemplateSelector.MoreButtonTemplate>
+                                            <controls:NewsDataTemplateSelector.DateHeaderTemplate>
+                                                <DataTemplate>
+                                                    <Grid Height="40" Margin="0,0,0,12" Background="{StaticResource App_Theme_Color}">
+                                                        <TextBlock Text="{Binding HeaderDate, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='MM月dd日'}" 
+                                                                   Style="{StaticResource NewsList_DateHeader_Text_Style}"/>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </controls:NewsDataTemplateSelector.DateHeaderTemplate>
                                         </controls:NewsDataTemplateSelector>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
@@ -239,11 +242,10 @@
                 </phone:PanoramaItem>
 
             </phone:Panorama>
-
         </Grid>
 
         <!--<Rectangle Fill="Red" Width="24" Height="800" Grid.RowSpan="2" HorizontalAlignment="Left" />-->
-        
+
     </Grid>
 
 </phone:PhoneApplicationPage>

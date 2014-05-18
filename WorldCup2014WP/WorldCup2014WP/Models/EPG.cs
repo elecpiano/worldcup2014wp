@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using System.Windows;
+using WorldCup2014WP.Infrastructures;
 
 namespace WorldCup2014WP.Models
 {
     [DataContract]
-    public class EPG
+    public class EPG : BindableBase
     {
         [DataMember(Name = "id")]
         public string ID { get; set; }
@@ -104,6 +105,14 @@ namespace WorldCup2014WP.Models
             {
                 return this.Type == 0 ? Visibility.Visible : Visibility.Collapsed;
             }
+        }
+
+        private bool subscribed = false;
+        [IgnoreDataMember]
+        public bool Subscribed
+        {
+            get { return subscribed; }
+            set { SetProperty(ref this.subscribed, value); }
         }
     }
 }

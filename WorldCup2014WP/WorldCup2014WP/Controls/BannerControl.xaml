@@ -5,8 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="clr-namespace:WorldCup2014WP.Controls"
     mc:Ignorable="d"
-    Height="80" 
-             Margin="0,0,8,10">
+    Height="80">
 
     <Grid x:Name="LayoutRoot">
         <Grid.ColumnDefinitions>
