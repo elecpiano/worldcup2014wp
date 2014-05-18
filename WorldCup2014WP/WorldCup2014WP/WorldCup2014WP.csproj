@@ -177,6 +177,7 @@
     <Compile Include="Models\HTML.cs" />
     <Compile Include="Models\LiveData.cs" />
     <Compile Include="Models\MedalScore.cs" />
+    <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\Recommendation.cs" />
     <Compile Include="Models\News.cs" />
     <Compile Include="Models\Splash.cs" />
@@ -193,6 +194,9 @@
     </Compile>
     <Compile Include="Pages\CategoryPage.xaml.cs">
       <DependentUpon>CategoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SubjectPage.xaml.cs">
+      <DependentUpon>SubjectPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\EmptyPage.xaml.cs">
       <DependentUpon>EmptyPage.xaml</DependentUpon>
@@ -398,6 +402,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\CategoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\SubjectPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -21,7 +21,7 @@ namespace WorldCup2014WP.Controls
                 LiveLineItem item = sender.GetDataContext<LiveLineItem>();
                 if (item != null)
                 {
-                    string naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}", NaviParam.NEWS_ID, item.ID);
+                    string naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}", NaviParam.NEWS_ID, item.ID,NaviParam.NEWS_TITLE,item.Title);
                     HostingPage.NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
                 }
             }

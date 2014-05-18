@@ -32,6 +32,15 @@ namespace WorldCup2014WP
         public const string RECOMMENDATION_FILE_NAME = "recommendation.txt";
         public const string RECOMMENDATION_NEWS_DETAIL_FILE_NAME_FORMAT = "recommendation_news_{0}.txt";
 
+        //animation duration
+        public static TimeSpan SLIDE_SHOW_TRANSITION_DURATION = TimeSpan.FromMilliseconds(700);
+        public static TimeSpan SLIDE_SHOW_INTERVAL = TimeSpan.FromMilliseconds(3000);
+
+        //recommendation 
+        public const string SUBJECT_MODULE = "subject";
+        public const string SUBJECT_FILE_NAME_FORMAT = "subject_{0}.txt";
+        //////////////////////////////////////// TO-DO : remove all below
+
         //medal tally
         public const string MEDAL_TALLY_MODULE = "medaltally";
         public const string MEDAL_TALLY_FILE_NAME = "medaltally.txt";
@@ -69,10 +78,7 @@ namespace WorldCup2014WP
         //image helper
         public const string KEY_IMAGE_CACHE = "image_cache";
 
-        //animation duration
-        public static TimeSpan NAVIGATION_DURATION = TimeSpan.FromMilliseconds(200);
-        public static TimeSpan SLIDE_SHOW_TRANSITION_DURATION = TimeSpan.FromMilliseconds(700);
-        public static TimeSpan SLIDE_SHOW_INTERVAL = TimeSpan.FromMilliseconds(3000);
+        
 
         //vod
         public const string VOD_MODULE = "vod";
@@ -81,9 +87,12 @@ namespace WorldCup2014WP
 
     public class NaviParam
     {
-        //public const string CATEGORY_ID = "category_id";
-        //public const string CATEGORY_TITLE = "category_title";
+        public const string NEWS_ID = "news_id";
+        public const string NEWS_TITLE = "news_title";
 
+        public const string SUBJECT_ID = "subject_id";
+
+        /// /////////////////////////////////// TO-DO : remove all below
         public const string SCHEDULE_ID = "schedule_id";
         public const string ALBUM_ID = "album_id";
         public const string LIVE_ID = "live_id";
@@ -93,7 +102,6 @@ namespace WorldCup2014WP
 
         public const string STADIUM_ID = "stadium_id";
         public const string STADIUM_NAME = "stadium_name";
-        public const string NEWS_ID = "news_id";
         //public const string VOD_ID = "vod_id";
 
     }

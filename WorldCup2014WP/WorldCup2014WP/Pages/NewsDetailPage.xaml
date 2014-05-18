@@ -22,8 +22,11 @@
 
         <!--content-->
         <Grid x:Name="ContentPanel" Grid.Row="1">
-            <phone:WebBrowser x:Name="browser"/>
-            <controls:Snow x:Name="snow2"/>
+            <Grid>
+                <!--<TextBlock x:Name="titleTextBlock" Style="{StaticResource News_Title_Text_Style}"/>-->
+                <phone:WebBrowser Grid.Row="1" x:Name="browser" Margin="24,12,24,12" UseLayoutRounding="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <controls:Snow Grid.Row="1" x:Name="snow2"/>
+            </Grid>
         </Grid>
     </Grid>
 

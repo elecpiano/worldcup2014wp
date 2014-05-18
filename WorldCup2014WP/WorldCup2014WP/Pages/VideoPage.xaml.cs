@@ -34,19 +34,26 @@ namespace WorldCup2014WP.Pages
 
         static DataLoader<VOD> dataLoader = new DataLoader<VOD>();
 
-        public static void PlayVideo(Page hostingPage, string vodID, Snow snow1)
+        public static void PlayVideo(Page hostingPage, string vodID, Snow snow1=null)
         {
             if (dataLoader.Busy)
             {
                 return;
             }
 
-            snow1.IsBusy = true;
+            if (snow1!=null)
+            {
+                snow1.IsBusy = true;
+            }
 
             dataLoader.Load("getvod", "&id=" + vodID, false, Constants.VOD_MODULE, string.Format(Constants.VOD_FILE_NAME_FORMAT, vodID),
                 data => 
                 {
-                    snow1.IsBusy = false;
+                    if (snow1 != null)
+                    {
+                        snow1.IsBusy = false;
+                    }                    
+
                     if (data.Videos != null && data.Videos.Length > 0)
                     {
                         videos.Clear();

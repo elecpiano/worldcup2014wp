@@ -383,17 +383,19 @@ namespace WorldCup2014WP.Pages
                 return;
             }
 
+            string naviString = string.Empty;
             switch (news.Type)
             {
                 case "0":
                     VideoPage.PlayVideo(this, news.ID, this.snowNews);
                     break;
                 case "1":
-                    string naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}", NaviParam.NEWS_ID, news.ID);
+                    naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}", NaviParam.NEWS_ID, news.ID,NaviParam.NEWS_TITLE,news.Title);
                     NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
                     break;
                 case "31":
-                    MessageBox.Show("subject");
+                    naviString = string.Format("/Pages/SubjectPage.xaml?{0}={1}", NaviParam.SUBJECT_ID, news.ID);
+                    NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
                     break;
                 default:
                     break;

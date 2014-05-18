@@ -10,9 +10,9 @@ using Microsoft.Phone.Shell;
 
 namespace WorldCup2014WP.Pages
 {
-    public partial class MedalTallyPage : PhoneApplicationPage
+    public partial class EmptyPage : PhoneApplicationPage
     {
-        public MedalTallyPage()
+        public EmptyPage()
         {
             InitializeComponent();
         }
