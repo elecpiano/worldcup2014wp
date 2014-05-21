@@ -177,6 +177,7 @@
     <Compile Include="Models\HTML.cs" />
     <Compile Include="Models\LiveData.cs" />
     <Compile Include="Models\MedalScore.cs" />
+    <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\Recommendation.cs" />
     <Compile Include="Models\News.cs" />

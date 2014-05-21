@@ -27,6 +27,10 @@ namespace WorldCup2014WP
         public const string NEWS_LIST_FILE_NAME_FORMAT = "news_list_page_{0}.txt";
         public const string NEWS_DETAIL_FILE_NAME_FORMAT = "news_{0}.txt";
 
+        //author list 
+        public const string AUTHOR_MODULE = "author";
+        public const string AUTHOR_FILE_NAME = "author.txt";
+
         //recommendation 
         public const string RECOMMENDATION_MODULE = "recommendation";
         public const string RECOMMENDATION_FILE_NAME = "recommendation.txt";
@@ -87,6 +91,10 @@ namespace WorldCup2014WP
 
     public class NaviParam
     {
+        public const string AUTHOR_ID = "author_id";
+        public const string AUTHOR_NAME = "author_name";
+        public const string AUTHOR_FACE = "author_face";
+
         public const string NEWS_ID = "news_id";
         public const string NEWS_TITLE = "news_title";
 

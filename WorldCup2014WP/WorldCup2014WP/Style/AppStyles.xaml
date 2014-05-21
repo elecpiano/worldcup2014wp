@@ -300,7 +300,23 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Margin" Value="10"/>
     </Style>
-    
+
+    <!--author list page-->
+    <Style x:Key="AuthorList_AuthorName_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="{StaticResource App_Theme_Color}"/>
+    </Style>
+
+    <Style x:Key="AuthorList_Title_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="TextTrimming" Value="WordEllipsis"/>
+        <Setter Property="MaxHeight" Value="135"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+    </Style>
+
     <!--news list page-->
     <Style x:Key="NewsList_ItemTitle_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="22"/>
@@ -336,7 +352,7 @@
     </Style>
 
     <Style x:Key="NewsList_ItemTime_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
-        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontSize" Value="16"/>
         <Setter Property="Foreground" Value="#ff808080"/>
     </Style>
     

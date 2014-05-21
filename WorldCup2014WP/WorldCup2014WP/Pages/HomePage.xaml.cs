@@ -32,6 +32,7 @@ namespace WorldCup2014WP.Pages
             InitEpgList();
             newsListBox.ItemsSource = newsList;
             recommendationNewsListBox.ItemsSource = recommendationNewsList;
+            authorListBox.ItemsSource = authorList;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -42,6 +43,7 @@ namespace WorldCup2014WP.Pages
             LoadBanner();
             LoadEpg(false);
             LoadRecommendation();
+            LoadAuthorList();
             LoadNews();
             //fadeAnimation.InstanceFade(this.contentPanel, 0d, 1d, Constants.NAVIGATION_DURATION, null);
         }
@@ -452,6 +454,50 @@ namespace WorldCup2014WP.Pages
                     //not busy
                     //snowNews.IsBusy = false;
                 });
+        }
+
+        #endregion
+
+        #region Author
+
+        GenericDataLoader<AuthorList> authorListLoader = new GenericDataLoader<AuthorList>();
+        ObservableCollection<Author> authorList = new ObservableCollection<Author>();
+
+        private void LoadAuthorList()
+        {
+            if (authorListLoader.Loaded || authorListLoader.Busy)
+            {
+                return;
+            }
+
+            //busy
+            //snowNews.IsBusy = true;
+
+            //load
+            authorListLoader.Load("getauthorlist", string.Empty, true, Constants.AUTHOR_MODULE, Constants.AUTHOR_FILE_NAME,
+                result =>
+                {
+                    authorListScrollViewer.ScrollToVerticalOffset(0);
+                    authorList.Clear();
+
+                    foreach (var item in result.data)
+                    {
+                        authorList.Add(item);
+                    }
+
+                    //not busy
+                    //snowNews.IsBusy = false;
+                });
+        }
+
+        private void Author_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            Author author = sender.GetDataContext<Author>();
+            string naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}&{4}={5}", 
+                NaviParam.AUTHOR_ID, author.ID, 
+                NaviParam.AUTHOR_NAME, author.Name, 
+                NaviParam.AUTHOR_FACE, author.Face);
+            NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
         }
 
         #endregion
