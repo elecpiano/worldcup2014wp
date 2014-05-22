@@ -290,7 +290,15 @@
         <Setter Property="VerticalAlignment" Value="Bottom"/>
         <Setter Property="Margin" Value="0,0,0,16"/>
     </Style>
-
+    
+    <!--user center page-->
+    <Style x:Key="UserCenter_Button_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="28"/>
+        <Setter Property="Foreground" Value="#ffffffff"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    
     <!--recommendation page-->
     <Style x:Key="Recommendation_Focus_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="22"/>

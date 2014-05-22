@@ -144,6 +144,10 @@
       <DependentUpon>LivePageItemVideo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\NewsDataTemplateSelector.cs" />
+    <Compile Include="Controls\PopupContainer\PopupCotainer.xaml.cs">
+      <DependentUpon>PopupCotainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PopupContainer\PopupMode.cs" />
     <Compile Include="Controls\QuickSelector.xaml.cs">
       <DependentUpon>QuickSelector.xaml</DependentUpon>
     </Compile>
@@ -195,6 +199,9 @@
     </Compile>
     <Compile Include="Pages\CategoryPage.xaml.cs">
       <DependentUpon>CategoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserCenterPage.xaml.cs">
+      <DependentUpon>UserCenterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SubjectPage.xaml.cs">
       <DependentUpon>SubjectPage.xaml</DependentUpon>
@@ -374,6 +381,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\PopupContainer\PopupCotainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\QuickSelector.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -403,6 +414,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\CategoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\UserCenterPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

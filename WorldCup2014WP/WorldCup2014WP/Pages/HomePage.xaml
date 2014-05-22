@@ -360,6 +360,52 @@
                 <!--more-->
                 <phone:PanoramaItem Header="我的世界杯">
                     <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="180"/>
+                            <RowDefinition Height="180"/>
+                            <RowDefinition Height="180"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:ContentButton Grid.Row="0" Grid.Column="0" x:Name="medalTallyButton"  Margin="0,0,8,8" 
+                                                Tap="userCenter_Tap">
+                            <Grid Background="#FF1BA1E2">
+                                <!--<Image Source="/Assets/Images/Trophy.png" Stretch="None" Margin="0,-16,0,0"/>-->
+                                <TextBlock Text="用户中心" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
+                        <controls:ContentButton Grid.Row="0" Grid.Column="1" x:Name="calendarButton"  Margin="0,0,8,8" 
+                                                Tap="userCenter_Tap">
+                            <Grid Background="#FFA4C400">
+                                <!--<Image Source="/Assets/Images/Calendar.png" Stretch="None" Margin="0,-16,0,0"/>-->
+                                <TextBlock Text="转播日历" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
+                        <controls:ContentButton Grid.Row="1" Grid.Column="0" x:Name="categoryButton" Margin="0,0,8,8"  
+                                                Tap="userCenter_Tap">
+                            <Grid Background="#FFC72D57">
+                                <!--<Image Source="/Assets/Images/Games.png" Stretch="None" Margin="0,-16,0,0"/>-->
+                                <TextBlock Text="比赛项目" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
+                        <controls:ContentButton Grid.Row="1" Grid.Column="1" x:Name="stadiumButton"  Margin="0,0,8,8"  
+                                                Tap="userCenter_Tap">
+                            <Grid Background="#FFF0A30A">
+                                <!--<Image Source="/Assets/Images/Stadium.png" Stretch="None" Margin="0,-16,0,0"/>-->
+                                <TextBlock Text="场馆介绍" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
+                        <controls:ContentButton Grid.Row="2" Grid.Column="0" Margin="0,0,8,8" 
+                                                Tap="userCenter_Tap">
+                            <Grid Background="#FF76608A">
+                                <!--<Image Source="/Assets/Images/Alarm.png" Stretch="None" Width="120" Margin="0,-16,0,0"/>-->
+                                <TextBlock Text="我的预约" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
                     </Grid>
                 </phone:PanoramaItem>
 

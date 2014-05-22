@@ -527,6 +527,14 @@ namespace WorldCup2014WP.Pages
 
         #endregion
 
+        #region UserCenter
+        
+        private void userCenter_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+
+        }
+
+        #endregion
 
     }
 }
