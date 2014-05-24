@@ -531,7 +531,7 @@ namespace WorldCup2014WP.Pages
         
         private void userCenter_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/Pages/UserCenterPage.xaml", UriKind.Relative));
         }
 
         #endregion

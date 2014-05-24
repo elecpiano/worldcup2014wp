@@ -85,6 +85,62 @@ namespace WorldCup2014WP.Utility
             }
         }
 
+        public async void UserLoad(string cmd, string param, bool cacheData, string module, string file, Action<T> callback)
+        {
+            if (cacheData && (string.IsNullOrEmpty(module) || string.IsNullOrEmpty(file)))
+            {
+                return;
+            }
+
+            //for callback
+            onCallback = callback;
+            toCacheData = cacheData;
+            moduleName = module;
+            fileName = file;
+
+            if (!DeviceNetworkInformation.IsNetworkAvailable)
+            {
+                //load cache
+                if (cacheData)
+                {
+                    try
+                    {
+                        var cachedJson = await IsolatedStorageHelper.ReadFile(moduleName, fileName);
+                        T obj = JsonSerializer.Deserialize<T>(cachedJson);
+                        if (obj != null)
+                        {
+                            Deployment.Current.Dispatcher.BeginInvoke(() =>
+                            {
+                                onCallback(obj);
+                            });
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
+                return;
+            }
+
+            //download new
+            try
+            {
+                String url = Constants.DOMAIN + "/api/user?cmd=" + cmd.Trim() + param.Trim() + CryptographyHelper.GetApiPostfix();
+                HttpWebRequest request = HttpWebRequest.CreateHttp(new Uri(url));
+                request.Method = "GET";
+                request.BeginGetResponse(GetData_Callback, request);
+
+                Loaded = false;
+                Busy = true;
+            }
+            catch (WebException e)
+            {
+            }
+            catch (Exception e)
+            {
+            }
+        }
+
         private async void GetData_Callback(IAsyncResult result)
         {
             try

@@ -12,28 +12,63 @@
     shell:SystemTray.IsVisible="True">
 
     <Grid x:Name="LayoutRoot" Background="White">
+    	<VisualStateManager.VisualStateGroups>
+    		<VisualStateGroup x:Name="VisualStateGroup">
+    			<VisualStateGroup.Transitions>
+    				<VisualTransition GeneratedDuration="0:0:0.3">
+    					<VisualTransition.GeneratedEasingFunction>
+    						<PowerEase EasingMode="EaseInOut"/>
+    					</VisualTransition.GeneratedEasingFunction>
+    				</VisualTransition>
+    			</VisualStateGroup.Transitions>
+    			<VisualState x:Name="VSRegOrLogin">
+    				<Storyboard>
+    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="registerOrLogin" d:IsOptimized="True"/>
+    				</Storyboard>
+    			</VisualState>
+                <VisualState x:Name="Normal">
+                    <Storyboard Completed="Normal_Completed"/>
+                </VisualState>
+    			<VisualState x:Name="VSReg">
+    				<Storyboard>
+    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="registerPanel" d:IsOptimized="True"/>
+    				</Storyboard>
+    			</VisualState>
+    			<VisualState x:Name="VSLogin">
+    				<Storyboard>
+    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="loginPanel" d:IsOptimized="True"/>
+    				</Storyboard>
+    			</VisualState>
+                <VisualState x:Name="VSLogout">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="logoutPanel" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+    	</VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!--top bar-->
-        <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
-
         <!--content-->
         <Grid x:Name="contentPanel" Grid.Row="1">
-            <StackPanel>
-                <controls:ContentButton Margin="24,12,0,0" 
-                                                Tap="userImage_Tap">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,12,0,12">
+                <controls:ContentButton Margin="24,0,12,0" HorizontalAlignment="Left" Tap="userImage_Tap">
                     <Border BorderBrush="#ffa0a0a0" BorderThickness="1" Background="#ffd0d0d0" 
                         Width="100" Height="100" HorizontalAlignment="Left">
-                        <Image x:Name="userImage"/>
+                        <controls:FadingImage x:Name="userImage" Source="{Binding}"/>
                     </Border>
                 </controls:ContentButton>
+                <TextBlock x:Name="userName" Style="{StaticResource UserCenter_UserName_Style}"/>
             </StackPanel>
-            <Grid x:Name="registerOrLogin" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
+            
+            <Rectangle x:Name="popupMask" Fill="#80808080" Tap="popupMask_Tap" Opacity="0" IsHitTestVisible="False"/>
+            
+            <Grid x:Name="registerOrLogin" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" 
+                  Visibility="Visible">
                 <Grid.RenderTransform>
-                    <CompositeTransform TranslateY="-300"/>
+                    <CompositeTransform TranslateY="-320"/>
                 </Grid.RenderTransform>
                 <!--shadow-->
                 <Rectangle VerticalAlignment="Bottom" Height="48" Margin="0,0,0,-24" Tap="popupMask_Tap" >
@@ -44,14 +79,14 @@
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
-                <StackPanel Background="#ffadcd90">
-                    <controls:ContentButton Height="64" Margin="24,12,24,0" Tap="Register_Tap">
+                <StackPanel Background="{StaticResource App_Theme_Color_Secondary}">
+                    <controls:ContentButton Height="64" Margin="24,24,24,0" Tap="ToRegister_Tap">
                         <Grid>
                             <Border Style="{StaticResource Image_Border_Style}" Background="{StaticResource App_Theme_Color}"/>
                             <TextBlock Text="注册" Style="{StaticResource UserCenter_Button_Text_Style}"/>
                         </Grid>
                     </controls:ContentButton>
-                    <controls:ContentButton Height="64" Margin="24,12,24,12" Tap="Login_Tap">
+                    <controls:ContentButton Height="64" Margin="24,24,24,24" Tap="ToLogin_Tap">
                         <Grid>
                             <Border Style="{StaticResource Image_Border_Style}" Background="{StaticResource App_Theme_Color}"/>
                             <TextBlock Text="登录" Style="{StaticResource UserCenter_Button_Text_Style}"/>
@@ -59,7 +94,125 @@
                     </controls:ContentButton>
                 </StackPanel>
             </Grid>
+            
+            <Grid x:Name="registerPanel" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" 
+                  Visibility="Visible">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateY="-375"/>
+                </Grid.RenderTransform>
+                <!--shadow-->
+                <Rectangle VerticalAlignment="Bottom" Height="48" Margin="0,0,0,-24" Tap="popupMask_Tap" >
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Offset="0" Color="#ff000000"/>
+                            <GradientStop Offset="1" Color="#00000000"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <StackPanel Background="{StaticResource App_Theme_Color_Secondary}">
+                    <controls:EnhancedTextBox x:Name="registerID" Margin="13,0,13,0" 
+                                              InputStyle="{StaticResource UserCenter_Input_Style}"
+                                              WatermarkStyle="{StaticResource UserCenter_Watermark_Style}"
+                                              MessageStyle="{StaticResource UserCenter_Error_Style}"
+                                              Watermark="输入手机号"/>
+                    <controls:EnhancedPasswordBox x:Name="registerPassword" Margin="13,-12,13,0"
+                                                  WatermarkStyle="{StaticResource UserCenter_Watermark_Style}"
+                                                  MessageStyle="{StaticResource UserCenter_Error_Style}"
+                                                  Watermark="输入密码"/>
+                    <Grid Margin="0,-12,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <controls:EnhancedTextBox x:Name="activationCode" Margin="13,0,0,0" 
+                                                  InputStyle="{StaticResource UserCenter_Input_Style}"
+                                                  WatermarkStyle="{StaticResource UserCenter_Watermark_Style}"
+                                                  MessageStyle="{StaticResource UserCenter_Error_Style}"
+                                                  Watermark="激活码"/>
+                        <Button Grid.Column="1" x:Name="sendActivationCode" Content="发送激活码" VerticalAlignment="Bottom" Margin="0,0,12,0"
+                                Click="sendActivationCode_Click"/>
+                    </Grid>
+
+                    <controls:ContentButton Height="64" Margin="24,0,24,12" Tap="Register_Tap">
+                        <Grid>
+                            <Border Style="{StaticResource Image_Border_Style}" Background="{StaticResource App_Theme_Color}"/>
+                            <TextBlock Text="注册" Style="{StaticResource UserCenter_Button_Text_Style}"/>
+                        </Grid>
+                    </controls:ContentButton>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="loginPanel" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" 
+                  Visibility="Visible">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateY="-370"/>
+                </Grid.RenderTransform>
+                <!--shadow-->
+                <Rectangle VerticalAlignment="Bottom" Height="48" Margin="0,0,0,-24" Tap="popupMask_Tap" >
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Offset="0" Color="#ff000000"/>
+                            <GradientStop Offset="1" Color="#00000000"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <StackPanel Background="{StaticResource App_Theme_Color_Secondary}">
+                    <controls:EnhancedTextBox x:Name="loginID" Margin="13,12,13,0" 
+                                              InputStyle="{StaticResource UserCenter_Input_Style}"
+                                              WatermarkStyle="{StaticResource UserCenter_Watermark_Style}"
+                                              MessageStyle="{StaticResource UserCenter_Error_Style}"
+                                              Watermark="输入手机号"/>
+                    <controls:EnhancedPasswordBox x:Name="loginPassword" Margin="13,0,13,0"
+                                                  WatermarkStyle="{StaticResource UserCenter_Watermark_Style}"
+                                                  MessageStyle="{StaticResource UserCenter_Error_Style}"
+                                                  Watermark="输入密码"/>
+
+                    <controls:ContentButton Height="64" Margin="24,12,24,24" Tap="Login_Tap">
+                        <Grid>
+                            <Border Style="{StaticResource Image_Border_Style}" Background="{StaticResource App_Theme_Color}"/>
+                            <TextBlock Text="登录" Style="{StaticResource UserCenter_Button_Text_Style}"/>
+                        </Grid>
+                    </controls:ContentButton>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="logoutPanel" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" 
+                  Visibility="Visible">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateY="-320"/>
+                </Grid.RenderTransform>
+                <!--shadow-->
+                <Rectangle VerticalAlignment="Bottom" Height="48" Margin="0,0,0,-24" Tap="popupMask_Tap" >
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Offset="0" Color="#ff000000"/>
+                            <GradientStop Offset="1" Color="#00000000"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <StackPanel Background="{StaticResource App_Theme_Color_Secondary}">
+                    <controls:ContentButton Height="64" Margin="24,24,24,0" Tap="Logout_Tap">
+                        <Grid>
+                            <Border Style="{StaticResource Image_Border_Style}" Background="{StaticResource App_Theme_Color}"/>
+                            <TextBlock Text="注销" Style="{StaticResource UserCenter_Button_Text_Style}"/>
+                        </Grid>
+                    </controls:ContentButton>
+                    <controls:ContentButton Height="64" Margin="24,24,24,24" Tap="ChangePassword_Tap">
+                        <Grid>
+                            <Border Style="{StaticResource Image_Border_Style}" Background="{StaticResource App_Theme_Color}"/>
+                            <TextBlock Text="修改密码" Style="{StaticResource UserCenter_Button_Text_Style}"/>
+                        </Grid>
+                    </controls:ContentButton>
+                </StackPanel>
+            </Grid>
+
         </Grid>
+
+        <!--top bar-->
+        <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
+
     </Grid>
 
 </phone:PhoneApplicationPage>

@@ -112,6 +112,12 @@
     <Compile Include="Controls\CuteToast.xaml.cs">
       <DependentUpon>CuteToast.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\EnhancedPasswordBox.xaml.cs">
+      <DependentUpon>EnhancedPasswordBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EnhancedTextBox.xaml.cs">
+      <DependentUpon>EnhancedTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\EPGList.xaml.cs">
       <DependentUpon>EPGList.xaml</DependentUpon>
     </Compile>
@@ -170,6 +176,8 @@
     <Compile Include="Infrastructures\BindableBase.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\AlbumItem.cs" />
+    <Compile Include="Models\UserRegCodeResult.cs" />
+    <Compile Include="Models\UserLoginResult.cs" />
     <Compile Include="Models\Banner.cs" />
     <Compile Include="Models\CalendarItem.cs" />
     <Compile Include="Models\Category.cs" />
@@ -300,6 +308,7 @@
     <Content Include="Assets\Images\PlayButton99.png" />
     <Content Include="Assets\Images\Subscribe.png" />
     <Content Include="Assets\Images\UnSubscribe.png" />
+    <Content Include="Assets\Images\UserDefault.png" />
     <Content Include="Assets\Images\Video.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -338,6 +347,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\CuteToast.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\EnhancedPasswordBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\EnhancedTextBox.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

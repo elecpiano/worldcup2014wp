@@ -8,7 +8,7 @@
 
     <!--colors-->
     <SolidColorBrush x:Key="App_Theme_Color" Color="#ff5a9a20"/>
-    <SolidColorBrush x:Key="App_Theme_Color_Secondary" Color="#ff3c97ce"/>
+    <SolidColorBrush x:Key="App_Theme_Color_Secondary" Color="#ffadcd90"/>
     <SolidColorBrush x:Key="QuickSelector_Base_Color" Color="#ff2a2a2a"/>
     <SolidColorBrush x:Key="ArrowButton_Color" Color="#ff0a7cc2"/>
 
@@ -298,7 +298,32 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
-    
+
+    <Style x:Key="UserCenter_Input_Style" TargetType="TextBox">
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+    </Style>
+
+    <Style x:Key="UserCenter_Watermark_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="20,0,0,0"/>
+    </Style>
+
+    <Style x:Key="UserCenter_Error_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="Foreground" Value="#ffff0000"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="20,0,0,0"/>
+    </Style>
+
+    <Style x:Key="UserCenter_UserName_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+    </Style>
+
     <!--recommendation page-->
     <Style x:Key="Recommendation_Focus_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="22"/>

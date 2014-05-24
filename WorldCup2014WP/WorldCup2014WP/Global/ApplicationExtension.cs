@@ -4,6 +4,7 @@ using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WorldCup2014WP.Models;
 
 namespace WorldCup2014WP
 {
@@ -11,25 +12,47 @@ namespace WorldCup2014WP
     {
         IsolatedStorageSettings _Settings = IsolatedStorageSettings.ApplicationSettings;
 
-        #region DownloadImageOnlyOnWifi
-
-        private const string KEY_WIFI_IMAGE = "wifi_image";
-
-        private bool _DownloadImageOnlyOnWifi = false;
-        public bool DownloadImageOnlyOnWifi
+        #region Load & Update
+        
+        private void LoadSettings()
         {
-            get
+            //user
+            if (_Settings.Contains(KEY_USER))
             {
-                return _DownloadImageOnlyOnWifi;
+                _User = (UserLoginResult)_Settings[KEY_USER];
             }
-            set
+            else
             {
-                if (_DownloadImageOnlyOnWifi != value)
-                {
-                    _DownloadImageOnlyOnWifi = value;
-                    UpdateSetting(KEY_WIFI_IMAGE, value);
-                }
+                _Settings.Add(KEY_USER, false);
             }
+
+            ////user id
+            //if (_Settings.Contains(KEY_USER_ID))
+            //{
+            //    _UserId = (string)_Settings[KEY_USER_ID];
+            //}
+            //else
+            //{
+            //    _Settings.Add(KEY_USER_ID, false);
+            //}
+
+            //dismissed banner
+            if (_Settings.Contains(KEY_DISMISSED_BANNER))
+            {
+                _DismissedBannerId = (string)_Settings[KEY_DISMISSED_BANNER];
+            }
+            else
+            {
+                _Settings.Add(KEY_DISMISSED_BANNER, string.Empty);
+            }
+
+            _Settings.Save();
+        }
+
+        private void UpdateSetting(string key, object value)
+        {
+            _Settings[key] = value;
+            _Settings.Save();
         }
 
         #endregion
@@ -57,35 +80,35 @@ namespace WorldCup2014WP
 
         #endregion
 
-        private void LoadSettings()
+
+        #region User
+
+        private const string KEY_USER = "user";
+        private UserLoginResult _User = null;
+        public UserLoginResult User
         {
-            ////wifi image
-            //if (_Settings.Contains(KEY_WIFI_IMAGE))
-            //{
-            //    _DownloadImageOnlyOnWifi = (bool)_Settings[KEY_WIFI_IMAGE];
-            //}
-            //else
-            //{
-            //    _Settings.Add(KEY_WIFI_IMAGE, false);
-            //}
-
-            //dismissed banner
-            if (_Settings.Contains(KEY_DISMISSED_BANNER))
+            get
             {
-                _DismissedBannerId = (string)_Settings[KEY_DISMISSED_BANNER];
+                return _User;
             }
-            else
+            set
             {
-                _Settings.Add(KEY_DISMISSED_BANNER, string.Empty);
+                if (_User != value)
+                {
+                    _User = value;
+                    UpdateSetting(KEY_USER, value);
+                }
             }
-
-            _Settings.Save();
         }
 
-        private void UpdateSetting(string key, object value)
+        public bool IsLoggedIn
         {
-            _Settings[key] = value;
-            _Settings.Save();
+            get
+            {
+                return User != null;
+            }
         }
+
+        #endregion
     }
 }

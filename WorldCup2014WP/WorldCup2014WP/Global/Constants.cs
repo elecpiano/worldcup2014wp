@@ -40,9 +40,14 @@ namespace WorldCup2014WP
         public static TimeSpan SLIDE_SHOW_TRANSITION_DURATION = TimeSpan.FromMilliseconds(700);
         public static TimeSpan SLIDE_SHOW_INTERVAL = TimeSpan.FromMilliseconds(3000);
 
-        //recommendation 
+        //subject 
         public const string SUBJECT_MODULE = "subject";
         public const string SUBJECT_FILE_NAME_FORMAT = "subject_{0}.txt";
+
+        //user center 
+        public const string USER_MODULE = "user";
+        public const string LOGIN_FILE_NAME = "login.txt";
+
         //////////////////////////////////////// TO-DO : remove all below
 
         //medal tally
