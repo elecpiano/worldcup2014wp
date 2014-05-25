@@ -27,6 +27,7 @@ namespace WorldCup2014WP.Pages
         {
             base.OnNavigatedTo(e);
             LoadScore();
+            LoadSchedule();
         }
 
         //protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -65,7 +66,6 @@ namespace WorldCup2014WP.Pages
 
         #region Score
 
-        //ObservableCollection<ScoreItemData> scoreList = new ObservableCollection<ScoreItemData>();
         ListDataLoader<ScoreItemData> scoreLoader = new ListDataLoader<ScoreItemData>();
 
         private void LoadScore()
@@ -81,14 +81,31 @@ namespace WorldCup2014WP.Pages
                 result =>
                 {
                     scoreListBox.ItemsSource = result;
-
-                    //scoreList.Clear();
-                    //foreach (var item in list)
-                    //{
-                    //    scoreList.Add(item);
-                    //}
-
                     scoreScrollViewer.ScrollToVerticalOffset(0);
+                    //snow1.IsBusy = false;
+                });
+        }
+
+        #endregion
+
+        #region Schedule
+
+        ListDataLoader<Schedule> scheduleLoader = new ListDataLoader<Schedule>();
+        
+        private void LoadSchedule()
+        {
+            if (scheduleLoader.Busy)
+            {
+                return;
+            }
+
+            //snow1.IsBusy = true;
+
+            scheduleLoader.Load("getschedule", string.Empty, true, Constants.GAME_DATA_MODULE, Constants.SCHEDULE_FILE_NAME,
+                result =>
+                {
+                    scheduleListBox.ItemsSource = result;
+                    scheduleScrollViewer.ScrollToVerticalOffset(0);
                     //snow1.IsBusy = false;
                 });
         }

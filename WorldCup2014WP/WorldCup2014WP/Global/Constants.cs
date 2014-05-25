@@ -48,9 +48,14 @@ namespace WorldCup2014WP
         public const string USER_MODULE = "user";
         public const string LOGIN_FILE_NAME = "login.txt";
 
-        //medal tally
+        //game data
         public const string GAME_DATA_MODULE = "gamedata";
         public const string SCORE_FILE_NAME = "score.txt";
+        public const string SCHEDULE_FILE_NAME = "schedule.txt";
+
+        //calendar 
+        public const string CALENDAR_MODULE = "calendar";
+        public const string CALENDAR_FILE_NAME = "calendar.txt";
 
         //////////////////////////////////////// TO-DO : remove all below
 
@@ -82,9 +87,7 @@ namespace WorldCup2014WP
         public const string LIVE_MODULE = "live";
         public const string LIVE_FILE_NAME_FORMAT = "live_{0}.txt";
 
-        //news 
-        public const string CALENDAR_MODULE = "calendar";
-        public const string CALENDAR_FILE_NAME = "calendar.txt";
+        
 
         //image helper
         public const string KEY_IMAGE_CACHE = "image_cache";

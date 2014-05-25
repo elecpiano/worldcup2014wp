@@ -127,6 +127,12 @@
     <Compile Include="Controls\FadingImage.xaml.cs">
       <DependentUpon>FadingImage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GameCalendarControl.xaml.cs">
+      <DependentUpon>GameCalendarControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GameCalendarItemControl.xaml.cs">
+      <DependentUpon>GameCalendarItemControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\GameResultPanel.xaml.cs">
       <DependentUpon>GameResultPanel.xaml</DependentUpon>
     </Compile>
@@ -176,6 +182,7 @@
     <Compile Include="Infrastructures\BindableBase.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\AlbumItem.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Score.cs" />
     <Compile Include="Models\UserRegCodeResult.cs" />
     <Compile Include="Models\UserLoginResult.cs" />
@@ -199,9 +206,6 @@
     <Compile Include="Models\VOD.cs" />
     <Compile Include="Pages\AlbumPage.xaml.cs">
       <DependentUpon>AlbumPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\CalendarPage.xaml.cs">
-      <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\CategoryListPage.xaml.cs">
       <DependentUpon>CategoryListPage.xaml</DependentUpon>
@@ -384,6 +388,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\GameCalendarControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GameCalendarItemControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\GameResultPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -433,10 +445,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\AlbumPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\CalendarPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

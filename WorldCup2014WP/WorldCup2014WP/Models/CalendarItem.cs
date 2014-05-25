@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Runtime.Serialization;
+using System.Windows;
 
 namespace WorldCup2014WP.Models
 {
@@ -10,13 +11,17 @@ namespace WorldCup2014WP.Models
         [DataMember(Name = "date")]
         public DateTime Date { get; set; }
 
-        [DataMember(Name = "gold")]
-        public int Gold { get; set; }
-
-        [DataMember(Name = "img")]
-        public string Image { get; set; }
+        [DataMember(Name = "football")]
+        public string Football { get; set; }
 
         [IgnoreDataMember]
-        public string GameDate { get; set; }
+        public Visibility HasGame
+        {
+            get
+            {
+                return Football == "0" ? Visibility.Collapsed : Visibility.Visible;
+            }
+        }
+
     }
 }

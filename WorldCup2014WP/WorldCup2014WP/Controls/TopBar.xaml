@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
-        <Grid x:Name="secondaryHeaderPanel" Grid.Row="1" Background="{StaticResource App_Theme_Color_Secondary}" Visibility="Collapsed">
+        <Grid x:Name="secondaryHeaderPanel" Grid.Row="1" Background="{StaticResource App_Theme_Color_Light}" Visibility="Collapsed">
             <TextBlock x:Name="secondaryHeaderTextBlock" Text="" Style="{StaticResource TopBar_Secondary_Text_Style}"/>
         </Grid>
     </Grid>

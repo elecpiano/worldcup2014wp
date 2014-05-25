@@ -8,7 +8,9 @@
 
     <!--colors-->
     <SolidColorBrush x:Key="App_Theme_Color" Color="#ff5a9a20"/>
-    <SolidColorBrush x:Key="App_Theme_Color_Secondary" Color="#ffadcd90"/>
+    <SolidColorBrush x:Key="App_Theme_Color_Light" Color="#ffadcd90"/>
+    <SolidColorBrush x:Key="App_Theme_Color_Dark" Color="#ff3c6615"/>
+
     <SolidColorBrush x:Key="QuickSelector_Base_Color" Color="#ff2a2a2a"/>
     <SolidColorBrush x:Key="ArrowButton_Color" Color="#ff0a7cc2"/>
 
@@ -86,7 +88,7 @@
 
     <Style x:Key="Item_SplitBar_Bottom_Style" TargetType="Rectangle">
         <Setter Property="Height" Value="1"/>
-        <Setter Property="Fill" Value="#ffa0a0a0"/>
+        <Setter Property="Fill" Value="#ffe0e0e0"/>
         <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
 
@@ -390,8 +392,7 @@
     <Style x:Key="GameDataPage_ColumnHeader_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="Foreground" Value="#ffffffff"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
@@ -402,7 +403,14 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
-
+    <!--game calendar-->
+    <Style x:Key="GameCalendar_Date_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#ff808080"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
     <!--/////////////////////////////////////////////-->
     
     

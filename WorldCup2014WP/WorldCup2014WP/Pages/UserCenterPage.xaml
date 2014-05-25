@@ -79,7 +79,7 @@
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
-                <StackPanel Background="{StaticResource App_Theme_Color_Secondary}">
+                <StackPanel Background="{StaticResource App_Theme_Color_Light}">
                     <controls:ContentButton Height="64" Margin="24,24,24,0" Tap="ToRegister_Tap">
                         <Grid>
                             <Border Style="{StaticResource Image_Border_Style}" Background="{StaticResource App_Theme_Color}"/>
@@ -109,7 +109,7 @@
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
-                <StackPanel Background="{StaticResource App_Theme_Color_Secondary}">
+                <StackPanel Background="{StaticResource App_Theme_Color_Light}">
                     <controls:EnhancedTextBox x:Name="registerID" Margin="13,0,13,0" 
                                               InputStyle="{StaticResource UserCenter_Input_Style}"
                                               WatermarkStyle="{StaticResource UserCenter_Watermark_Style}"
@@ -157,7 +157,7 @@
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
-                <StackPanel Background="{StaticResource App_Theme_Color_Secondary}">
+                <StackPanel Background="{StaticResource App_Theme_Color_Light}">
                     <controls:EnhancedTextBox x:Name="loginID" Margin="13,12,13,0" 
                                               InputStyle="{StaticResource UserCenter_Input_Style}"
                                               WatermarkStyle="{StaticResource UserCenter_Watermark_Style}"
@@ -192,7 +192,7 @@
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
-                <StackPanel Background="{StaticResource App_Theme_Color_Secondary}">
+                <StackPanel Background="{StaticResource App_Theme_Color_Light}">
                     <controls:ContentButton Height="64" Margin="24,24,24,0" Tap="Logout_Tap">
                         <Grid>
                             <Border Style="{StaticResource Image_Border_Style}" Background="{StaticResource App_Theme_Color}"/>
