@@ -48,11 +48,13 @@ namespace WorldCup2014WP
         public const string USER_MODULE = "user";
         public const string LOGIN_FILE_NAME = "login.txt";
 
+        //medal tally
+        public const string GAME_DATA_MODULE = "gamedata";
+        public const string SCORE_FILE_NAME = "score.txt";
+
         //////////////////////////////////////// TO-DO : remove all below
 
-        //medal tally
-        public const string MEDAL_TALLY_MODULE = "medaltally";
-        public const string MEDAL_TALLY_FILE_NAME = "medaltally.txt";
+       
 
         //stadium
         public const string STADIUM_MODULE = "stadium";

@@ -371,25 +371,25 @@
                             <ColumnDefinition Width="180"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <controls:ContentButton Grid.Row="0" Grid.Column="0" x:Name="medalTallyButton"  Margin="0,0,8,8" 
+                        <controls:ContentButton Grid.Row="0" Grid.Column="0" x:Name="userCenterButton"  Margin="0,0,8,8" 
                                                 Tap="userCenter_Tap">
                             <Grid Background="#FF1BA1E2">
                                 <!--<Image Source="/Assets/Images/Trophy.png" Stretch="None" Margin="0,-16,0,0"/>-->
                                 <TextBlock Text="用户中心" Style="{StaticResource Tile_Text_Style}"/>
                             </Grid>
                         </controls:ContentButton>
-                        <controls:ContentButton Grid.Row="0" Grid.Column="1" x:Name="calendarButton"  Margin="0,0,8,8" 
-                                                Tap="userCenter_Tap">
+                        <controls:ContentButton Grid.Row="0" Grid.Column="1" x:Name="gameCalendarButton"  Margin="0,0,8,8" 
+                                                Tap="gameCalendar_Tap">
                             <Grid Background="#FFA4C400">
                                 <!--<Image Source="/Assets/Images/Calendar.png" Stretch="None" Margin="0,-16,0,0"/>-->
                                 <TextBlock Text="转播日历" Style="{StaticResource Tile_Text_Style}"/>
                             </Grid>
                         </controls:ContentButton>
-                        <controls:ContentButton Grid.Row="1" Grid.Column="0" x:Name="categoryButton" Margin="0,0,8,8"  
-                                                Tap="userCenter_Tap">
+                        <controls:ContentButton Grid.Row="1" Grid.Column="0" x:Name="gameDataButton" Margin="0,0,8,8"  
+                                                Tap="gameData_Tap">
                             <Grid Background="#FFC72D57">
                                 <!--<Image Source="/Assets/Images/Games.png" Stretch="None" Margin="0,-16,0,0"/>-->
-                                <TextBlock Text="比赛项目" Style="{StaticResource Tile_Text_Style}"/>
+                                <TextBlock Text="赛程赛果" Style="{StaticResource Tile_Text_Style}"/>
                             </Grid>
                         </controls:ContentButton>
                         <controls:ContentButton Grid.Row="1" Grid.Column="1" x:Name="stadiumButton"  Margin="0,0,8,8"  

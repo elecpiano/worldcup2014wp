@@ -527,11 +527,20 @@ namespace WorldCup2014WP.Pages
 
         #endregion
 
-        #region UserCenter
+        #region More Page
         
         private void userCenter_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/UserCenterPage.xaml", UriKind.Relative));
+        }
+
+        private void gameCalendar_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+
+        }
+        private void gameData_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/GameDataPage.xaml", UriKind.Relative));
         }
 
         #endregion

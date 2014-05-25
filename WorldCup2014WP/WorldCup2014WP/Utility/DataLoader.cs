@@ -426,7 +426,7 @@ namespace WorldCup2014WP.Utility
         /// <param name="file"></param>
         /// <param name="callback"></param>
         /// <param name="comparison"></param>
-        public async void Load(string cmd, string param, bool cacheData, string module, string file, Action<List<T>> callback, Func<T, T, bool> comparison)
+        public async void Load_withComparison(string cmd, string param, bool cacheData, string module, string file, Action<List<T>> callback, Func<T, T, bool> comparison)
         {
             {
                 if (cacheData && (string.IsNullOrEmpty(module) || string.IsNullOrEmpty(file)))
@@ -574,11 +574,6 @@ namespace WorldCup2014WP.Utility
                 isEqual = true;
             }
             return isEqual;
-        }
-
-        internal void Load(string p1, string p2, bool p3, string p4, string p5, Action<List<Models.LiveData>> action)
-        {
-            throw new NotImplementedException();
         }
     }
 

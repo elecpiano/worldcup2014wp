@@ -176,6 +176,7 @@
     <Compile Include="Infrastructures\BindableBase.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\AlbumItem.cs" />
+    <Compile Include="Models\Score.cs" />
     <Compile Include="Models\UserRegCodeResult.cs" />
     <Compile Include="Models\UserLoginResult.cs" />
     <Compile Include="Models\Banner.cs" />
@@ -207,6 +208,9 @@
     </Compile>
     <Compile Include="Pages\CategoryPage.xaml.cs">
       <DependentUpon>CategoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GameDataPage.xaml.cs">
+      <DependentUpon>GameDataPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\UserCenterPage.xaml.cs">
       <DependentUpon>UserCenterPage.xaml</DependentUpon>
@@ -286,6 +290,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar\alarm.png" />
+    <Content Include="Assets\AppBar\award.png" />
+    <Content Include="Assets\AppBar\calendar.png" />
+    <Content Include="Assets\AppBar\camera.png" />
+    <Content Include="Assets\AppBar\news.png" />
+    <Content Include="Assets\AppBar\refresh.png" />
+    <Content Include="Assets\AppBar\save.png" />
+    <Content Include="Assets\AppBar\search.png" />
+    <Content Include="Assets\AppBar\transport.ff.png" />
+    <Content Include="Assets\AppBar\transport.rew.png" />
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -431,6 +445,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\CategoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\GameDataPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
