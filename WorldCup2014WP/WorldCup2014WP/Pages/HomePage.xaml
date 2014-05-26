@@ -63,7 +63,25 @@
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>
+            <VisualStateGroup x:Name="vsgCalendar">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.3">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <PowerEase EasingMode="EaseInOut"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="vsCalendarShown">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="calendarPanel" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="vsCalendarHidden">
+                    <Storyboard />
+                </VisualState>
+            </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -410,6 +428,17 @@
                 </phone:PanoramaItem>
 
             </phone:Panorama>
+        </Grid>
+
+        <!--popup mask-->
+        <Rectangle x:Name="popupMask" Grid.RowSpan="2" Fill="#80808080" Tap="popupMask_Tap" Opacity="0" IsHitTestVisible="False"/>
+
+        <!--calendar popup-->
+        <Grid x:Name="calendarPanel" Grid.RowSpan="2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateY="-480"/>
+            </Grid.RenderTransform>
+            <controls:GameCalendarControl x:Name="gameCalendarControl"/>
         </Grid>
 
         <!--<Rectangle Fill="Red" Width="24" Height="800" Grid.RowSpan="2" HorizontalAlignment="Left" />-->

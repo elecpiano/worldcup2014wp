@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="WorldCup2014WP.Controls.GameCalendarMonthControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    mc:Ignorable="d"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot" Background="White" >
+        <Grid x:Name="monthPanel" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Text="一" Style="{StaticResource GameCalendar_Date_Style}"/>
+            <TextBlock Grid.Column="1" Text="二" Style="{StaticResource GameCalendar_Date_Style}"/>
+            <TextBlock Grid.Column="2" Text="三" Style="{StaticResource GameCalendar_Date_Style}"/>
+            <TextBlock Grid.Column="3" Text="四" Style="{StaticResource GameCalendar_Date_Style}"/>
+            <TextBlock Grid.Column="4" Text="五" Style="{StaticResource GameCalendar_Date_Style}"/>
+            <TextBlock Grid.Column="5" Text="六" Style="{StaticResource GameCalendar_Date_Style}"/>
+            <TextBlock Grid.Column="6" Text="日" Style="{StaticResource GameCalendar_Date_Style}"/>
+        </Grid>
+
+        <Rectangle Style="{StaticResource Item_SplitBar_Top_Style}"/>
+    </Grid>
+</UserControl>

@@ -288,7 +288,47 @@ namespace WorldCup2014WP.Pages
 
         private void EpgMoreButton_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/CalendarPage.xaml", UriKind.Relative));
+            ShowPopup("vsCalendarShown");
+            //NavigationService.Navigate(new Uri("/Pages/CalendarPage.xaml", UriKind.Relative));
+        }
+
+        #endregion
+
+        #region Popup Management
+
+        bool popupShown = false;
+
+        private void ShowPopup(string visualState)
+        {
+            popupShown = true;
+            VisualStateManager.GoToState(this, visualState, true);
+            popupMask.Opacity = 1;
+            popupMask.IsHitTestVisible = true;
+        }
+
+        private void ClosePopup()
+        {
+            VisualStateManager.GoToState(this, "vsCalendarHidden", true);
+            popupShown = false;
+            popupMask.Opacity = 0;
+            popupMask.IsHitTestVisible = false;
+        }
+
+        private void popupMask_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            ClosePopup();
+        }
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            if (popupShown)
+            {
+                e.Cancel = true;
+                ClosePopup();
+                return;
+            }
+
+            base.OnBackKeyPress(e);
         }
 
         #endregion

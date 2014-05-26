@@ -8,7 +8,7 @@
     d:DesignHeight="480" d:DesignWidth="480">
     
     <Grid x:Name="LayoutRoot" Background="White">
-        <phone:Pivot>
+        <phone:Pivot x:Name="pivot">
             <phone:Pivot.HeaderTemplate>
                 <DataTemplate>
                     <Grid Height="48" Margin="0,0,0,-24">
@@ -16,18 +16,6 @@
                     </Grid>
                 </DataTemplate>
             </phone:Pivot.HeaderTemplate>
-            <phone:PivotItem Header="2014年6月">
-                <Grid Margin="12,0,12,0">
-                    <Grid x:Name="junePanel"/>
-                    <Rectangle Style="{StaticResource Item_SplitBar_Top_Style}"/>
-                </Grid>
-            </phone:PivotItem>
-            <phone:PivotItem Header="2014年7月">
-                <Grid Margin="12,0,12,0">
-                    <Grid x:Name="julyPanel"/>
-                    <Rectangle Style="{StaticResource Item_SplitBar_Top_Style}"/>
-                </Grid>
-            </phone:PivotItem>
         </phone:Pivot>
     </Grid>
 </UserControl>

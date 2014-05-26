@@ -17,16 +17,21 @@ namespace WorldCup2014WP.Controls
         public GameCalendarControl()
         {
             InitializeComponent();
-            PopulateDates();
+            this.Loaded += GameCalendarControl_Loaded;
+        }
+
+        void GameCalendarControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadSchedule();
         }
 
         #region Calendar
 
         ListDataLoader<CalendarItem> calendarLoader = new ListDataLoader<CalendarItem>();
 
-        private void LoadSchedule()
+        public void LoadSchedule()
         {
-            if (calendarLoader.Busy)
+            if (calendarLoader.Loaded || calendarLoader.Busy)
             {
                 return;
             }
@@ -36,39 +41,37 @@ namespace WorldCup2014WP.Controls
             calendarLoader.Load("getcalendar", string.Empty, true, Constants.CALENDAR_MODULE, Constants.CALENDAR_FILE_NAME,
                 result =>
                 {
+                    PopulateCalendar(result);
                     //snow1.IsBusy = false;
                 });
         }
 
         #endregion
 
-        private void PopulateDates()
+        List<DateTime> months = new List<DateTime>();
+        Dictionary<DateTime, GameCalendarMonthControl> monthAndControls = new Dictionary<DateTime, GameCalendarMonthControl>();
+        private void PopulateCalendar(List<CalendarItem> items)
         {
-            DateTime date = new DateTime(2014, 6, 1);
-            GameCalendarItemControl dayControl = null;
+            months.Clear();
+            monthAndControls.Clear();
 
-            for (int i = 0; i < 7; i++)
+            foreach (var item in items)
             {
-                junePanel.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
-                julyPanel.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
-            }
-
-            for (int w = 0; w < 5; w++)//5 weeks
-            {
-                junePanel.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(1, GridUnitType.Star) });
-                for (int d = 0; d < 7; d++)
+                DateTime month = new DateTime(item.Date.Year, item.Date.Month, 1);
+                if (!months.Contains(month))
                 {
-                    dayControl = new GameCalendarItemControl();
-                    dayControl.DataContext = date;
-                    date = date.AddDays(1);
+                    months.Add(month);
+                    GameCalendarMonthControl newMonthControl = new GameCalendarMonthControl();
+                    monthAndControls.Add(month, newMonthControl);
 
-                    junePanel.Children.Add(dayControl);
-                    dayControl.SetValue(Grid.RowProperty, w);
-                    dayControl.SetValue(Grid.ColumnProperty, d);
+                    PivotItem pivotItem = new PivotItem() { Header = month.ToString("yyyy年MM月") };
+                    pivotItem.Content = newMonthControl;
+                    pivot.Items.Add(pivotItem);
                 }
+
+                GameCalendarMonthControl monthControl = monthAndControls[month];
+                monthControl.AddDay(item);
             }
-
-
         }
     }
 }
