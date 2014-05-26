@@ -16,17 +16,6 @@ namespace WorldCup2014WP.Converters
                 if (parameter!=null)
                 {
                     format = (string)parameter;
-                    //if (format == "TODAY")
-                    //{
-                    //    if (dt==DateTime.Today)
-                    //    {
-                    //        return "Today";
-                    //    }
-                    //    else
-                    //    {
-                    //        format = "MMMd";
-                    //    }
-                    //}
                 }
                 return dt.ToString(format);
             }

@@ -58,7 +58,7 @@
                         <!--time-->
                         <Grid Grid.Row="1" Width="120" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom"
                               Background="{StaticResource App_Theme_Color}">
-                            <TextBlock Text="{Binding Start, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='HH:mm'}" 
+                            <TextBlock Text="{Binding Start, Converter={StaticResource EpgDateTimeConverter}, ConverterParameter='HH:mm'}" 
                                        Style="{StaticResource EPG_Time_Style}"/>
                             <!--tag-->
                             <!--<Image Source="/Assets/Images/EpgItemTag.png" Stretch="None" 

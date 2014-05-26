@@ -31,9 +31,9 @@
                     </DataTemplate>
                 </phone:Pivot.HeaderTemplate>
                 <phone:PivotItem Header="积分榜">
-                    <Grid Margin="-12,0,-12,0">
+                    <Grid Margin="12,0,12,0">
                         <ScrollViewer x:Name="scoreScrollViewer">
-                            <ItemsControl x:Name="scoreListBox" Margin="0,0,0,0">
+                            <ItemsControl x:Name="scoreListBox">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <VirtualizingStackPanel/>
@@ -43,14 +43,14 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
 
-                                        <Grid Margin="24,0,24,0">
+                                        <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto"/>
                                                 <RowDefinition Height="Auto"/>
                                             </Grid.RowDefinitions>
 
                                             <!--group header-->
-                                            <Grid Height="40">
+                                            <Grid Height="36" Background="{StaticResource App_Theme_Color_Dark}">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="*"/>
                                                     <ColumnDefinition Width="40"/>
@@ -59,8 +59,8 @@
                                                     <ColumnDefinition Width="100"/>
                                                     <ColumnDefinition Width="40"/>
                                                 </Grid.ColumnDefinitions>
-                                                <Rectangle Grid.ColumnSpan="6" Fill="{StaticResource App_Theme_Color_Dark}" Margin="-24,0,-24,0"/>
-                                                <TextBlock Grid.Column="0" Text="{Binding GroupName}" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
+                                                <!--<Rectangle Grid.ColumnSpan="6" Fill="{StaticResource App_Theme_Color_Dark}" Margin="-24,0,-24,0"/>-->
+                                                <TextBlock Grid.Column="0" Text="{Binding GroupName}" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}" Margin="12,0,0,0" FontWeight="Bold"/>
                                                 <TextBlock Grid.Column="1" Text="胜" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
                                                 <TextBlock Grid.Column="2" Text="平" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
                                                 <TextBlock Grid.Column="3" Text="负" Style="{StaticResource GameDataPage_ColumnHeader_Text_Style}"/>
@@ -77,7 +77,7 @@
                                                 </ItemsControl.ItemsPanel>
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate>
-                                                        <Grid Height="40">
+                                                        <Grid Height="48">
                                                             <Grid.ColumnDefinitions>
                                                                 <ColumnDefinition Width="40"/>
                                                                 <ColumnDefinition Width="*"/>
@@ -94,6 +94,7 @@
                                                             <TextBlock Grid.Column="4" Text="{Binding Lost}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
                                                             <TextBlock Grid.Column="5" Text="{Binding GSGA}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
                                                             <TextBlock Grid.Column="6" Text="{Binding Score}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                                            <Rectangle Grid.ColumnSpan="7" Style="{StaticResource Item_SplitBar_Bottom_Style}" Margin="0,0,0,0"/>
                                                         </Grid>
                                                     </DataTemplate>
                                                 </ItemsControl.ItemTemplate>
@@ -109,6 +110,34 @@
                 </phone:PivotItem>
                 <phone:PivotItem Header="射手榜">
                     <Grid Margin="12,0,12,0">
+                        <ScrollViewer x:Name="goalScrollViewer">
+                            <ItemsControl x:Name="goalListBox">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <VirtualizingStackPanel/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Height="48">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="40"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="40"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Text="{Binding Index}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                            <Image Grid.Column="1" Source="{Binding Image}" Stretch="Uniform" Width="28" Height="28"/>
+                                            <TextBlock Grid.Column="2" Text="{Binding Name}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                            <TextBlock Grid.Column="3" Text="{Binding Country}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                            <TextBlock Grid.Column="4" Text="{Binding GoalCount}" Style="{StaticResource GameDataPage_Table_Text_Style}"/>
+                                            <Rectangle Grid.ColumnSpan="5" Style="{StaticResource Item_SplitBar_Bottom_Style}" Margin="0,0,0,0"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
                         <Rectangle Style="{StaticResource Item_SplitBar_Top_Style}"/>
                     </Grid>
                 </phone:PivotItem>
@@ -123,7 +152,7 @@
                                 </ItemsControl.ItemsPanel>
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid Height="40">
+                                        <Grid Height="48">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="100"/>

@@ -27,6 +27,7 @@ namespace WorldCup2014WP.Pages
         {
             base.OnNavigatedTo(e);
             LoadScore();
+            LoadGoal();
             LoadSchedule();
         }
 
@@ -82,6 +83,35 @@ namespace WorldCup2014WP.Pages
                 {
                     scoreListBox.ItemsSource = result;
                     scoreScrollViewer.ScrollToVerticalOffset(0);
+                    //snow1.IsBusy = false;
+                });
+        }
+
+        #endregion
+
+        #region Goal
+
+        ListDataLoader<Goal> goalLoader = new ListDataLoader<Goal>();
+
+        private void LoadGoal()
+        {
+            if (goalLoader.Busy)
+            {
+                return;
+            }
+
+            //snow1.IsBusy = true;
+
+            goalLoader.Load("getgoal", string.Empty, true, Constants.GAME_DATA_MODULE, Constants.GOAL_FILE_NAME,
+                result =>
+                {
+                    foreach (var item in result)
+                    {
+                        item.Index = result.IndexOf(item);
+                    }
+
+                    goalListBox.ItemsSource = result;
+                    goalScrollViewer.ScrollToVerticalOffset(0);
                     //snow1.IsBusy = false;
                 });
         }

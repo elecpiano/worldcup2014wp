@@ -273,7 +273,9 @@ namespace WorldCup2014WP.Pages
 
         private void LoadEpg(bool reload)
         {
-            DateTime today = new DateTime(2014, 2, 18);// TO-DO: DateTime.Today;
+            //DateTime today = new DateTime(2014, 2, 18);// TO-DO: DateTime.Today;
+            DateTime today = DateTime.Today;
+
             if (reload)
             {
                 epgList.ReloadEpg(today);

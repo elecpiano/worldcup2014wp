@@ -51,6 +51,7 @@ namespace WorldCup2014WP
         //game data
         public const string GAME_DATA_MODULE = "gamedata";
         public const string SCORE_FILE_NAME = "score.txt";
+        public const string GOAL_FILE_NAME = "goal.txt";
         public const string SCHEDULE_FILE_NAME = "schedule.txt";
 
         //calendar 

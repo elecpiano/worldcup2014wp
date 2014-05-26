@@ -12,7 +12,7 @@ namespace WorldCup2014WP.Models
         public string ID { get; set; }
 
         [DataMember(Name = "start")]
-        public DateTime Start { get; set; }
+        public string Start { get; set; }
 
         [DataMember(Name = "duration")]
         public string Duration { get; set; }

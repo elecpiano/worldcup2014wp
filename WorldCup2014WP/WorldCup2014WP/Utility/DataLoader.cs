@@ -385,7 +385,6 @@ namespace WorldCup2014WP.Utility
                 using (StreamReader reader = new StreamReader(stream))
                 {
                     string json = reader.ReadToEnd();
-
                     JsonArrayWrapper<T> wrapper = JsonSerializer.Deserialize<JsonArrayWrapper<T>>(json);
                     if (wrapper != null && wrapper.data != null)
                     {

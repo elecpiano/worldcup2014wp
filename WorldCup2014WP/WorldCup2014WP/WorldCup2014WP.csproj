@@ -173,6 +173,7 @@
       <DependentUpon>TopBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\AnythingToVisibilityConverter.cs" />
+    <Compile Include="Converters\EpgDateTimeConverter.cs" />
     <Compile Include="Converters\DateTimeToStringConverter.cs" />
     <Compile Include="Converters\QuickSelectorItemOpacityConverter.cs" />
     <Compile Include="DataContext\ImageCacheDataContext.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Infrastructures\BindableBase.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\AlbumItem.cs" />
+    <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Score.cs" />
     <Compile Include="Models\UserRegCodeResult.cs" />
