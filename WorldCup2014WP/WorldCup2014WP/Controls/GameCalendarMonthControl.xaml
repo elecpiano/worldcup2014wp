@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     d:DesignHeight="480" d:DesignWidth="480">
 
-    <Grid x:Name="LayoutRoot" Background="White" >
+    <Grid x:Name="LayoutRoot">
         <Grid x:Name="monthPanel" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -21,13 +21,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="48"/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Column="0" Text="一" Style="{StaticResource GameCalendar_Date_Style}"/>
-            <TextBlock Grid.Column="1" Text="二" Style="{StaticResource GameCalendar_Date_Style}"/>
-            <TextBlock Grid.Column="2" Text="三" Style="{StaticResource GameCalendar_Date_Style}"/>
-            <TextBlock Grid.Column="3" Text="四" Style="{StaticResource GameCalendar_Date_Style}"/>
-            <TextBlock Grid.Column="4" Text="五" Style="{StaticResource GameCalendar_Date_Style}"/>
-            <TextBlock Grid.Column="5" Text="六" Style="{StaticResource GameCalendar_Date_Style}"/>
-            <TextBlock Grid.Column="6" Text="日" Style="{StaticResource GameCalendar_Date_Style}"/>
+            <TextBlock Grid.Column="0" Text="一" Style="{StaticResource GameCalendar_Header_Style}"/>
+            <TextBlock Grid.Column="1" Text="二" Style="{StaticResource GameCalendar_Header_Style}"/>
+            <TextBlock Grid.Column="2" Text="三" Style="{StaticResource GameCalendar_Header_Style}"/>
+            <TextBlock Grid.Column="3" Text="四" Style="{StaticResource GameCalendar_Header_Style}"/>
+            <TextBlock Grid.Column="4" Text="五" Style="{StaticResource GameCalendar_Header_Style}"/>
+            <TextBlock Grid.Column="5" Text="六" Style="{StaticResource GameCalendar_Header_Style}"/>
+            <TextBlock Grid.Column="6" Text="日" Style="{StaticResource GameCalendar_Header_Style}"/>
         </Grid>
 
         <Rectangle Style="{StaticResource Item_SplitBar_Top_Style}"/>

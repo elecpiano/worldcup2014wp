@@ -6,13 +6,13 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     mc:Ignorable="d"
     d:DesignHeight="480" d:DesignWidth="480">
-    
-    <Grid x:Name="LayoutRoot" Background="White">
-        <phone:Pivot x:Name="pivot">
+
+    <Grid x:Name="LayoutRoot" Background="#ffd9d9d9">
+        <phone:Pivot x:Name="pivot" Margin="12,0,12,12">
             <phone:Pivot.HeaderTemplate>
                 <DataTemplate>
                     <Grid Height="48" Margin="0,0,0,-24">
-                        <TextBlock Text="{Binding}" Style="{StaticResource GameDataPage_PivotHeader_Text_Style}"/>
+                        <TextBlock Text="{Binding}" Style="{StaticResource GameCalendar_Month_Style}"/>
                     </Grid>
                 </DataTemplate>
             </phone:Pivot.HeaderTemplate>

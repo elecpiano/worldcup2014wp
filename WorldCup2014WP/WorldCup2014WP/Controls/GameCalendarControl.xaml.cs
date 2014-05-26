@@ -69,8 +69,30 @@ namespace WorldCup2014WP.Controls
                     pivot.Items.Add(pivotItem);
                 }
 
-                GameCalendarMonthControl monthControl = monthAndControls[month];
+                //GameCalendarMonthControl monthControl = monthAndControls[month];
+                //monthControl.AddDay(item);
+            }
+
+            foreach (var month in months)
+            {
+                PopulateMonth(month, monthAndControls[month], items);
+            }
+        }
+
+        private void PopulateMonth(DateTime month, GameCalendarMonthControl monthControl, List<CalendarItem> items)
+        {
+            DateTime nextMonth = month.AddMonths(1);
+            DateTime dt = month;
+            while (dt < nextMonth)
+            {
+                CalendarItem item = new CalendarItem() { Date = dt, Football = "0" };
+                var sameDay = items.FirstOrDefault(x => x.Date.Year == dt.Year && x.Date.Month == dt.Month && x.Date.Day == dt.Day);
+                if (sameDay != null)
+                {
+                    item.Football = sameDay.Football;
+                }
                 monthControl.AddDay(item);
+                dt = dt.AddDays(1);
             }
         }
     }

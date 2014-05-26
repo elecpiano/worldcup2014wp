@@ -63,7 +63,7 @@
                 <TextBlock x:Name="userName" Style="{StaticResource UserCenter_UserName_Style}"/>
             </StackPanel>
             
-            <Rectangle x:Name="popupMask" Fill="#80808080" Tap="popupMask_Tap" Opacity="0" IsHitTestVisible="False"/>
+            <Rectangle x:Name="popupMask" Fill="#80000000" Tap="popupMask_Tap" Opacity="0" IsHitTestVisible="False"/>
             
             <Grid x:Name="registerOrLogin" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" 
                   Visibility="Visible">

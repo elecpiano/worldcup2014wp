@@ -431,13 +431,22 @@
         </Grid>
 
         <!--popup mask-->
-        <Rectangle x:Name="popupMask" Grid.RowSpan="2" Fill="#80808080" Tap="popupMask_Tap" Opacity="0" IsHitTestVisible="False"/>
+        <Rectangle x:Name="popupMask" Grid.RowSpan="2" Fill="#80000000" Tap="popupMask_Tap" Opacity="0" IsHitTestVisible="False"/>
 
         <!--calendar popup-->
         <Grid x:Name="calendarPanel" Grid.RowSpan="2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
-                <CompositeTransform TranslateY="-480"/>
+                <CompositeTransform TranslateY="-560"/>
             </Grid.RenderTransform>
+            <!--shadow-->
+            <Rectangle VerticalAlignment="Bottom" Height="48" Margin="0,0,0,-24" Tap="popupMask_Tap" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Offset="0" Color="#ff000000"/>
+                        <GradientStop Offset="1" Color="#00000000"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
             <controls:GameCalendarControl x:Name="gameCalendarControl"/>
         </Grid>
 
