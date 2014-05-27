@@ -29,7 +29,7 @@ namespace WorldCup2014WP.Pages
             stadiumID = NavigationContext.QueryString[NaviParam.STADIUM_ID];
             stadiumName = NavigationContext.QueryString[NaviParam.STADIUM_NAME];
 
-            this.topBar.SecondaryHeader = stadiumName;
+            //this.topBar.SecondaryHeader = stadiumName;
 
             LoadHTML();
         }
@@ -50,7 +50,11 @@ namespace WorldCup2014WP.Pages
             htmlLoader.Load("getstadiumdetail", "&id=" + stadiumID, true, Constants.STADIUM_MODULE, string.Format(Constants.STADIUM_DETAIL_FILE_NAME_FORMAT, stadiumID),
                 html =>
                 {
-                    browser.NavigateToString(html.Content);
+                    string title = @"<h2 align=""center"">" + stadiumName + "</h2>";
+                    string htmlContent = html.Content.Insert(html.Content.IndexOf("</style>") + 8, title);
+                    htmlContent = htmlContent.Replace("max-width: 100%;", "width: 100%;");
+                    browser.NavigateToString(htmlContent);
+                    //browser.NavigateToString(html.Content);
                     snow1.IsBusy = false;
                 });
         }

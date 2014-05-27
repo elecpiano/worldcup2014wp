@@ -41,6 +41,12 @@ namespace WorldCup2014WP.Controls
             {
                 SlideNext();
             }
+
+            Grid grid = sender as Grid;
+            if (grid!=null)
+            {
+                grid.Loaded -= item_Loaded;
+            }
         }
 
         private void SlideNext()

@@ -27,6 +27,11 @@ namespace WorldCup2014WP
         public const string NEWS_LIST_FILE_NAME_FORMAT = "news_list_page_{0}.txt";
         public const string NEWS_DETAIL_FILE_NAME_FORMAT = "news_{0}.txt";
 
+        //magma 
+        public const string MAGMA_MODULE = "magma";
+        public const string MAGMA_LIST_FILE_NAME = "magma_list.txt";
+        public const string MAGMA_DETAIL_FILE_NAME_FORMAT = "magma_{0}.txt";
+
         //author list 
         public const string AUTHOR_MODULE = "author";
         public const string AUTHOR_FILE_NAME = "author.txt";
@@ -58,14 +63,20 @@ namespace WorldCup2014WP
         public const string CALENDAR_MODULE = "calendar";
         public const string CALENDAR_FILE_NAME = "calendar.txt";
 
-        //////////////////////////////////////// TO-DO : remove all below
-
-       
-
         //stadium
         public const string STADIUM_MODULE = "stadium";
         public const string STADIUM_LIST_FILE_NAME = "stadium_list.txt";
         public const string STADIUM_DETAIL_FILE_NAME_FORMAT = "stadium_{0}.txt";
+
+        //team 
+        public const string TEAM_MODULE = "team";
+        public const string TEAM_FILE_NAME = "team.txt";
+
+        //////////////////////////////////////// TO-DO : remove all below
+
+       
+
+
 
         //category 
         public const string CATEGORY_MODULE = "category";

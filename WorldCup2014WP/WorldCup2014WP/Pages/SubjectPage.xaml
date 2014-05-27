@@ -46,7 +46,7 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Grid Background="{StaticResource App_Theme_Color}" Margin="0,0,0,12">
+                                    <Grid Background="{StaticResource App_Theme_Color_Dark}" Margin="0,0,0,12">
                                         <TextBlock Text="{Binding GroupTitle}" Style="{StaticResource SubjectPage_Category_Title_Style}"/>
                                     </Grid>
                                     <ItemsControl Grid.Row="1" ItemsSource="{Binding NewsList}">

@@ -46,6 +46,12 @@ namespace WorldCup2014WP.Pages
             LoadAuthorList();
             LoadNews();
             //fadeAnimation.InstanceFade(this.contentPanel, 0d, 1d, Constants.NAVIGATION_DURATION, null);
+            this.bubbles.IsBusy = true;
+        }
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            base.OnNavigatingFrom(e);
         }
 
         #endregion
@@ -255,10 +261,15 @@ namespace WorldCup2014WP.Pages
                 case 3:
                     SetAppBarForMore();
                     break;
+                case 4:
+                    break;
+                case 5:
+                    break;
                 default:
                     break;
             }
 
+            //this.bubbles.IsBusy = panorama.SelectedIndex == 5;
             VisualStateManager.GoToState(this, "vsHeaderBar" + panorama.SelectedIndex, true);
         }
 
@@ -413,11 +424,6 @@ namespace WorldCup2014WP.Pages
             LoadNews();
         }
 
-        private bool ComparisonNews(News item1, News item2)
-        {
-            return item1.ID == item2.ID && item1.Image == item2.Image && item1.Title == item2.Title && item1.Description == item2.Description;
-        }
-
         private void NewsItem_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             News news = sender.GetDataContext<News>();
@@ -427,23 +433,7 @@ namespace WorldCup2014WP.Pages
                 return;
             }
 
-            string naviString = string.Empty;
-            switch (news.Type)
-            {
-                case "0":
-                    VideoPage.PlayVideo(this, news.ID, this.snowNews);
-                    break;
-                case "1":
-                    naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}", NaviParam.NEWS_ID, news.ID,NaviParam.NEWS_TITLE,news.Title);
-                    NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
-                    break;
-                case "31":
-                    naviString = string.Format("/Pages/SubjectPage.xaml?{0}={1}", NaviParam.SUBJECT_ID, news.ID);
-                    NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
-                    break;
-                default:
-                    break;
-            }
+            NewsHandler.OnNewsTap(this, news);
         }
 
         private void TryRemoveMoreButton()
@@ -535,9 +525,9 @@ namespace WorldCup2014WP.Pages
         private void Author_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             Author author = sender.GetDataContext<Author>();
-            string naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}&{4}={5}", 
-                NaviParam.AUTHOR_ID, author.ID, 
-                NaviParam.AUTHOR_NAME, author.Name, 
+            string naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}&{4}={5}",
+                NaviParam.AUTHOR_ID, author.ID,
+                NaviParam.AUTHOR_NAME, author.Name,
                 NaviParam.AUTHOR_FACE, author.Face);
             NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
         }
@@ -570,7 +560,7 @@ namespace WorldCup2014WP.Pages
         #endregion
 
         #region More Page
-        
+
         private void userCenter_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/UserCenterPage.xaml", UriKind.Relative));
@@ -585,7 +575,23 @@ namespace WorldCup2014WP.Pages
             NavigationService.Navigate(new Uri("/Pages/GameDataPage.xaml", UriKind.Relative));
         }
 
+        private void stadium_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/StadiumListPage.xaml", UriKind.Relative));
+        }
+
+        private void team_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/TeamPage.xaml", UriKind.Relative));
+        }
+
+        private void magma_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/MagmaListPage.xaml", UriKind.Relative));
+        }
+
         #endregion
+
 
     }
 }

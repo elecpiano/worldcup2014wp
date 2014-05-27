@@ -108,24 +108,5 @@ namespace WorldCup2014WP.Pages
 
         #endregion
 
-        //#region Page Navigation Transition
-
-        //FadeAnimation fadeAnimation = new FadeAnimation();
-        //MoveAnimation moveAnimation = new MoveAnimation();
-
-        //private void ShowPage()
-        //{
-        //    contentPanel.UpdateLayout();
-        //    moveAnimation.InstanceMoveFromTo(this.contentPanel, 0, 90, 0, 0, Constants.NAVIGATION_DURATION, null);
-        //    fadeAnimation.InstanceFade(this.contentPanel, 0d, 1d, Constants.NAVIGATION_DURATION, null);
-        //}
-
-        //private void HidePage()
-        //{
-        //    moveAnimation.InstanceMoveFromTo(this.contentPanel, 0, 0, 0, 90, Constants.NAVIGATION_DURATION, null);
-        //    fadeAnimation.InstanceFade(this.contentPanel, 1d, 0d, Constants.NAVIGATION_DURATION, null);
-        //}
-
-        //#endregion
     }
 }

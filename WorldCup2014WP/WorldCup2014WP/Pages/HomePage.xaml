@@ -81,7 +81,7 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -90,35 +90,38 @@
         <!--top bar-->
         <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
 
-        <Grid x:Name="headerBarBase1" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ff46c6e9" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <CompositeTransform TranslateX="480"/>
-            </Grid.RenderTransform>
-        </Grid>
-        <Grid x:Name="headerBarBase2" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ffaed255" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <CompositeTransform TranslateX="480"/>
-            </Grid.RenderTransform>
-        </Grid>
-        <Grid x:Name="headerBarBase3" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#fff7d144" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <CompositeTransform TranslateX="480"/>
-            </Grid.RenderTransform>
-        </Grid>
-        <Grid x:Name="headerBarBase4" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#fff69662" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <CompositeTransform TranslateX="480"/>
-            </Grid.RenderTransform>
-        </Grid>
-        <Grid x:Name="headerBarBase5" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#FFA371E0" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <CompositeTransform TranslateX="480"/>
-            </Grid.RenderTransform>
-        </Grid>
-        <Grid x:Name="headerBarBase0" Grid.Row="1" Height="48" VerticalAlignment="Top" Background="#ffffffff" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <CompositeTransform TranslateX="0"/>
-            </Grid.RenderTransform>
+        <!--color stripe-->
+        <Grid Grid.Row="1" VerticalAlignment="Top" Height="48" Visibility="Collapsed">
+            <Grid x:Name="headerBarBase1" Background="#ff46c6e9" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="480"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="headerBarBase2" Background="#ffaed255" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="480"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="headerBarBase3" Background="#fff7d144" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="480"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="headerBarBase4" Background="#fff69662" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="480"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="headerBarBase5" Background="#FFA371E0" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="480"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="headerBarBase0" Background="#ffffffff" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="0"/>
+                </Grid.RenderTransform>
+            </Grid>
         </Grid>
 
         <!--content panel-->
@@ -169,7 +172,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
 
-                            <controls:SlideShow x:Name="recommendationSlideShow" Height="150" Margin="0,12,0,12"/>
+                            <controls:SlideShow x:Name="recommendationSlideShow" Height="150" Margin="0,0,0,12"/>
 
                             <ItemsControl Grid.Row="1"  x:Name="recommendationNewsListBox">
                                 <ItemsControl.ItemsPanel>
@@ -237,7 +240,7 @@
                 <phone:PanoramaItem Header="我在现场">
                     <Grid>
                         <ScrollViewer x:Name="authorListScrollViewer">
-                            <ItemsControl x:Name="authorListBox" Margin="12,12,0,0">
+                            <ItemsControl x:Name="authorListBox" Margin="12,0,0,0">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <VirtualizingStackPanel/>
@@ -295,7 +298,7 @@
                 <phone:PanoramaItem Header="新闻">
                     <Grid Margin="12,0,0,0">
                         <ScrollViewer x:Name="newsListScrollViewer">
-                            <ItemsControl x:Name="newsListBox" Margin="0,12,0,0">
+                            <ItemsControl x:Name="newsListBox" Margin="0,0,0,0">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <VirtualizingStackPanel/>
@@ -377,7 +380,7 @@
 
                 <!--more-->
                 <phone:PanoramaItem Header="我的世界杯">
-                    <Grid>
+                    <Grid Margin="12,0,0,0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="180"/>
                             <RowDefinition Height="180"/>
@@ -389,41 +392,55 @@
                             <ColumnDefinition Width="180"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <controls:ContentButton Grid.Row="0" Grid.Column="0" x:Name="userCenterButton"  Margin="0,0,8,8" 
+
+                        <!--user center-->
+                        <controls:ContentButton Grid.Row="0" Grid.Column="0" Margin="0,0,8,8" 
                                                 Tap="userCenter_Tap">
-                            <Grid Background="#FF1BA1E2">
-                                <!--<Image Source="/Assets/Images/Trophy.png" Stretch="None" Margin="0,-16,0,0"/>-->
+                            <Grid Background="{StaticResource App_Theme_Color}">
                                 <TextBlock Text="用户中心" Style="{StaticResource Tile_Text_Style}"/>
                             </Grid>
                         </controls:ContentButton>
-                        <controls:ContentButton Grid.Row="0" Grid.Column="1" x:Name="gameCalendarButton"  Margin="0,0,8,8" 
+
+                        <!--game calendar-->
+                        <controls:ContentButton Grid.Row="0" Grid.Column="1" Margin="0,0,8,8" 
                                                 Tap="gameCalendar_Tap">
-                            <Grid Background="#FFA4C400">
-                                <!--<Image Source="/Assets/Images/Calendar.png" Stretch="None" Margin="0,-16,0,0"/>-->
+                            <Grid Background="{StaticResource App_Theme_Color}">
                                 <TextBlock Text="转播日历" Style="{StaticResource Tile_Text_Style}"/>
                             </Grid>
                         </controls:ContentButton>
-                        <controls:ContentButton Grid.Row="1" Grid.Column="0" x:Name="gameDataButton" Margin="0,0,8,8"  
+
+                        <!--game data-->
+                        <controls:ContentButton Grid.Row="1" Grid.Column="0" Margin="0,0,8,8"  
                                                 Tap="gameData_Tap">
-                            <Grid Background="#FFC72D57">
-                                <!--<Image Source="/Assets/Images/Games.png" Stretch="None" Margin="0,-16,0,0"/>-->
+                            <Grid Background="{StaticResource App_Theme_Color}">
                                 <TextBlock Text="赛程赛果" Style="{StaticResource Tile_Text_Style}"/>
                             </Grid>
                         </controls:ContentButton>
-                        <controls:ContentButton Grid.Row="1" Grid.Column="1" x:Name="stadiumButton"  Margin="0,0,8,8"  
-                                                Tap="userCenter_Tap">
-                            <Grid Background="#FFF0A30A">
-                                <!--<Image Source="/Assets/Images/Stadium.png" Stretch="None" Margin="0,-16,0,0"/>-->
-                                <TextBlock Text="场馆介绍" Style="{StaticResource Tile_Text_Style}"/>
+                        
+                        <!--stadium-->
+                        <controls:ContentButton Grid.Row="1" Grid.Column="1" Margin="0,0,8,8"  
+                                                Tap="stadium_Tap">
+                            <Grid Background="{StaticResource App_Theme_Color}">
+                                <TextBlock Text="球场巡礼" Style="{StaticResource Tile_Text_Style}"/>
                             </Grid>
                         </controls:ContentButton>
+
+                        <!--team-->
                         <controls:ContentButton Grid.Row="2" Grid.Column="0" Margin="0,0,8,8" 
-                                                Tap="userCenter_Tap">
-                            <Grid Background="#FF76608A">
-                                <!--<Image Source="/Assets/Images/Alarm.png" Stretch="None" Width="120" Margin="0,-16,0,0"/>-->
-                                <TextBlock Text="我的预约" Style="{StaticResource Tile_Text_Style}"/>
+                                                Tap="team_Tap">
+                            <Grid Background="{StaticResource App_Theme_Color}">
+                                <TextBlock Text="球队巡礼" Style="{StaticResource Tile_Text_Style}"/>
                             </Grid>
                         </controls:ContentButton>
+
+                        <!--magma-->
+                        <controls:ContentButton Grid.Row="2" Grid.Column="1" Margin="0,0,8,8" 
+                                                Tap="magma_Tap">
+                            <Grid Background="{StaticResource App_Theme_Color}">
+                                <TextBlock Text="技术看球" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
+                        <controls:Bubbles x:Name="bubbles" Grid.RowSpan="4" Grid.ColumnSpan="2" Width="400" HorizontalAlignment="Left"/>
                     </Grid>
                 </phone:PanoramaItem>
 

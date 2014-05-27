@@ -18,74 +18,76 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="12,8,0,12">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="180"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+                    <Border BorderBrush="#ffe0e0e0" BorderThickness="1" Margin="12,8,0,12">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="55"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                        <!--live or video-->
-                        <Grid Grid.Row="0" HorizontalAlignment="Left" Margin="0,0,0,0" >
-                            <StackPanel Orientation="Horizontal" Visibility="{Binding IsLive}">
-                                <Image Source="/Assets/Images/Live.png" Stretch="None"/>
-                                <TextBlock Text="直播" Style="{StaticResource EPG_Tag_Text_Style}"/>
+                            <!--live or video-->
+                            <Grid Grid.Row="0" HorizontalAlignment="Left" Margin="2,0,0,0" >
+                                <StackPanel Orientation="Horizontal" Visibility="{Binding IsLive}">
+                                    <Image Source="/Assets/Images/Live.png" Stretch="Uniform" Width="24" Height="24"/>
+                                    <TextBlock Text="直播" Style="{StaticResource EPG_Tag_Text_Style}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Visibility="{Binding IsVideo}">
+                                    <Image Source="/Assets/Images/Video.png" Stretch="Uniform" Width="28" Height="24"/>
+                                    <TextBlock Text="录像" Style="{StaticResource EPG_Tag_Text_Style}"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <!--channel-->
+                            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Image Source="/Assets/Images/CCTV1.png" Visibility="{Binding CCTV1}" Stretch="Uniform" Height="16"/>
+                                <Image Source="/Assets/Images/CCTV5.png" Visibility="{Binding CCTV5}" Stretch="Uniform" Height="16" Margin="4,0,0,0"/>
+                                <Image Source="/Assets/Images/CCTV5+.png" Visibility="{Binding CCTV5Plus}" Stretch="Uniform" Height="16" Margin="4,0,0,0"/>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Visibility="{Binding IsVideo}">
-                                <Image Source="/Assets/Images/Video.png" Stretch="None"/>
-                                <TextBlock Text="录像" Style="{StaticResource EPG_Tag_Text_Style}"/>
-                            </StackPanel>
-                        </Grid>
 
-                        <!--channel-->
-                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Image Source="/Assets/Images/CCTV1.png" Visibility="{Binding CCTV1}" Stretch="Uniform" Height="16"/>
-                            <Image Source="/Assets/Images/CCTV5.png" Visibility="{Binding CCTV5}" Stretch="Uniform" Height="16" Margin="4,0,0,0"/>
-                            <Image Source="/Assets/Images/CCTV5+.png" Visibility="{Binding CCTV5Plus}" Stretch="Uniform" Height="16" Margin="4,0,0,0"/>
-                        </StackPanel>
+                            <!--image-->
+                            <Grid Width="420" Height="150" Grid.Row="1" Margin="0,0,0,0">
+                                <Grid.Clip>
+                                    <RectangleGeometry Rect="0,0,420,150"/>
+                                </Grid.Clip>
+                                <controls:ContentButton Tap="EpgItem_Tap">
+                                    <controls:FadingImage Source="{Binding Image}" Stretch="UniformToFill" Margin="-13,-5"/>
+                                </controls:ContentButton>
+                            </Grid>
 
-                        <!--image-->
-                        <Grid Width="420" Height="175" Grid.Row="1" Margin="0,0,0,0">
-                            <Grid.Clip>
-                                <RectangleGeometry Rect="0,0,420,180"/>
-                            </Grid.Clip>
-                            <controls:ContentButton Tap="EpgItem_Tap">
-                                <controls:FadingImage Source="{Binding Image}" Stretch="UniformToFill" Margin="-13,-5"/>
-                            </controls:ContentButton>
-                        </Grid>
-
-                        <!--time-->
-                        <Grid Grid.Row="1" Width="120" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                            <!--time-->
+                            <Grid Grid.Row="1" Width="90" Height="36" HorizontalAlignment="Left" VerticalAlignment="Bottom"
                               Background="{StaticResource App_Theme_Color}">
-                            <TextBlock Text="{Binding Start, Converter={StaticResource EpgDateTimeConverter}, ConverterParameter='HH:mm'}" 
+                                <TextBlock Text="{Binding Start, Converter={StaticResource EpgDateTimeConverter}, ConverterParameter='HH:mm'}" 
                                        Style="{StaticResource EPG_Time_Style}"/>
-                            <!--tag-->
-                            <!--<Image Source="/Assets/Images/EpgItemTag.png" Stretch="None" 
+                                <!--tag-->
+                                <!--<Image Source="/Assets/Images/EpgItemTag.png" Stretch="None" 
                                VerticalAlignment="Center" HorizontalAlignment="Left" Margin="-12,0,0,0"/>-->
-                            <controls:EpgTag HorizontalAlignment="Left" Margin="-28,0,0,0"/>
-                        </Grid>
+                                <controls:EpgTag HorizontalAlignment="Left" Margin="-28,0,0,0"/>
+                            </Grid>
 
-                        <Grid Grid.Row="2" Background="#fff0f3ed">
-                            <TextBlock Text="{Binding Description}" Style="{StaticResource EPG_Description_Text_Style}" />
-                        </Grid>
+                            <Grid Grid.Row="2" Background="#fff0f3ed">
+                                <TextBlock Text="{Binding Description}" Style="{StaticResource EPG_Description_Text_Style}" />
+                            </Grid>
 
-                        <Grid Grid.Row="3" Background="#ffd6dccf">
-                            <TextBlock Text="{Binding SeePoint}" Style="{StaticResource EPG_SeePoint_Text_Style}"/>
-                        </Grid>
+                            <Grid Grid.Row="3" Background="#ffd6dccf">
+                                <TextBlock Text="{Binding SeePoint}" Style="{StaticResource EPG_SeePoint_Text_Style}"/>
+                            </Grid>
 
-                        <controls:ImageToggleButton Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Top" 
+                            <controls:ImageToggleButton Grid.Row="2" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Top" 
                                                     Padding="0,0,0,0" Margin="0,0,12,0"
                                                     UnCheckedBackground="/Assets/Images/Subscribe.png" 
                                                     CheckedBackground="/Assets/Images/UnSubscribe.png" 
                                                     Tap="Subscribe_Tap"
                                                     Checked="{Binding Subscribed}"
                                                     />
-                        <!--Visibility="{Binding Start, Converter={StaticResource AnythingToVisibilityConverter}}"-->
+                            <!--Visibility="{Binding Start, Converter={StaticResource AnythingToVisibilityConverter}}"-->
 
-                        <!--<Border Width="393" Height="175" Grid.Row="1" Grid.Column="1" Margin="7,5,0,0" Style="{StaticResource Image_Border_Style}"/>-->
+                            <!--<Border Width="393" Height="175" Grid.Row="1" Grid.Column="1" Margin="7,5,0,0" Style="{StaticResource Image_Border_Style}"/>-->
 
-                    </Grid>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ListBox>

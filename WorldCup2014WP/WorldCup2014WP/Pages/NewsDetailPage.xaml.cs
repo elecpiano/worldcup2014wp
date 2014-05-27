@@ -52,7 +52,7 @@ namespace WorldCup2014WP.Pages
             htmlLoader.Load("getdetail", "&id=" + newsID, true, Constants.NEWS_MODULE, string.Format(Constants.NEWS_DETAIL_FILE_NAME_FORMAT, newsID),
                 html =>
                 {
-                    string title = "<h2>"+newsTitle+"</h2>";
+                    string title = @"<h2 align=""center"">" + newsTitle + "</h2>";
                     string htmlContent = html.Content.Insert(html.Content.IndexOf("</style>") + 8, title);
                     htmlContent = htmlContent.Replace("max-width: 100%;", "width: 100%;");
                     browser.NavigateToString(htmlContent);

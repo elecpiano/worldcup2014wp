@@ -105,6 +105,9 @@
     <Compile Include="Controls\BigSnow.xaml.cs">
       <DependentUpon>BigSnow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Bubbles.xaml.cs">
+      <DependentUpon>Bubbles.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CategoryButton.xaml.cs">
       <DependentUpon>CategoryButton.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,7 @@
       <DependentUpon>LivePageItemVideo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\NewsDataTemplateSelector.cs" />
+    <Compile Include="Controls\NewsHandler.cs" />
     <Compile Include="Controls\PopupContainer\PopupCotainer.xaml.cs">
       <DependentUpon>PopupCotainer.xaml</DependentUpon>
     </Compile>
@@ -218,8 +222,14 @@
     <Compile Include="Pages\CategoryPage.xaml.cs">
       <DependentUpon>CategoryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\MagmaListPage.xaml.cs">
+      <DependentUpon>MagmaListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\GameDataPage.xaml.cs">
       <DependentUpon>GameDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TeamPage.xaml.cs">
+      <DependentUpon>TeamPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\UserCenterPage.xaml.cs">
       <DependentUpon>UserCenterPage.xaml</DependentUpon>
@@ -317,6 +327,7 @@
     <Content Include="Assets\Images\ArrowRight.png" />
     <Content Include="Assets\Images\ArrowUp.png" />
     <Content Include="Assets\Images\BannerDismissButton.png" />
+    <Content Include="Assets\Images\Bubble1.png" />
     <Content Include="Assets\Images\CCTV1.png" />
     <Content Include="Assets\Images\CCTV5+.png" />
     <Content Include="Assets\Images\CCTV5.png" />
@@ -362,6 +373,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\BigSnow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Bubbles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -465,7 +480,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\MagmaListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\GameDataPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\TeamPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

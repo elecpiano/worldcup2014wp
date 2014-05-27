@@ -262,16 +262,16 @@
     </Style>
 
     <Style x:Key="EPG_Time_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
-        <Setter Property="FontSize" Value="32"/>
-        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="Foreground" Value="#ffffffff"/>
-        <Setter Property="Margin" Value="12,0,0,0"/>
+        <Setter Property="Margin" Value="16,0,0,0"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
     <Style x:Key="EPG_Description_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontSize" Value="18"/>
         <Setter Property="Foreground" Value="#ff000000"/>
         <Setter Property="Margin" Value="12,4,12,4"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
@@ -280,18 +280,19 @@
 
     <Style x:Key="EPG_SeePoint_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontSize" Value="16"/>
         <Setter Property="Foreground" Value="#ff000000"/>
         <Setter Property="Margin" Value="12,4,12,4"/>
+        <Setter Property="TextTrimming" Value="WordEllipsis"/>
     </Style>
 
     <!--more page-->
     <Style x:Key="Tile_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
-        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontSize" Value="28"/>
         <Setter Property="Foreground" Value="#ffffffff"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Bottom"/>
-        <Setter Property="Margin" Value="0,0,0,16"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
     </Style>
     
     <!--user center page-->
