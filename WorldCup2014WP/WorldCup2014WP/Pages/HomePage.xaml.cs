@@ -568,7 +568,7 @@ namespace WorldCup2014WP.Pages
 
         private void gameCalendar_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/Pages/CalendarPage.xaml", UriKind.Relative));
         }
         private void gameData_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {

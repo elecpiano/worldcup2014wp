@@ -22,47 +22,7 @@
 
         <!--content-->
         <Grid x:Name="contentPanel" Grid.Row="1">
-            <ScrollViewer x:Name="scrollViewer">
-                <ItemsControl x:Name="daysListBox">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel Margin="0,0,0,0"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Height="180" Margin="0,0,0,1">
-                                <Grid.Clip>
-                                    <RectangleGeometry Rect="0,0,480,180"/>
-                                </Grid.Clip>
-
-                                <controls:ContentButton Tap="Day_Tap">
-                                    <Grid>
-                                        <controls:FadingImage Source="{Binding Image}" Stretch="UniformToFill" Margin="-13,-5"/>
-                                        <Rectangle Width="240" HorizontalAlignment="Left" IsHitTestVisible="False" Margin="-13,-5">
-                                            <Rectangle.Fill>
-                                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
-                                                    <GradientStop Color="#7F000000" Offset="0"/>
-                                                    <GradientStop Offset="1"/>
-                                                </LinearGradientBrush>
-                                            </Rectangle.Fill>
-                                        </Rectangle>
-                                        <StackPanel Margin="24,24,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                                            <TextBlock  Text="{Binding GameDate}" Style="{StaticResource CalendarPage_DayTitle_Text_Style}"/>
-                                            <TextBlock Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='M月d日 dddd'}" Style="{StaticResource CalendarPage_Date_Text_Style}"/>
-                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,24,0,0">
-                                                <TextBlock Text="产生" Style="{StaticResource CalendarPage_MedalCount_Text_Style}"/>
-                                                <TextBlock Text="{Binding Gold}" Style="{StaticResource CalendarPage_MedalCount_Number_Style}"/>
-                                                <TextBlock Text="枚金牌" Style="{StaticResource CalendarPage_MedalCount_Text_Style}"/>
-                                            </StackPanel>
-                                        </StackPanel>
-                                    </Grid>
-                                </controls:ContentButton>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </ScrollViewer>
+            <controls:GameCalendarControl x:Name="calendarControl" DayTap="calendar_DayTap"/>
         </Grid>
 
         <controls:Snow x:Name="snow1" Grid.Row="1"/>

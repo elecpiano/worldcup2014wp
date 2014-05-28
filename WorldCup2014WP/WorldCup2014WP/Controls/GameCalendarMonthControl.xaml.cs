@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WorldCup2014WP.Models;
 using WorldCup2014WP.Utility;
+using System.Windows.Input;
 
 namespace WorldCup2014WP.Controls
 {
@@ -43,7 +44,19 @@ namespace WorldCup2014WP.Controls
             monthPanel.Children.Add(dayControl);
             dayControl.SetValue(Grid.RowProperty, row);
             dayControl.SetValue(Grid.ColumnProperty, column);
+
+            dayControl.Tap += dayControl_Tap;
         }
+
+        void dayControl_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            if (DayTap!=null)
+            {
+                DayTap(sender, e);
+            }
+        }
+
+        public event EventHandler<GestureEventArgs> DayTap;
 
     }
 }

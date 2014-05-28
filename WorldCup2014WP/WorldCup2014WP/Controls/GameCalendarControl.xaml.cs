@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WorldCup2014WP.Models;
 using WorldCup2014WP.Utility;
+using System.Windows.Input;
 
 namespace WorldCup2014WP.Controls
 {
@@ -22,14 +23,14 @@ namespace WorldCup2014WP.Controls
 
         void GameCalendarControl_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadSchedule();
+            LoadCalendar();
         }
 
         #region Calendar
 
         ListDataLoader<CalendarItem> calendarLoader = new ListDataLoader<CalendarItem>();
 
-        public void LoadSchedule()
+        public void LoadCalendar()
         {
             if (calendarLoader.Loaded || calendarLoader.Busy)
             {
@@ -63,6 +64,7 @@ namespace WorldCup2014WP.Controls
                     months.Add(month);
                     GameCalendarMonthControl newMonthControl = new GameCalendarMonthControl();
                     monthAndControls.Add(month, newMonthControl);
+                    newMonthControl.DayTap += monthControl_DayTap;
 
                     PivotItem pivotItem = new PivotItem() { Header = month.ToString("yyyy年MM月") };
                     pivotItem.Content = newMonthControl;
@@ -95,5 +97,16 @@ namespace WorldCup2014WP.Controls
                 dt = dt.AddDays(1);
             }
         }
+
+        public event EventHandler<GestureEventArgs> DayTap;
+
+        void monthControl_DayTap(object sender, GestureEventArgs e)
+        {
+            if (DayTap!=null)
+            {
+                DayTap(sender, e);
+            }
+        }
+
     }
 }
