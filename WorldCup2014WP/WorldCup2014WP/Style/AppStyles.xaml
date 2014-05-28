@@ -17,7 +17,7 @@
     <!--converters-->
     <converters:DateTimeToStringConverter x:Key="DateTimeToStringConverter"/>
     <converters:AnythingToVisibilityConverter x:Key="AnythingToVisibilityConverter"/>
-    <converters:EpgDateTimeConverter x:Key="EpgDateTimeConverter"/>
+    <!--<converters:EpgDateTimeConverter x:Key="EpgDateTimeConverter"/>-->
 
     <!--base Styles-->
     <Style x:Key="TextBlockStyleBase" TargetType="TextBlock">
@@ -430,6 +430,15 @@
     </Style>
     
     <!--/////////////////////////////////////////////-->
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

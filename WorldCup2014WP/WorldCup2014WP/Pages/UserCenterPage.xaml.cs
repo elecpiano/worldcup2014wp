@@ -342,5 +342,10 @@ namespace WorldCup2014WP.Pages
 
         #endregion
 
+        private void mySubscription_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+
+        }
+
     }
 }

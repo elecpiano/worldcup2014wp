@@ -59,7 +59,7 @@
                             <!--time-->
                             <Grid Grid.Row="1" Width="90" Height="36" HorizontalAlignment="Left" VerticalAlignment="Bottom"
                               Background="{StaticResource App_Theme_Color}">
-                                <TextBlock Text="{Binding Start, Converter={StaticResource EpgDateTimeConverter}, ConverterParameter='HH:mm'}" 
+                                <TextBlock Text="{Binding Start, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='HH:mm'}" 
                                        Style="{StaticResource EPG_Time_Style}"/>
                                 <!--tag-->
                                 <!--<Image Source="/Assets/Images/EpgItemTag.png" Stretch="None" 
@@ -67,10 +67,12 @@
                                 <controls:EpgTag HorizontalAlignment="Left" Margin="-28,0,0,0"/>
                             </Grid>
 
+                            <!--desc-->
                             <Grid Grid.Row="2" Background="#fff0f3ed">
                                 <TextBlock Text="{Binding Description}" Style="{StaticResource EPG_Description_Text_Style}" />
                             </Grid>
 
+                            <!--see point-->
                             <Grid Grid.Row="3" Background="#ffd6dccf">
                                 <TextBlock Text="{Binding SeePoint}" Style="{StaticResource EPG_SeePoint_Text_Style}"/>
                             </Grid>
@@ -82,9 +84,6 @@
                                                     Tap="Subscribe_Tap"
                                                     Checked="{Binding Subscribed}"
                                                     />
-                            <!--Visibility="{Binding Start, Converter={StaticResource AnythingToVisibilityConverter}}"-->
-
-                            <!--<Border Width="393" Height="175" Grid.Row="1" Grid.Column="1" Margin="7,5,0,0" Style="{StaticResource Image_Border_Style}"/>-->
 
                         </Grid>
                     </Border>

@@ -216,12 +216,6 @@
     <Compile Include="Pages\AlbumPage.xaml.cs">
       <DependentUpon>AlbumPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\CategoryListPage.xaml.cs">
-      <DependentUpon>CategoryListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\CategoryPage.xaml.cs">
-      <DependentUpon>CategoryPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\MagmaListPage.xaml.cs">
       <DependentUpon>MagmaListPage.xaml</DependentUpon>
     </Compile>
@@ -469,14 +463,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\AlbumPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\CategoryListPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Pages\CategoryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -29,23 +29,34 @@ namespace WorldCup2014WP.DataContext
 
         IsolatedStorageSettings _Settings = IsolatedStorageSettings.ApplicationSettings;
 
-        public List<GameSchedule> LoadSubscriptions()
+        public List<EPG> LoadSubscriptions()
         {
-            List<GameSchedule> list = null;
+            List<EPG> list = null;
             if (_Settings.Contains(Constants.KEY_SUBSCRIPTION_LIST))
             {
-                list = _Settings[Constants.KEY_SUBSCRIPTION_LIST] as List<GameSchedule>;
+                list = _Settings[Constants.KEY_SUBSCRIPTION_LIST] as List<EPG>;
             }
             if (list == null)
             {
-                list = new List<GameSchedule>();
+                list = new List<EPG>();
             }
             return list;
         }
 
-        public void AddSubscription(GameSchedule item)
+        //public void AddSubscription(EPG item)
+        //{
+        //    List<EPG> list = LoadSubscriptions();
+        //    var duplication = list.FirstOrDefault(x => x.ID == item.ID);
+        //    if (duplication == null)
+        //    {
+        //        list.Add(item);
+        //        SaveSubscriptions(list);
+        //    }
+        //}
+
+        public void AddSubscription(EPG item)
         {
-            List<GameSchedule> list = LoadSubscriptions();
+            List<EPG> list = LoadSubscriptions();
             var duplication = list.FirstOrDefault(x => x.ID == item.ID);
             if (duplication == null)
             {
@@ -56,7 +67,7 @@ namespace WorldCup2014WP.DataContext
 
         public void RemoveSubscription(string id)
         {
-            List<GameSchedule> list = LoadSubscriptions();
+            List<EPG> list = LoadSubscriptions();
             var item = list.FirstOrDefault(x => x.ID == id);
             if (item != null)
             {
@@ -65,7 +76,7 @@ namespace WorldCup2014WP.DataContext
             }
         }
 
-        public void SaveSubscriptions(List<GameSchedule> list)
+        public void SaveSubscriptions(List<EPG> list)
         {
             // txtInput is a TextBox defined in XAML.
             if (_Settings.Contains(Constants.KEY_SUBSCRIPTION_LIST))
@@ -83,7 +94,7 @@ namespace WorldCup2014WP.DataContext
         {
             if (_Settings.Contains(Constants.KEY_SUBSCRIPTION_LIST))
             {
-                _Settings[Constants.KEY_SUBSCRIPTION_LIST] = new List<GameSchedule>();
+                _Settings[Constants.KEY_SUBSCRIPTION_LIST] = new List<EPG>();
                 _Settings.Save();
             }
         }

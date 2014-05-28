@@ -114,5 +114,31 @@ namespace WorldCup2014WP.Models
             get { return subscribed; }
             set { SetProperty(ref this.subscribed, value); }
         }
+
+        [IgnoreDataMember]
+        public DateTime StartTime
+        {
+            get
+            {
+                string[] dtArr = Start.Split(' ');
+                string[] dateArr = dtArr[0].Split('-');
+                int year = int.Parse(dateArr[0]);
+                int month = int.Parse(dateArr[1]);
+                int day = int.Parse(dateArr[2]);
+
+                string[] timeArr = dtArr[1].Split(':');
+                int hour = int.Parse(timeArr[0]);
+                int extraDayCount = hour / 24;
+                hour = hour % 24;
+                int minute = int.Parse(timeArr[1]);
+                int second = int.Parse(timeArr[2]);
+
+                DateTime goodResult = new DateTime(year, month, day, hour, minute, second);
+                goodResult.AddDays(extraDayCount);
+                return goodResult;
+            }
+        }
+
+
     }
 }

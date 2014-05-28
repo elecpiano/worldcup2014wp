@@ -18,13 +18,13 @@ namespace WorldCup2014WP.Pages
             InitializeComponent();
             BuildApplicationBar();
 
-            scheduleListBox.ItemsSource = scheduleList;
+            subscriptionListBox.ItemsSource = subscriptionList;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            LoadScheduleList();
+            LoadSubscriptionList();
         }
 
         //protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -40,11 +40,11 @@ namespace WorldCup2014WP.Pages
 
         #region Subscription List
 
-        ObservableCollection<GameSchedule> scheduleList = new ObservableCollection<GameSchedule>();
+        ObservableCollection<EPG> subscriptionList = new ObservableCollection<EPG>();
 
-        private void LoadScheduleList()
+        private void LoadSubscriptionList()
         {
-            scheduleList.Clear();
+            subscriptionList.Clear();
             var list = SubscriptionDataContext.Current.LoadSubscriptions();
             if (list.Count == 0)
             {
@@ -55,7 +55,7 @@ namespace WorldCup2014WP.Pages
                 this.noData.Visibility = System.Windows.Visibility.Collapsed;
                 foreach (var item in list)
                 {
-                    scheduleList.Add(item);
+                    subscriptionList.Add(item);
                 }
             }
 
@@ -64,7 +64,7 @@ namespace WorldCup2014WP.Pages
 
         private void CheckNoData()
         {
-            this.noData.Visibility = scheduleList.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
+            this.noData.Visibility = subscriptionList.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
         }
 
         #endregion
@@ -73,13 +73,13 @@ namespace WorldCup2014WP.Pages
 
         private void UnSubscribe_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            GameSchedule schedule = sender.GetDataContext<GameSchedule>();
-            if (schedule != null)
+            EPG epg = sender.GetDataContext<EPG>();
+            if (epg != null)
             {
-                ReminderHelper.RemoveReminder(schedule.ID);
+                ReminderHelper.RemoveReminder(epg.ID);
             }
-            SubscriptionDataContext.Current.RemoveSubscription(schedule.ID);
-            scheduleList.Remove(schedule);
+            SubscriptionDataContext.Current.RemoveSubscription(epg.ID);
+            subscriptionList.Remove(epg);
             toast.ShowMessage("成功取消预约。");
             CheckNoData();
         }
@@ -106,32 +106,12 @@ namespace WorldCup2014WP.Pages
         {
             ReminderHelper.ClearReminders();
             SubscriptionDataContext.Current.ClearSubscriptions();
-            scheduleList.Clear();
+            subscriptionList.Clear();
             toast.ShowMessage("成功取消全部预约。");
             CheckNoData();
         }
 
         #endregion
-
-        //#region Page Navigation Transition
-
-        //FadeAnimation fadeAnimation = new FadeAnimation();
-        //MoveAnimation moveAnimation = new MoveAnimation();
-
-        //private void ShowPage()
-        //{
-        //    this.contentPanel.UpdateLayout();
-        //    moveAnimation.InstanceMoveFromTo(this.contentPanel, 0, 90, 0, 0, Constants.NAVIGATION_DURATION, null);
-        //    fadeAnimation.InstanceFade(this.contentPanel, 0d, 1d, Constants.NAVIGATION_DURATION, null);
-        //}
-
-        //private void HidePage()
-        //{
-        //    moveAnimation.InstanceMoveFromTo(this.contentPanel, 0, 0, 0, 90, Constants.NAVIGATION_DURATION, null);
-        //    fadeAnimation.InstanceFade(this.contentPanel, 1d, 0d, Constants.NAVIGATION_DURATION, null);
-        //}
-
-        //#endregion
 
     }
 }

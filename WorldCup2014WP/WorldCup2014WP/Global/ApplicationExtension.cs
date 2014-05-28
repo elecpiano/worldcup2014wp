@@ -4,6 +4,7 @@ using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WorldCup2014WP.Controls;
 using WorldCup2014WP.Models;
 
 namespace WorldCup2014WP
@@ -80,7 +81,6 @@ namespace WorldCup2014WP
 
         #endregion
 
-
         #region User
 
         private const string KEY_USER = "user";
@@ -106,6 +106,20 @@ namespace WorldCup2014WP
             get
             {
                 return User != null;
+            }
+        }
+
+        #endregion
+
+        #region Toast Notification
+
+        public CuteToast Toast { get; set; }
+
+        public void ShowToastMessage(string message)
+        {
+            if (Toast!=null)
+            {
+                Toast.ShowMessage(message);
             }
         }
 

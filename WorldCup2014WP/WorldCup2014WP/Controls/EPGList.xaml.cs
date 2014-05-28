@@ -6,12 +6,16 @@ using System.Linq;
 using WorldCup2014WP.Utility;
 using WorldCup2014WP.Models;
 using System.Windows;
+using System.Windows.Input;
+using WorldCup2014WP.DataContext;
 
 namespace WorldCup2014WP.Controls
 {
     public partial class EPGList : UserControl
     {
         #region Property
+
+        App App { get { return App.Current as App; } }
 
         public Page HostingPage { get; set; }
 
@@ -44,7 +48,7 @@ namespace WorldCup2014WP.Controls
         private static void OnItemsPanelMarginPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             EPGList control = d as EPGList;
-            if (control.ItemsPanel!=null)
+            if (control.ItemsPanel != null)
             {
                 Thickness newValue = (Thickness)e.NewValue;
                 control.ItemsPanel.Margin = newValue;
@@ -132,45 +136,7 @@ namespace WorldCup2014WP.Controls
 
         #endregion
 
-        #region QuickSelector
-
-        Dictionary<DateTime, bool> hoursOfDay = new Dictionary<DateTime, bool>();
-
-        //private void InitQuickSelector()
-        //{
-        //    DateTime dt = DateTime.Today;
-        //    for (int i = 0; i < 24; i++)
-        //    {
-        //        hoursOfDay.Add(dt, false);
-        //        dt = dt.AddHours(1);
-        //    }
-
-        //    //initial values, all are invalid items
-        //    quickSelector.SetItems(hoursOfDay);
-        //    quickSelector.SelectionChanged += QuickSelector_SelectionChanged;
-        //}
-
-        //private void SetQuickSelectorValidItems(IEnumerable<DateTime> validItems)
-        //{
-        //    var keyList = hoursOfDay.Keys.ToList();
-        //    foreach (var key in keyList)
-        //    {
-        //        if (validItems.Any(x => x.Hour == key.Hour))
-        //        {
-        //            hoursOfDay[key] = true;
-        //        }
-        //    }
-
-        //    //update again
-        //    quickSelector.SetItems(hoursOfDay);
-        //}
-
-        //private void QuickSelector_SelectionChanged(object sender, DateTime selectedDateTime)
-        //{
-        //    epgListBox.ScrollIntoView(epgList.FirstOrDefault(x => x.Start.Hour == selectedDateTime.Hour));
-        //}
-
-        #endregion
+        #region Layout Control
 
         VirtualizingStackPanel ItemsPanel = null;
         private void VirtualizingStackPanel_Loaded(object sender, RoutedEventArgs e)
@@ -179,10 +145,41 @@ namespace WorldCup2014WP.Controls
             ItemsPanel.Margin = ItemsPanelMargin;
         }
 
-        private void Subscribe_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
+        #endregion
 
+        #region Subscribe
+
+        private void Subscribe_Tap(object sender, GestureEventArgs e)
+        {
+            EPG epg = sender.GetDataContext<EPG>();
+            if (epg.Subscribed)
+            {
+                ReminderHelper.RemoveReminder(epg.ID);
+                SubscriptionDataContext.Current.RemoveSubscription(epg.ID);
+                epg.Subscribed = false;
+                App.ShowToastMessage("成功取消预约。");
+            }
+            else
+            {
+                try
+                {
+                    var successful = ReminderHelper.AddReminder(epg.ID, epg.Category, epg.Match, epg.StartTime, "/Pages/HomePage.xaml?");
+                    if (successful)
+                    {
+                        SubscriptionDataContext.Current.AddSubscription(epg);
+                        epg.Subscribed = true;
+                        App.ShowToastMessage("成功添加预约。");
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
         }
+
+        #endregion
+
 
     }
 }
