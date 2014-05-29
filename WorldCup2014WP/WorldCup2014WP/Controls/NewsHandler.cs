@@ -40,5 +40,15 @@ namespace WorldCup2014WP.Controls
                     break;
             }
         }
+
+        public static void OnNewsTap(Page hostingPage, string id, string title, string secondaryHeader = "")
+        {
+            string naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}", NaviParam.NEWS_ID, id, NaviParam.NEWS_TITLE, title);
+            if (!string.IsNullOrEmpty(secondaryHeader))
+            {
+                naviString = string.Format(naviString + "&{0}={1}", NaviParam.NEWS_SECOND_TITLE, secondaryHeader);
+            }
+            hostingPage.NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
+        }
     }
 }

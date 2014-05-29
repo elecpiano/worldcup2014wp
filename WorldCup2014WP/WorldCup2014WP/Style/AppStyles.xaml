@@ -381,6 +381,7 @@
     <Style x:Key="NewsList_ItemTime_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Foreground" Value="#ff808080"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
     </Style>
 
     <!--game data page-->
@@ -428,7 +429,28 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
-    
+
+    <!--diary list page-->
+    <Style x:Key="DiaryListPage_BigDate_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+    </Style>
+
+    <Style x:Key="DiaryListPage_SmallDate_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="#ff808080"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+    </Style>
+
+    <Style x:Key="DiaryList_Title_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="TextTrimming" Value="WordEllipsis"/>
+        <!--<Setter Property="MaxHeight" Value="80"/>-->
+    </Style>
+
     <!--/////////////////////////////////////////////-->
     
     

@@ -36,6 +36,10 @@ namespace WorldCup2014WP
         public const string AUTHOR_MODULE = "author";
         public const string AUTHOR_FILE_NAME = "author.txt";
 
+        //diary list 
+        public const string DIARY_MODULE = "diary";
+        public const string DIARY_LIST_FILE_NAME_FORMAT = "diary_list_{0}.txt";
+
         //recommendation 
         public const string RECOMMENDATION_MODULE = "recommendation";
         public const string RECOMMENDATION_FILE_NAME = "recommendation.txt";
@@ -119,8 +123,14 @@ namespace WorldCup2014WP
 
         public const string NEWS_ID = "news_id";
         public const string NEWS_TITLE = "news_title";
+        public const string NEWS_SECOND_TITLE = "news_second_title";
 
         public const string SUBJECT_ID = "subject_id";
+
+        public const string STADIUM_ID = "stadium_id";
+        public const string STADIUM_NAME = "stadium_name";
+
+       
 
         /// /////////////////////////////////// TO-DO : remove all below
         public const string SCHEDULE_ID = "schedule_id";
@@ -130,8 +140,8 @@ namespace WorldCup2014WP
         public const string LIVE_TITLE = "live_title";
         public const string CALENDAR_DATE = "calendar_date";
 
-        public const string STADIUM_ID = "stadium_id";
-        public const string STADIUM_NAME = "stadium_name";
+
+        
         //public const string VOD_ID = "vod_id";
 
     }

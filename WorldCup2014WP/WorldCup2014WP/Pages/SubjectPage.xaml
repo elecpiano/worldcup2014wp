@@ -7,7 +7,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="clr-namespace:WorldCup2014WP.Controls"
-    
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
@@ -23,7 +22,7 @@
 
         <!--content-->
         <Grid x:Name="contentPanel" Grid.Row="1">
-            <ScrollViewer x:Name="scrollViewer" Margin="0,0,0,0">
+            <ScrollViewer x:Name="scrollViewer">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

@@ -24,7 +24,7 @@ namespace WorldCup2014WP
             }
             else
             {
-                _Settings.Add(KEY_USER, false);
+                _Settings.Add(KEY_USER, null);
             }
 
             ////user id

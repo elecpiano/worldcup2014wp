@@ -525,7 +525,7 @@ namespace WorldCup2014WP.Pages
         private void Author_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             Author author = sender.GetDataContext<Author>();
-            string naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}&{4}={5}",
+            string naviString = string.Format("/Pages/DiaryListPage.xaml?{0}={1}&{2}={3}&{4}={5}",
                 NaviParam.AUTHOR_ID, author.ID,
                 NaviParam.AUTHOR_NAME, author.Name,
                 NaviParam.AUTHOR_FACE, author.Face);

@@ -16,6 +16,7 @@ namespace WorldCup2014WP.Pages
     {
         private string newsID = string.Empty;
         private string newsTitle = string.Empty;
+        private string secondaryHeader = string.Empty;
 
         #region Lifecycle
 
@@ -30,6 +31,14 @@ namespace WorldCup2014WP.Pages
 
             newsID = NavigationContext.QueryString[NaviParam.NEWS_ID];
             newsTitle = NavigationContext.QueryString[NaviParam.NEWS_TITLE];
+            if (NavigationContext.QueryString.ContainsKey(NaviParam.NEWS_SECOND_TITLE))
+            {
+                secondaryHeader = NavigationContext.QueryString[NaviParam.NEWS_SECOND_TITLE];
+                if (!string.IsNullOrEmpty(secondaryHeader))
+                {
+                    topBar.SecondaryHeader = secondaryHeader;
+                }
+            }
 
             LoadHTML();
         }

@@ -18,7 +18,8 @@
         </Grid.RowDefinitions>
 
         <!--top bar-->
-        <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
+        <!--<Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>-->
+        <controls:TopBar x:Name="topBar"/>
 
         <!--content-->
         <Grid x:Name="ContentPanel" Grid.Row="1">

@@ -191,6 +191,7 @@
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\AlbumItem.cs" />
     <Compile Include="Models\Goal.cs" />
+    <Compile Include="Models\Diary.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Score.cs" />
     <Compile Include="Models\UserRegCodeResult.cs" />
@@ -218,6 +219,9 @@
     </Compile>
     <Compile Include="Pages\CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DiaryListPage.xaml.cs">
+      <DependentUpon>DiaryListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MagmaListPage.xaml.cs">
       <DependentUpon>MagmaListPage.xaml</DependentUpon>
@@ -470,6 +474,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\CalendarPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\DiaryListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
