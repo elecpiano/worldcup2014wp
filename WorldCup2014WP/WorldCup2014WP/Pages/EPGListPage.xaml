@@ -22,10 +22,7 @@
 
         <!--content-->
         <Grid x:Name="ContentPanel" Grid.Row="1">
-            <controls:EPGList x:Name="epgList" Margin="6,0,48,0" ItemsPanelMargin="0,12,0,0"/>
-
-            <!--quick selector-->
-            <controls:QuickSelector x:Name="quickSelector" />
+            <controls:EPGList x:Name="epgList" Margin="10,0,12,0" ItemsPanelMargin="0,12,0,0"/>
         </Grid>
     </Grid>
 

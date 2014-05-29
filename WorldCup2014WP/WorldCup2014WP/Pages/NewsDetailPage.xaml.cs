@@ -23,6 +23,7 @@ namespace WorldCup2014WP.Pages
         public NewsDetailPage()
         {
             InitializeComponent();
+            BuildApplicationBar();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -70,6 +71,32 @@ namespace WorldCup2014WP.Pages
         }
 
         #endregion
+
+        #region App Bar
+
+        ApplicationBarIconButton appBarShare;
+
+        private void BuildApplicationBar()
+        {
+            ApplicationBar = new ApplicationBar();
+            //ApplicationBar.Opacity = 0.9;
+            //ApplicationBar.Mode = ApplicationBarMode.Minimized;
+
+            // share
+            appBarShare = new ApplicationBarIconButton(new Uri("/Assets/AppBar/share.png", UriKind.Relative));
+            appBarShare.Text = "分享";
+            appBarShare.Click += appBarShare_Click;
+            ApplicationBar.Buttons.Add(appBarShare);
+        }
+
+        void appBarShare_Click(object sender, System.EventArgs e)
+        {
+        }
+
+        #endregion
+
+
+
 
     }
 }

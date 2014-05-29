@@ -67,8 +67,39 @@
                 <TextBlock x:Name="userName" Style="{StaticResource UserCenter_UserName_Style}"/>
             </StackPanel>
 
+            <!--tiles-->
+            <Grid Grid.Row="1" Margin="24,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--user center-->
+                <controls:ContentButton Grid.Row="0" Grid.Column="0" Margin="0,0,8,8" 
+                                                Tap="mySubscription_Tap">
+                    <Grid Background="{StaticResource App_Theme_Color}">
+                        <TextBlock Text="我的预约" Style="{StaticResource Tile_Text_Style}"/>
+                    </Grid>
+                </controls:ContentButton>
+
+                <!--game calendar-->
+                <controls:ContentButton Grid.Row="0" Grid.Column="1" Margin="0,0,8,8" 
+                                                Tap="guessHistory_Tap">
+                    <Grid Background="{StaticResource App_Theme_Color}">
+                        <TextBlock Text="竞猜记录" Style="{StaticResource Tile_Text_Style}"/>
+                    </Grid>
+                </controls:ContentButton>
+            </Grid>
+
             <!--popup-->
-            <Rectangle x:Name="popupMask" Fill="#80000000" Tap="popupMask_Tap" Opacity="0" IsHitTestVisible="False"/>
+            <Rectangle Grid.RowSpan="2" x:Name="popupMask" Fill="#80000000" Tap="popupMask_Tap" Opacity="0" IsHitTestVisible="False"/>
             <Grid x:Name="registerOrLogin" Grid.RowSpan="2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" 
                   Visibility="Visible">
                 <Grid.RenderTransform>
@@ -207,70 +238,6 @@
                         </Grid>
                     </controls:ContentButton>
                 </StackPanel>
-            </Grid>
-
-            <!--tiles-->
-            <Grid Grid.Row="1" Margin="12,0,0,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="180"/>
-                    <RowDefinition Height="180"/>
-                    <RowDefinition Height="180"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180"/>
-                    <ColumnDefinition Width="180"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-
-                <!--user center-->
-                <controls:ContentButton Grid.Row="0" Grid.Column="0" Margin="0,0,8,8" 
-                                                Tap="mySubscription_Tap">
-                    <Grid Background="{StaticResource App_Theme_Color}">
-                        <TextBlock Text="我的预约" Style="{StaticResource Tile_Text_Style}"/>
-                    </Grid>
-                </controls:ContentButton>
-
-                <!--game calendar-->
-                <controls:ContentButton Grid.Row="0" Grid.Column="1" Margin="0,0,8,8" 
-                                                Tap="mySubscription_Tap">
-                    <Grid Background="{StaticResource App_Theme_Color}">
-                        <TextBlock Text="转播日历" Style="{StaticResource Tile_Text_Style}"/>
-                    </Grid>
-                </controls:ContentButton>
-
-                <!--game data-->
-                <controls:ContentButton Grid.Row="1" Grid.Column="0" Margin="0,0,8,8"  
-                                                Tap="mySubscription_Tap">
-                    <Grid Background="{StaticResource App_Theme_Color}">
-                        <TextBlock Text="赛程赛果" Style="{StaticResource Tile_Text_Style}"/>
-                    </Grid>
-                </controls:ContentButton>
-
-                <!--stadium-->
-                <controls:ContentButton Grid.Row="1" Grid.Column="1" Margin="0,0,8,8"  
-                                                Tap="mySubscription_Tap">
-                    <Grid Background="{StaticResource App_Theme_Color}">
-                        <TextBlock Text="球场巡礼" Style="{StaticResource Tile_Text_Style}"/>
-                    </Grid>
-                </controls:ContentButton>
-
-                <!--team-->
-                <controls:ContentButton Grid.Row="2" Grid.Column="0" Margin="0,0,8,8" 
-                                                Tap="mySubscription_Tap">
-                    <Grid Background="{StaticResource App_Theme_Color}">
-                        <TextBlock Text="球队巡礼" Style="{StaticResource Tile_Text_Style}"/>
-                    </Grid>
-                </controls:ContentButton>
-
-                <!--magma-->
-                <controls:ContentButton Grid.Row="2" Grid.Column="1" Margin="0,0,8,8" 
-                                                Tap="mySubscription_Tap">
-                    <Grid Background="{StaticResource App_Theme_Color}">
-                        <TextBlock Text="技术看球" Style="{StaticResource Tile_Text_Style}"/>
-                    </Grid>
-                </controls:ContentButton>
-                <controls:Bubbles x:Name="bubbles" Grid.RowSpan="4" Grid.ColumnSpan="2" Width="400" HorizontalAlignment="Left"/>
             </Grid>
 
         </Grid>

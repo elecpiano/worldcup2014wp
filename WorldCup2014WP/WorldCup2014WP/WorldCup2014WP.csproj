@@ -170,6 +170,9 @@
     <Compile Include="Controls\QuickSelector.xaml.cs">
       <DependentUpon>QuickSelector.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ShareControl.xaml.cs">
+      <DependentUpon>ShareControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SlideShow.xaml.cs">
       <DependentUpon>SlideShow.xaml</DependentUpon>
     </Compile>
@@ -318,6 +321,7 @@
     <Content Include="Assets\AppBar\refresh.png" />
     <Content Include="Assets\AppBar\save.png" />
     <Content Include="Assets\AppBar\search.png" />
+    <Content Include="Assets\AppBar\share.png" />
     <Content Include="Assets\AppBar\transport.ff.png" />
     <Content Include="Assets\AppBar\transport.rew.png" />
     <Content Include="Assets\ApplicationIcon.png">
@@ -456,6 +460,10 @@
     <Page Include="Controls\QuickSelector.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ShareControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SlideShow.xaml">
       <SubType>Designer</SubType>

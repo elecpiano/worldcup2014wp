@@ -347,5 +347,10 @@ namespace WorldCup2014WP.Pages
 
         }
 
+        private void guessHistory_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+
+        }
+
     }
 }

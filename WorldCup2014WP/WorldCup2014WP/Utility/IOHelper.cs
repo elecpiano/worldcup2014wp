@@ -16,5 +16,13 @@ namespace WorldCup2014WP.Utility
             stream.Read(data, 0, (int)stream.Length);
             return data;
         }
+
+        public static Stream ReadResAsStream(string path)
+        {
+            StreamResourceInfo info = App.GetResourceStream(new Uri(path, UriKind.Relative));
+            if (info == null) return null;
+            Stream stream = info.Stream;
+            return stream;
+        }
     }
 }

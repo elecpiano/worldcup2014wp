@@ -3,12 +3,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:WorldCup2014WP.Controls"
     mc:Ignorable="d"
     d:DesignHeight="480" d:DesignWidth="480"
              Margin="-1,-1,0,0">
 
-    <Border BorderBrush="White" BorderThickness="1,1,1,1">
+    <Border BorderBrush="White" BorderThickness="1,1,1,1" Tap="Border_Tap">
         <Grid x:Name="LayoutRoot" Background="#ffd9d9d9" Margin="0">
+            <Rectangle x:Name="rect" Fill="#a0ffffff" Opacity="0"/>
             <Ellipse Visibility="{Binding HasGame}" Width="40" Height="40" Fill="{StaticResource App_Theme_Color}" VerticalAlignment="Center" Margin="0,0,0,0"/>
             <TextBlock Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='dd'}" Style="{StaticResource GameCalendar_Date_Style}"/>
         </Grid>
