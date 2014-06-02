@@ -24,11 +24,14 @@ namespace WorldCup2014WP.Pages
 
         private const int WECHAT_IMAGE_SIZE_MAX = 1024 * 32;
 
+        private bool TryGetShareResultOnNavigatedTo = false;
+
         #region Lifecycle
 
         public NewsDetailPage()
         {
             InitializeComponent();
+            BuildApplicationBar();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -50,10 +53,10 @@ namespace WorldCup2014WP.Pages
 
             LoadHTML();
 
-
-            if (App.IsLoggedIn)
+            if (TryGetShareResultOnNavigatedTo)
             {
-                BuildApplicationBar();
+                GetShareResult();
+                TryGetShareResultOnNavigatedTo = false;
             }
         }
 
@@ -104,7 +107,14 @@ namespace WorldCup2014WP.Pages
 
         void appBarShare_Click(object sender, System.EventArgs e)
         {
-            ShowPopup("VSSNSSelector");
+            if (App.IsLoggedIn)
+            {
+                ShowPopup("VSSNSSelector");
+            }
+            else
+            {
+                MessageBox.Show("请登录");
+            }
         }
 
         #endregion
@@ -152,10 +162,11 @@ namespace WorldCup2014WP.Pages
 
         private async void Weibo_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
+            ClosePopup();
             Stream imageStream = await ImageHelper.GetImageStream(newsImage);
             string shareText = newsTitle + " " + GetNewsURL();
             WeiboAssociation.Share(imageStream, shareText);
-
+            TryGetShareResultOnNavigatedTo = true;
         }
 
         private async void WeChat_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -171,6 +182,7 @@ namespace WorldCup2014WP.Pages
             {
                 WechatHelper.Current.Send(newsTitle, string.Empty, imageData, shareURL);
             }
+            TryGetShareResultOnNavigatedTo = true;
         }
 
         private string GetNewsURL()
@@ -178,7 +190,7 @@ namespace WorldCup2014WP.Pages
             return Constants.DOMAIN + @"/share/" + newsID + ".html";
         }
 
-        DataLoader<ShareResult> shareResultLoader = new DataLoader<ShareResult>();
+        GenericDataLoader<ShareResult> shareResultLoader = new GenericDataLoader<ShareResult>();
 
         private void GetShareResult()
         {
@@ -188,7 +200,7 @@ namespace WorldCup2014WP.Pages
             }
 
             string param = "&sid=" + App.User.SessionID + "&resid=" + newsID;
-            shareResultLoader.Load("getdetail", param, true, Constants.NEWS_MODULE, string.Format(Constants.NEWS_DETAIL_FILE_NAME_FORMAT, newsID),
+            shareResultLoader.UserLoad("share", param, false, string.Empty, string.Empty,
                 result =>
                 {
                     MessageBox.Show(result.Message);
