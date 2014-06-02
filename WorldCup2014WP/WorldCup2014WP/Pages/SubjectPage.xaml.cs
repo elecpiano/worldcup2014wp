@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using WorldCup2014WP.Models;
 using WorldCup2014WP.Utility;
 using System.Collections.ObjectModel;
+using WorldCup2014WP.Controls;
 
 namespace WorldCup2014WP.Pages
 {
@@ -72,20 +73,7 @@ namespace WorldCup2014WP.Pages
         private void NewsItem_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             News news = sender.GetDataContext<News>();
-
-            string naviString = string.Empty;
-            switch (news.Type)
-            {
-                case "0":
-                    VideoPage.PlayVideo(this, news.ID, null);
-                    break;
-                case "1":
-                    naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}", NaviParam.NEWS_ID, news.ID, NaviParam.NEWS_TITLE, news.Title);
-                    NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
-                    break;
-                default:
-                    break;
-            }
+            NewsHandler.OnNewsTap(this, news);
         }
     }
 }

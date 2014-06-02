@@ -8,7 +8,7 @@ namespace WorldCup2014WP
 {
     public class Constants
     {
-        public const string DOMAIN = "http://api1.gootrip.com";// "http://115.28.21.97";// "http://api.gootrip.com"; //"http://115.28.253.73";
+        public const string DOMAIN = "http://api2.gootrip.com";//"http://api1.gootrip.com";// "http://115.28.21.97";// "http://api.gootrip.com"; //"http://115.28.253.73";
 
         //splash
         public const string SPLASH_MODULE = "splash";
@@ -124,6 +124,7 @@ namespace WorldCup2014WP
         public const string NEWS_ID = "news_id";
         public const string NEWS_TITLE = "news_title";
         public const string NEWS_SECOND_TITLE = "news_second_title";
+        public const string NEWS_IMAGE = "news_image";
 
         public const string SUBJECT_ID = "subject_id";
 

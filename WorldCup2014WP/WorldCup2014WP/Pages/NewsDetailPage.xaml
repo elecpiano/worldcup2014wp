@@ -12,6 +12,26 @@
     shell:SystemTray.IsVisible="True">
 
     <Grid x:Name="LayoutRoot" Background="White">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.3">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <PowerEase EasingMode="EaseInOut"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="VSSNSSelector">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="snsSelector" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Normal">
+                    <Storyboard />
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -28,6 +48,38 @@
                 <phone:WebBrowser Grid.Row="1" x:Name="browser" Margin="24,12,24,12" UseLayoutRounding="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 <controls:Snow Grid.Row="1" x:Name="snow2"/>
             </Grid>
+        </Grid>
+
+        <!--popup-->
+        <Rectangle Grid.RowSpan="2" x:Name="popupMask" Fill="#80000000" Tap="popupMask_Tap" Opacity="0" IsHitTestVisible="False"/>
+        <Grid x:Name="snsSelector" Grid.RowSpan="2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" 
+                  Visibility="Visible">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateY="-320"/>
+            </Grid.RenderTransform>
+            <!--shadow-->
+            <Rectangle VerticalAlignment="Bottom" Height="48" Margin="0,0,0,-24" Tap="popupMask_Tap" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Offset="0" Color="#ff000000"/>
+                        <GradientStop Offset="1" Color="#00000000"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <StackPanel Background="{StaticResource App_Theme_Color_Light}">
+                <controls:ContentButton Height="64" Margin="24,24,24,0" Tap="Weibo_Tap">
+                    <Grid>
+                        <Border Style="{StaticResource Image_Border_Style}" Background="{StaticResource App_Theme_Color}"/>
+                        <TextBlock Text="微博" Style="{StaticResource UserCenter_Button_Text_Style}"/>
+                    </Grid>
+                </controls:ContentButton>
+                <controls:ContentButton Height="64" Margin="24,24,24,24" Tap="WeChat_Tap">
+                    <Grid>
+                        <Border Style="{StaticResource Image_Border_Style}" Background="{StaticResource App_Theme_Color}"/>
+                        <TextBlock Text="微信" Style="{StaticResource UserCenter_Button_Text_Style}"/>
+                    </Grid>
+                </controls:ContentButton>
+            </StackPanel>
         </Grid>
     </Grid>
 

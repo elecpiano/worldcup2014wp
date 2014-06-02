@@ -197,6 +197,7 @@
     <Compile Include="Models\Diary.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Score.cs" />
+    <Compile Include="Models\ShareResult.cs" />
     <Compile Include="Models\UserRegCodeResult.cs" />
     <Compile Include="Models\UserLoginResult.cs" />
     <Compile Include="Models\Banner.cs" />
@@ -345,6 +346,7 @@
     <Content Include="Assets\Images\PlayButton.png" />
     <Content Include="Assets\Images\PlayButton48.png" />
     <Content Include="Assets\Images\PlayButton99.png" />
+    <Content Include="Assets\Images\SnsShareDefaultImage.jpg" />
     <Content Include="Assets\Images\Subscribe.png" />
     <Content Include="Assets\Images\UnSubscribe.png" />
     <Content Include="Assets\Images\UserDefault.png" />

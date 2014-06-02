@@ -12,7 +12,7 @@ namespace WorldCup2014WP.Models
         public string Code { get; set; }
 
         [DataMember(Name = "userid")]
-        public string UserID { get; set; }
+        public string SessionID { get; set; }
 
         [DataMember(Name = "img")]
         public string Image { get; set; }

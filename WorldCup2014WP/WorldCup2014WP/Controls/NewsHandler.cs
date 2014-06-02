@@ -21,7 +21,7 @@ namespace WorldCup2014WP.Controls
                     VideoPage.PlayVideo(hostingPage, news.ID, null);
                     break;
                 case "1":
-                    naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}", NaviParam.NEWS_ID, news.ID, NaviParam.NEWS_TITLE, news.Title);
+                    naviString = string.Format("/Pages/NewsDetailPage.xaml?{0}={1}&{2}={3}&{4}={5}", NaviParam.NEWS_ID, news.ID, NaviParam.NEWS_TITLE, news.Title,NaviParam.NEWS_IMAGE, news.Image);
                     hostingPage.NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
                     break;
                 case "2":

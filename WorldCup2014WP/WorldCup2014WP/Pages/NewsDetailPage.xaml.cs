@@ -9,21 +9,26 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WorldCup2014WP.Utility;
 using WorldCup2014WP.Models;
+using System.IO;
 
 namespace WorldCup2014WP.Pages
 {
     public partial class NewsDetailPage : PhoneApplicationPage
     {
+        App App { get { return App.Current as App; } }
+
         private string newsID = string.Empty;
         private string newsTitle = string.Empty;
+        private string newsImage = string.Empty;
         private string secondaryHeader = string.Empty;
+
+        private const int WECHAT_IMAGE_SIZE_MAX = 1024 * 32;
 
         #region Lifecycle
 
         public NewsDetailPage()
         {
             InitializeComponent();
-            BuildApplicationBar();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -32,6 +37,8 @@ namespace WorldCup2014WP.Pages
 
             newsID = NavigationContext.QueryString[NaviParam.NEWS_ID];
             newsTitle = NavigationContext.QueryString[NaviParam.NEWS_TITLE];
+            newsImage = NavigationContext.QueryString[NaviParam.NEWS_IMAGE];
+
             if (NavigationContext.QueryString.ContainsKey(NaviParam.NEWS_SECOND_TITLE))
             {
                 secondaryHeader = NavigationContext.QueryString[NaviParam.NEWS_SECOND_TITLE];
@@ -42,6 +49,12 @@ namespace WorldCup2014WP.Pages
             }
 
             LoadHTML();
+
+
+            if (App.IsLoggedIn)
+            {
+                BuildApplicationBar();
+            }
         }
 
         #endregion
@@ -91,11 +104,98 @@ namespace WorldCup2014WP.Pages
 
         void appBarShare_Click(object sender, System.EventArgs e)
         {
+            ShowPopup("VSSNSSelector");
         }
 
         #endregion
 
+        #region Popup Management
 
+        bool popupShown = false;
+
+        private void ShowPopup(string visualState)
+        {
+            popupShown = true;
+            VisualStateManager.GoToState(this, visualState, true);
+            popupMask.Opacity = 1;
+            popupMask.IsHitTestVisible = true;
+        }
+
+        private void ClosePopup()
+        {
+            VisualStateManager.GoToState(this, "Normal", true);
+            popupShown = false;
+            popupMask.Opacity = 0;
+            popupMask.IsHitTestVisible = false;
+        }
+
+        private void popupMask_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            ClosePopup();
+        }
+
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            if (popupShown)
+            {
+                e.Cancel = true;
+                ClosePopup();
+                return;
+            }
+
+            base.OnBackKeyPress(e);
+        }
+
+        #endregion
+
+        #region SNS Share
+
+        private async void Weibo_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            Stream imageStream = await ImageHelper.GetImageStream(newsImage);
+            string shareText = newsTitle + " " + GetNewsURL();
+            WeiboAssociation.Share(imageStream, shareText);
+
+        }
+
+        private async void WeChat_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            ClosePopup();
+            string shareURL = GetNewsURL();
+            byte[] imageData = await ImageHelper.GetImageData(newsImage);
+            if (imageData.Length > WECHAT_IMAGE_SIZE_MAX)
+            {
+                WechatHelper.Current.Send(newsTitle, string.Empty, "Assets/Images/SnsShareDefaultImage.jpg", shareURL);
+            }
+            else
+            {
+                WechatHelper.Current.Send(newsTitle, string.Empty, imageData, shareURL);
+            }
+        }
+
+        private string GetNewsURL()
+        {
+            return Constants.DOMAIN + @"/share/" + newsID + ".html";
+        }
+
+        DataLoader<ShareResult> shareResultLoader = new DataLoader<ShareResult>();
+
+        private void GetShareResult()
+        {
+            if (shareResultLoader.Busy)
+            {
+                return;
+            }
+
+            string param = "&sid=" + App.User.SessionID + "&resid=" + newsID;
+            shareResultLoader.Load("getdetail", param, true, Constants.NEWS_MODULE, string.Format(Constants.NEWS_DETAIL_FILE_NAME_FORMAT, newsID),
+                result =>
+                {
+                    MessageBox.Show(result.Message);
+                });
+        }
+
+        #endregion
 
 
     }

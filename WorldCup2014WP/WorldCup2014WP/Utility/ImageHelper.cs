@@ -152,5 +152,54 @@ namespace WorldCup2014WP.Utility
 
             return null;
         }
+
+        public static async Task<byte[]> GetImageData(string uri)
+        {
+            byte[] fileBytes = null;
+            try
+            {
+                //download
+                HttpWebRequest request = HttpWebRequest.CreateHttp(new Uri(uri));
+                request.Method = "GET";
+                HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync();
+
+                using (Stream stream = response.GetResponseStream())
+                {
+                    fileBytes = new byte[response.ContentLength];
+                    await stream.ReadAsync(fileBytes, 0, (int)response.ContentLength);
+                }
+
+            }
+            catch (Exception e)
+            {
+            }
+            return fileBytes;
+        }
+
+        public static async Task<Stream> GetImageStream(string uri)
+        {
+            byte[] fileBytes = null;
+            MemoryStream ms = null;
+            try
+            {
+                //download
+                HttpWebRequest request = HttpWebRequest.CreateHttp(new Uri(uri));
+                request.Method = "GET";
+                HttpWebResponse response = (HttpWebResponse)await request.GetResponseAsync();
+
+                using (Stream stream = response.GetResponseStream())
+                {
+                    fileBytes = new byte[response.ContentLength];
+                    await stream.ReadAsync(fileBytes, 0, (int)response.ContentLength);
+                    ms = new MemoryStream(fileBytes);
+                }
+
+            }
+            catch (Exception e)
+            {
+            }
+            return ms;
+        }
+
     }
 }

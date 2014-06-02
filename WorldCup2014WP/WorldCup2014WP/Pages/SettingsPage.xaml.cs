@@ -28,8 +28,14 @@ namespace WorldCup2014WP.Pages
 
         private async void UpdateLocalFolderSize()
         {
-            var size = await IsolatedStorageHelper.GetUserDataSize();
-            localFolderSizeTextBlock.Text = Math.Round(((double)size / 1048576d), 2).ToString() + " MB";
+            try
+            {
+                var size = await IsolatedStorageHelper.GetUserDataSize();
+                localFolderSizeTextBlock.Text = Math.Round(((double)size / 1048576d), 2).ToString() + " MB";
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         #endregion

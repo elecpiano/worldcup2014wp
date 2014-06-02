@@ -94,7 +94,7 @@ namespace WorldCup2014WP.Models
         {
             get
             {
-                return this.Type == 1 ? Visibility.Visible : Visibility.Collapsed;
+                return this.Type == 0 ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 
@@ -103,7 +103,7 @@ namespace WorldCup2014WP.Models
         {
             get
             {
-                return this.Type == 0 ? Visibility.Visible : Visibility.Collapsed;
+                return this.Type == 1 ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 

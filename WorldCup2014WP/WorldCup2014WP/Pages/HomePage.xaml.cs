@@ -201,8 +201,8 @@ namespace WorldCup2014WP.Pages
         void appBarSetting_Click(object sender, EventArgs e)
         {
             //SnsShareWechat();
-            SnsShareWeibo();
-            //NavigationService.Navigate(new Uri("/Pages/SettingsPage.xaml", UriKind.Relative));
+            //SnsShareWeibo();
+            NavigationService.Navigate(new Uri("/Pages/SettingsPage.xaml", UriKind.Relative));
         }
 
         private void ClearAppBar()
@@ -270,7 +270,7 @@ namespace WorldCup2014WP.Pages
             }
 
             //this.bubbles.IsBusy = panorama.SelectedIndex == 5;
-            VisualStateManager.GoToState(this, "vsHeaderBar" + panorama.SelectedIndex, true);
+            //VisualStateManager.GoToState(this, "vsHeaderBar" + panorama.SelectedIndex, true);
         }
 
         #endregion
@@ -365,7 +365,7 @@ namespace WorldCup2014WP.Pages
             snowNews.IsBusy = true;
 
             //load
-            newsLoader.Load("getnewslist", string.Empty, true, Constants.NEWS_MODULE, string.Format(Constants.NEWS_LIST_FILE_NAME_FORMAT, newsPageIndex),
+            newsLoader.Load("getnewslist", "&page=" + newsPageIndex.ToString(), true, Constants.NEWS_MODULE, string.Format(Constants.NEWS_LIST_FILE_NAME_FORMAT, newsPageIndex),
                 list =>
                 {
                     newsPageCount = list.TotalPageCount;

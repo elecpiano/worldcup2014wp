@@ -27,7 +27,7 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <!--live or video-->
+                            <!--live / video tag-->
                             <Grid Grid.Row="0" HorizontalAlignment="Left" Margin="2,0,0,0" >
                                 <StackPanel Orientation="Horizontal" Visibility="{Binding IsLive}">
                                     <Image Source="/Assets/Images/Live.png" Stretch="Uniform" Width="24" Height="24"/>
@@ -54,6 +54,15 @@
                                 <controls:ContentButton Tap="EpgItem_Tap">
                                     <controls:FadingImage Source="{Binding Image}" Stretch="UniformToFill" Margin="-13,-5"/>
                                 </controls:ContentButton>
+                                <!--gradient mask-->
+                                <Rectangle Width="320" HorizontalAlignment="Left" IsHitTestVisible="False">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
+                                            <GradientStop Color="#7F000000" Offset="0"/>
+                                            <GradientStop Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
                             </Grid>
 
                             <!--time-->

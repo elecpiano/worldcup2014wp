@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
-  <DefaultLanguage xmlns="" code="en-US" />
+  <DefaultLanguage xmlns="" code="zh-Hans" />
   <App xmlns="" ProductID="{51ae1e12-f37f-4571-a5a2-2614e8aec87b}" Title="WorldCup2014WP" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="WorldCup2014WP author" Description="Sample description" Publisher="WorldCup2014WP" PublisherID="{0b69e0b9-69e0-405b-bc04-a7c7b57c0b69}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
       <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
-      <Capability Name="ID_CAP_SENSORS" />
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+      <Capability Name="ID_CAP_MEDIALIB_PHOTO" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="Pages/HomePage.xaml" />
