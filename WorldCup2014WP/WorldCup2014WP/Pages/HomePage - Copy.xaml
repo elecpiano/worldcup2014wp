@@ -12,6 +12,75 @@
     shell:SystemTray.IsVisible="True">
 
     <Grid x:Name="LayoutRoot" Background="White">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="vsgHeaderBar">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.5">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <PowerEase EasingMode="EaseInOut"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="vsHeaderBar1">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="480" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase0" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="vsHeaderBar2">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="480" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase0" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="vsHeaderBar3">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="480" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase0" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="vsHeaderBar4">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase4" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="480" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase0" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="vsHeaderBar0"/>
+                <VisualState x:Name="vsHeaderBar5">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase1" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase2" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase3" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase4" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase5" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="480" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="headerBarBase0" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="vsgCalendar">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.3">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <PowerEase EasingMode="EaseInOut"/>
+                        </VisualTransition.GeneratedEasingFunction>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="vsCalendarShown">
+                    <Storyboard>
+                        <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="calendarPanel" d:IsOptimized="True"/>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="vsCalendarHidden">
+                    <Storyboard />
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -20,6 +89,40 @@
 
         <!--top bar-->
         <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
+
+        <!--color stripe-->
+        <Grid Grid.Row="1" VerticalAlignment="Top" Height="48" Visibility="Collapsed">
+            <Grid x:Name="headerBarBase1" Background="#ff46c6e9" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="480"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="headerBarBase2" Background="#ffaed255" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="480"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="headerBarBase3" Background="#fff7d144" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="480"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="headerBarBase4" Background="#fff69662" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="480"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="headerBarBase5" Background="#FFA371E0" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="480"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="headerBarBase0" Background="#ffffffff" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <CompositeTransform TranslateX="0"/>
+                </Grid.RenderTransform>
+            </Grid>
+        </Grid>
 
         <!--content panel-->
         <Grid Grid.Row="1" x:Name="contentPanel">
@@ -53,7 +156,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <controls:BannerControl x:Name="bannerControl"  Margin="0,0,0,12" Visibility="Collapsed"/>
+                        <controls:BannerControl x:Name="bannerControl"  Margin="0,12,0,12" Visibility="Collapsed"/>
                         <controls:EPGList Grid.Row="1" x:Name="epgList" Margin="0,0,0,0"/>
                         <controls:HeaderMoreButton VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-48,8,0" 
                                                    Tap="EpgMoreButton_Tap"/>
@@ -277,83 +380,91 @@
 
                 <!--more-->
                 <phone:PanoramaItem Header="我的世界杯">
-                    <ScrollViewer>
-                        <Grid Margin="12,0,0,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="180"/>
-                                <RowDefinition Height="180"/>
-                                <RowDefinition Height="180"/>
-                                <RowDefinition Height="180"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="180"/>
-                                <ColumnDefinition Width="180"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                    <Grid Margin="12,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="180"/>
+                            <RowDefinition Height="180"/>
+                            <RowDefinition Height="180"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                            <!--user center-->
-                            <controls:ContentButton Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,8,8" 
+                        <!--user center-->
+                        <controls:ContentButton Grid.Row="0" Grid.Column="0" Margin="0,0,8,8" 
                                                 Tap="userCenter_Tap">
-                                <Grid Background="{StaticResource App_Theme_Color}">
-                                    <TextBlock Text="用户中心" Style="{StaticResource Tile_Text_Style}"/>
-                                </Grid>
-                            </controls:ContentButton>
+                            <Grid Background="{StaticResource App_Theme_Color}">
+                                <TextBlock Text="用户中心" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
 
-                            <!--game data-->
-                            <controls:ContentButton Grid.Row="1" Grid.Column="0" Margin="0,0,8,8"  
-                                                Tap="gameData_Tap">
-                                <Grid Background="{StaticResource App_Theme_Color}">
-                                    <TextBlock Text="赛程赛果" Style="{StaticResource Tile_Text_Style}"/>
-                                </Grid>
-                            </controls:ContentButton>
-
-                            <!--game calendar-->
-                            <controls:ContentButton Grid.Row="1" Grid.Column="1" Margin="0,0,8,8" 
+                        <!--game calendar-->
+                        <controls:ContentButton Grid.Row="0" Grid.Column="1" Margin="0,0,8,8" 
                                                 Tap="gameCalendar_Tap">
-                                <Grid Background="{StaticResource App_Theme_Color}">
-                                    <TextBlock Text="转播日历" Style="{StaticResource Tile_Text_Style}"/>
-                                </Grid>
-                            </controls:ContentButton>
+                            <Grid Background="{StaticResource App_Theme_Color}">
+                                <TextBlock Text="转播日历" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
 
-                            <!--stadium-->
-                            <controls:ContentButton Grid.Row="3" Grid.Column="0" Margin="0,0,8,8"  
+                        <!--game data-->
+                        <controls:ContentButton Grid.Row="1" Grid.Column="0" Margin="0,0,8,8"  
+                                                Tap="gameData_Tap">
+                            <Grid Background="{StaticResource App_Theme_Color}">
+                                <TextBlock Text="赛程赛果" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
+                        
+                        <!--stadium-->
+                        <controls:ContentButton Grid.Row="1" Grid.Column="1" Margin="0,0,8,8"  
                                                 Tap="stadium_Tap">
-                                <Grid Background="{StaticResource App_Theme_Color}">
-                                    <TextBlock Text="球场巡礼" Style="{StaticResource Tile_Text_Style}"/>
-                                </Grid>
-                            </controls:ContentButton>
+                            <Grid Background="{StaticResource App_Theme_Color}">
+                                <TextBlock Text="球场巡礼" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
 
-                            <!--team-->
-                            <controls:ContentButton Grid.Row="3" Grid.Column="1" Margin="0,0,8,8" 
+                        <!--team-->
+                        <controls:ContentButton Grid.Row="2" Grid.Column="0" Margin="0,0,8,8" 
                                                 Tap="team_Tap">
-                                <Grid Background="{StaticResource App_Theme_Color}">
-                                    <TextBlock Text="球队巡礼" Style="{StaticResource Tile_Text_Style}"/>
-                                </Grid>
-                            </controls:ContentButton>
+                            <Grid Background="{StaticResource App_Theme_Color}">
+                                <TextBlock Text="球队巡礼" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
 
-                            <!--magma-->
-                            <controls:ContentButton Grid.Row="2" Grid.Column="0" Margin="0,0,8,8" 
+                        <!--magma-->
+                        <controls:ContentButton Grid.Row="2" Grid.Column="1" Margin="0,0,8,8" 
                                                 Tap="magma_Tap">
-                                <Grid Background="{StaticResource App_Theme_Color}">
-                                    <TextBlock Text="技术看球" Style="{StaticResource Tile_Text_Style}"/>
-                                </Grid>
-                            </controls:ContentButton>
-
-                            <!--guess-->
-                            <controls:ContentButton Grid.Row="2" Grid.Column="1" Margin="0,0,8,8" 
-                                                Tap="guess_Tap">
-                                <Grid Background="{StaticResource App_Theme_Color}">
-                                    <TextBlock Text="竞猜比分" Style="{StaticResource Tile_Text_Style}"/>
-                                </Grid>
-                            </controls:ContentButton>
-
-                            <controls:Bubbles x:Name="bubbles" Grid.RowSpan="4" Grid.ColumnSpan="2" Width="400" HorizontalAlignment="Left"/>
-                        </Grid>
-                    </ScrollViewer>
+                            <Grid Background="{StaticResource App_Theme_Color}">
+                                <TextBlock Text="技术看球" Style="{StaticResource Tile_Text_Style}"/>
+                            </Grid>
+                        </controls:ContentButton>
+                        <controls:Bubbles x:Name="bubbles" Grid.RowSpan="4" Grid.ColumnSpan="2" Width="400" HorizontalAlignment="Left"/>
+                    </Grid>
                 </phone:PanoramaItem>
 
             </phone:Panorama>
+        </Grid>
+
+        <!--popup mask-->
+        <Rectangle x:Name="popupMask" Grid.RowSpan="2" Fill="#80000000" Tap="popupMask_Tap" Opacity="0" IsHitTestVisible="False"/>
+
+        <!--calendar popup-->
+        <Grid x:Name="calendarPanel" Grid.RowSpan="2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateY="-580"/>
+            </Grid.RenderTransform>
+            <!--shadow-->
+            <Rectangle VerticalAlignment="Bottom" Height="48" Margin="0,0,0,-24" Tap="popupMask_Tap" >
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Offset="0" Color="#ff000000"/>
+                        <GradientStop Offset="1" Color="#00000000"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <controls:GameCalendarControl x:Name="gameCalendarControl"/>
         </Grid>
 
         <!--toast-->

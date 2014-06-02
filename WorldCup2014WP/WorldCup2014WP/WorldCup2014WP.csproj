@@ -142,6 +142,9 @@
     <Compile Include="Controls\GameResultPanel.xaml.cs">
       <DependentUpon>GameResultPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GuessControl.xaml.cs">
+      <DependentUpon>GuessControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\HeaderMoreButton.xaml.cs">
       <DependentUpon>HeaderMoreButton.xaml</DependentUpon>
     </Compile>
@@ -198,6 +201,7 @@
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Score.cs" />
     <Compile Include="Models\ShareResult.cs" />
+    <Compile Include="Models\Guess.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\UserRegCodeResult.cs" />
     <Compile Include="Models\UserLoginResult.cs" />
@@ -236,6 +240,9 @@
     </Compile>
     <Compile Include="Pages\TeamPage.xaml.cs">
       <DependentUpon>TeamPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GuessPage.xaml.cs">
+      <DependentUpon>GuessPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\UserCenterPage.xaml.cs">
       <DependentUpon>UserCenterPage.xaml</DependentUpon>
@@ -433,6 +440,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\GuessControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\HeaderMoreButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -502,6 +513,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\TeamPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\GuessPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

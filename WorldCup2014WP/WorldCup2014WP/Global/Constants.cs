@@ -77,6 +77,10 @@ namespace WorldCup2014WP
         public const string TEAM_MODULE = "team";
         public const string TEAM_FILE_NAME = "team.txt";
 
+        //guess 
+        public const string GUESS_MODULE = "guess";
+        public const string GUESS_FILE_NAME = "guess.txt";
+
         //////////////////////////////////////// TO-DO : remove all below
 
        

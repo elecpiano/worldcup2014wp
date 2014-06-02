@@ -1,0 +1,161 @@
+﻿<UserControl x:Class="WorldCup2014WP.Controls.GuessControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:WorldCup2014WP.Controls"
+    mc:Ignorable="d"
+    d:DesignHeight="480" d:DesignWidth="480">
+    <UserControl.Resources>
+        <Style x:Key="SliderStyle1" TargetType="Slider">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Maximum" Value="10"/>
+            <Setter Property="Minimum" Value="0"/>
+            <Setter Property="Value" Value="0"/>
+            <Setter Property="Background" Value="{StaticResource PhoneChromeBrush}"/>
+            <Setter Property="Foreground" Value="{StaticResource PhoneAccentBrush}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Slider">
+                        <Grid Background="Transparent">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver"/>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimation Duration="0" To="0.1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="HorizontalTrack"/>
+                                            <DoubleAnimation Duration="0" To="0.1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="VerticalTrack"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="VerticalFill">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneDisabledBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid x:Name="HorizontalTemplate">
+                                <Rectangle x:Name="HorizontalTrack" Height="5" IsHitTestVisible="False" StrokeThickness="0" Fill="{StaticResource App_Theme_Color_Light}"/>
+                                <Rectangle x:Name="HorizontalFill" Fill="{StaticResource App_Theme_Color_Dark}" Height="5" IsHitTestVisible="False" StrokeThickness="0">
+                                    <Rectangle.Clip>
+                                        <RectangleGeometry Rect="0, 0, 6, 12"/>
+                                    </Rectangle.Clip>
+                                </Rectangle>
+                                <Grid x:Name="HorizontalCenterElement" HorizontalAlignment="Left">
+                                    <Grid.RenderTransform>
+                                        <TranslateTransform/>
+                                    </Grid.RenderTransform>
+                                    <Ellipse Fill="{StaticResource App_Theme_Color_Light}" Height="48" Width="48" StrokeThickness="0"/>
+                                    <Ellipse Fill="{StaticResource App_Theme_Color_Dark}" Height="12" Width="12" StrokeThickness="0"/>
+                                </Grid>
+                            </Grid>
+                            <Grid x:Name="VerticalTemplate" Margin="{StaticResource PhoneVerticalMargin}">
+                                <Rectangle x:Name="VerticalTrack" Fill="{TemplateBinding Background}" IsHitTestVisible="False" Margin="18,0,18,0" Width="12"/>
+                                <Rectangle x:Name="VerticalFill" Fill="{TemplateBinding Foreground}" IsHitTestVisible="False" Margin="18,0,18,0" Width="12">
+                                    <Rectangle.Clip>
+                                        <RectangleGeometry Rect="0, 0, 12, 6"/>
+                                    </Rectangle.Clip>
+                                </Rectangle>
+                                <Rectangle x:Name="VerticalCenterElement" Fill="{StaticResource PhoneForegroundBrush}" Height="12" Margin="12,0,12,0" VerticalAlignment="Top" Width="24">
+                                    <Rectangle.RenderTransform>
+                                        <TranslateTransform/>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Style="{StaticResource Item_SplitBar_Top_Style}"/>
+
+        <!--country-->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Country1}" Style="{StaticResource Guess_CountryName_Style}"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Country2}" Style="{StaticResource Guess_CountryName_Style}"/>
+            <Image Source="{Binding Image1}" Grid.Row="1" Grid.Column="0" Width="48" Height="48" Stretch="Uniform"/>
+            <Image Source="{Binding Image2}" Grid.Row="1" Grid.Column="2" Width="48" Height="48" Stretch="Uniform"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Text="vs" Style="{StaticResource Guess_CountryName_Style}"/>
+        </Grid>
+
+        <!--time-->
+        <TextBlock Grid.Row="1" Text="比赛时间" Style="{StaticResource Guess_Time_Style}"/>
+        <TextBlock Grid.Row="2" Text="{Binding Date}" Style="{StaticResource Guess_Time_Style}"/>
+
+        <!--options-->
+        <Grid Grid.Row="3"  Margin="0,12,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" DataContext="{Binding Option0}">
+                <TextBlock Style="{StaticResource Guess_Option_Title_Style}">
+                    <Run Text="猜中翻"/>
+                    <Run Text="{Binding Win}"/>
+                    <Run Text="倍"/>
+                </TextBlock>
+                <TextBlock Text="{Binding OptionName}" Style="{StaticResource Guess_Option_Style}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" DataContext="{Binding Option1}">
+                <TextBlock Style="{StaticResource Guess_Option_Title_Style}">
+                    <Run Text="猜中翻"/>
+                    <Run Text="{Binding Win}"/>
+                    <Run Text="倍"/>
+                </TextBlock>
+                <TextBlock Text="{Binding OptionName}" Style="{StaticResource Guess_Option_Style}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" DataContext="{Binding Option2}">
+                <TextBlock Style="{StaticResource Guess_Option_Title_Style}">
+                    <Run Text="猜中翻"/>
+                    <Run Text="{Binding Win}"/>
+                    <Run Text="倍"/>
+                </TextBlock>
+                <TextBlock Text="{Binding OptionName}" Style="{StaticResource Guess_Option_Style}"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <TextBlock Text="最低500" Style="{StaticResource Guess_Option_Title_Style}" HorizontalAlignment="Left" Opacity="0.5"/>
+            <TextBlock Text="最高10000" Style="{StaticResource Guess_Option_Title_Style}" HorizontalAlignment="Right" Opacity="0.5"/>
+            <TextBlock x:Name="bet" Style="{StaticResource Guess_Option_Title_Style}" />
+        </Grid>
+        
+        <!--slider-->
+        <Slider Grid.Row="5" x:Name="slider" Minimum="1" Maximum="20" Margin="0,24,0,24" 
+                Style="{StaticResource SliderStyle1}" ValueChanged="slider_ValueChanged" Value="1"/>
+
+        <controls:ContentButton Grid.Row="6" Height="64" Margin="0,0,0,12" 
+                                Tap="Guess_Tap">
+            <Grid>
+                <Border Style="{StaticResource Image_Border_Style}" Background="{StaticResource App_Theme_Color}"/>
+                <TextBlock Text="确定" Style="{StaticResource GuessButton_Text_Style}"/>
+            </Grid>
+        </controls:ContentButton>
+
+    </Grid>
+</UserControl>
