@@ -198,6 +198,7 @@
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Score.cs" />
     <Compile Include="Models\ShareResult.cs" />
+    <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\UserRegCodeResult.cs" />
     <Compile Include="Models\UserLoginResult.cs" />
     <Compile Include="Models\Banner.cs" />

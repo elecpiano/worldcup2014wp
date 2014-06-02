@@ -37,21 +37,22 @@
                             <Grid Height="90">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="80"/>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Rectangle Grid.ColumnSpan="3" Style="{StaticResource Item_SplitBar_Bottom_Style}"/>
+                                <Rectangle Grid.ColumnSpan="4" Style="{StaticResource Item_SplitBar_Bottom_Style}"/>
                                 <Image Source="/Assets/Images/ExpiredGame.png" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left"
                                        Visibility="{Binding Expired, Converter={StaticResource AnythingToVisibilityConverter}}"/>
                                 <StackPanel Grid.Column="1">
                                     <TextBlock Text="{Binding StartTime, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='MM-dd'}" 
-                                           Style="{StaticResource EPG_Description_Text_Style}"/>
+                                           Style="{StaticResource SubscriptionPage_Item_Text_Style}" TextWrapping="NoWrap"/>
                                     <TextBlock Text="{Binding StartTime, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='HH:mm'}" 
-                                           Style="{StaticResource EPG_Description_Text_Style}"/>
+                                           Style="{StaticResource SubscriptionPage_Item_Text_Style}" TextWrapping="NoWrap"/>
                                 </StackPanel>
-                                <TextBlock Grid.Column="2" Text="{Binding Description}" Style="{StaticResource EPG_Description_Text_Style}" />
+                                <TextBlock Grid.Column="2" Text="{Binding Description}" Style="{StaticResource SubscriptionPage_Item_Text_Style}" />
 
-                                <controls:ImageToggleButton Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="12,0,12,12"
+                                <controls:ImageToggleButton Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="10,0,24,0"
                                                             UnCheckedBackground="/Assets/Images/Subscribe.png" 
                                                             CheckedBackground="/Assets/Images/UnSubscribe.png"
                                                             Checked="True"

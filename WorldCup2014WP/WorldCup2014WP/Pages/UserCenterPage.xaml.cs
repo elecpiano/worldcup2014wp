@@ -185,6 +185,7 @@ namespace WorldCup2014WP.Pages
         GenericDataLoader<UserLoginResult> loginLoader = new GenericDataLoader<UserLoginResult>();
         GenericDataLoader<UserRegCodeResult> regCodeLoader = new GenericDataLoader<UserRegCodeResult>();
         GenericDataLoader<UserLoginResult> registerLoader = new GenericDataLoader<UserLoginResult>();
+        GenericDataLoader<UserInfo> userInfoLoader = new GenericDataLoader<UserInfo>();
 
         private void Login(string userId, string password)
         {
@@ -205,6 +206,7 @@ namespace WorldCup2014WP.Pages
                     if (result.Code == "200")
                     {
                         App.User = result;
+                        gold.Text = App.User.Gold;
                         SetUserInfo();
                         ClosePopup();
                     }
@@ -231,9 +233,12 @@ namespace WorldCup2014WP.Pages
             {
                 userImage.DataContext = App.User.Image;
                 userName.Text = App.User.NickName;
+                goldPanel.Visibility = Visibility.Visible;
+                UpdateUserInfo();
             }
             else
             {
+                goldPanel.Visibility = Visibility.Collapsed;
                 userImage.DataContext = "/Assets/Images/UserDefault.png";
                 userName.Text = "未登录";
             }
@@ -261,7 +266,7 @@ namespace WorldCup2014WP.Pages
                     else
                     {
                         MessageBox.Show(result.Message);
-                        if (timer!=null)
+                        if (timer != null)
                         {
                             timer.Stop();
                         }
@@ -303,6 +308,28 @@ namespace WorldCup2014WP.Pages
 
                     //not busy
                     //snowNews.IsBusy = false;
+                });
+        }
+
+        private void UpdateUserInfo()
+        {
+            if (!App.IsLoggedIn)
+            {
+                return;
+            }
+
+            if (userInfoLoader.Busy)
+            {
+                return;
+            }
+
+            string param = "&sid=" + App.User.SessionID;
+
+            //load
+            userInfoLoader.UserLoad("getuserinfo", param, true, Constants.USER_MODULE, Constants.USER_INFO_FILE_NAME,
+                result =>
+                {
+                    gold.Text = result.Data.Gold.ToString();
                 });
         }
 

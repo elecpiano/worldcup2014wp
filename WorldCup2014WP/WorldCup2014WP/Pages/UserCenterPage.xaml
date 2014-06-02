@@ -57,15 +57,25 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal" Margin="0,12,0,12">
+            <Grid Margin="0,12,0,12" Background="#00000000" Tap="userImage_Tap">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
                 <controls:ContentButton Margin="24,0,12,0" HorizontalAlignment="Left" Tap="userImage_Tap">
                     <Border BorderBrush="#ffa0a0a0" BorderThickness="1" Background="#ffd0d0d0" 
                         Width="100" Height="100" HorizontalAlignment="Left">
                         <controls:FadingImage x:Name="userImage" Source="{Binding}"/>
                     </Border>
                 </controls:ContentButton>
-                <TextBlock x:Name="userName" Style="{StaticResource UserCenter_UserName_Style}"/>
-            </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock x:Name="userName" Style="{StaticResource UserCenter_UserName_Style}"/>
+                    <StackPanel x:Name="goldPanel" Orientation="Horizontal" Visibility="Collapsed" >
+                        <TextBlock Text="积分: " Style="{StaticResource UserCenter_Gold_Text_Style}"/>
+                        <TextBlock x:Name="gold" Style="{StaticResource UserCenter_Gold_Text_Style}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
 
             <!--tiles-->
             <Grid Grid.Row="1" Margin="24,0,0,0">
@@ -89,7 +99,7 @@
                     </Grid>
                 </controls:ContentButton>
 
-                <!--game calendar-->
+                <!--guess history-->
                 <controls:ContentButton Grid.Row="0" Grid.Column="1" Margin="0,0,8,8" 
                                                 Tap="guessHistory_Tap">
                     <Grid Background="{StaticResource App_Theme_Color}">

@@ -56,6 +56,7 @@ namespace WorldCup2014WP
         //user center 
         public const string USER_MODULE = "user";
         public const string LOGIN_FILE_NAME = "login.txt";
+        public const string USER_INFO_FILE_NAME = "login.txt";
 
         //game data
         public const string GAME_DATA_MODULE = "gamedata";

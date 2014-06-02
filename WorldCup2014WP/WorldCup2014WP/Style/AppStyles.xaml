@@ -323,9 +323,15 @@
     </Style>
 
     <Style x:Key="UserCenter_UserName_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
-        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="#ff000000"/>
-        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+    </Style>
+    
+    <Style x:Key="UserCenter_Gold_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="Foreground" Value="#ff808080"/>
     </Style>
 
     <!--recommendation page-->
@@ -451,6 +457,14 @@
         <!--<Setter Property="MaxHeight" Value="80"/>-->
     </Style>
 
+    <!--my subscription page-->
+    <Style x:Key="SubscriptionPage_Item_Text_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Foreground" Value="#ff000000"/>
+        <Setter Property="Margin" Value="10,0,10,0"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+    </Style>
     <!--/////////////////////////////////////////////-->
     
     

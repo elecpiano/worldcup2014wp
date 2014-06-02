@@ -453,7 +453,7 @@
         <!--calendar popup-->
         <Grid x:Name="calendarPanel" Grid.RowSpan="2" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
-                <CompositeTransform TranslateY="-560"/>
+                <CompositeTransform TranslateY="-580"/>
             </Grid.RenderTransform>
             <!--shadow-->
             <Rectangle VerticalAlignment="Bottom" Height="48" Margin="0,0,0,-24" Tap="popupMask_Tap" >
