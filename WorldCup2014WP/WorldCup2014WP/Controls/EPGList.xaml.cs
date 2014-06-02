@@ -67,7 +67,7 @@ namespace WorldCup2014WP.Controls
 
         #endregion
 
-        #region EPG List
+        #region EPG
 
         ObservableCollection<EPG> epgList = new ObservableCollection<EPG>();
         ListDataLoader<EPG> epgLoader = new ListDataLoader<EPG>();
@@ -92,7 +92,7 @@ namespace WorldCup2014WP.Controls
 
         public void LoadEpg(string date)
         {
-            if (epgLoader.Loaded || epgLoader.Busy)
+            if (epgLoader.Busy)
             {
                 return;
             }
@@ -107,15 +107,20 @@ namespace WorldCup2014WP.Controls
                     if (list != null)
                     {
                         epgList.Clear();
-                        //List<DateTime> validHours = new List<DateTime>();
 
                         foreach (var item in list)
                         {
                             epgList.Add(item);
-                            //validHours.Add(item.Start);
                         }
 
-                        //SetQuickSelectorValidItems(validHours);
+                        var subscriptionList = GetSubscriptionList();
+                        foreach (var item in list)
+                        {
+                            if (subscriptionList.Any(x => x.ID == item.ID))
+                            {
+                                item.Subscribed = true;
+                            }
+                        }
 
                         epgListBox.ScrollIntoView(list.FirstOrDefault());
                         snow1.IsBusy = false;
@@ -147,7 +152,11 @@ namespace WorldCup2014WP.Controls
 
         #endregion
 
-        #region Subscribe
+        #region Subscription
+        private List<EPG> GetSubscriptionList()
+        {
+            return SubscriptionDataContext.Current.LoadSubscriptions();
+        }
 
         private void Subscribe_Tap(object sender, GestureEventArgs e)
         {
@@ -179,7 +188,6 @@ namespace WorldCup2014WP.Controls
         }
 
         #endregion
-
 
     }
 }

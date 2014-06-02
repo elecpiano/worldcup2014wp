@@ -467,6 +467,9 @@
             <controls:GameCalendarControl x:Name="gameCalendarControl"/>
         </Grid>
 
+        <!--toast-->
+        <controls:CuteToast x:Name="toast" Grid.RowSpan="2"/>
+
         <!--<Rectangle Fill="Red" Width="24" Height="800" Grid.RowSpan="2" HorizontalAlignment="Left" />-->
 
     </Grid>

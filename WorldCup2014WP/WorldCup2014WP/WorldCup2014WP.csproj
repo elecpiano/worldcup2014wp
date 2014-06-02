@@ -342,6 +342,7 @@
     <Content Include="Assets\Images\ContentTypeIconNews.png" />
     <Content Include="Assets\Images\ContentTypeIconVideo.png" />
     <Content Include="Assets\Images\EpgItemTag.png" />
+    <Content Include="Assets\Images\ExpiredGame.png" />
     <Content Include="Assets\Images\Live.png" />
     <Content Include="Assets\Images\PlayButton.png" />
     <Content Include="Assets\Images\PlayButton48.png" />

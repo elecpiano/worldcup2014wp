@@ -41,11 +41,17 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Rectangle Grid.ColumnSpan="3" Style="{StaticResource Item_SplitBar_Bottom_Style}"/>
-                                <TextBlock Grid.Column="1" Text="{Binding Start, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='MM-dd HH:mm'}" 
+                                <Image Source="/Assets/Images/ExpiredGame.png" Stretch="None" VerticalAlignment="Top" HorizontalAlignment="Left"
+                                       Visibility="{Binding Expired, Converter={StaticResource AnythingToVisibilityConverter}}"/>
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="{Binding StartTime, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='MM-dd'}" 
                                            Style="{StaticResource EPG_Description_Text_Style}"/>
+                                    <TextBlock Text="{Binding StartTime, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='HH:mm'}" 
+                                           Style="{StaticResource EPG_Description_Text_Style}"/>
+                                </StackPanel>
                                 <TextBlock Grid.Column="2" Text="{Binding Description}" Style="{StaticResource EPG_Description_Text_Style}" />
 
-                                <controls:ImageToggleButton VerticalAlignment="Top" HorizontalAlignment="Left" Padding="12,0,12,12"
+                                <controls:ImageToggleButton Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="12,0,12,12"
                                                             UnCheckedBackground="/Assets/Images/Subscribe.png" 
                                                             CheckedBackground="/Assets/Images/UnSubscribe.png"
                                                             Checked="True"

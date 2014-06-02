@@ -19,6 +19,7 @@ namespace WorldCup2014WP.Pages
         #region Property
 
         App App { get { return App.Current as App; } }
+        public static bool ReloatEpgList = true;
 
         #endregion
 
@@ -39,9 +40,15 @@ namespace WorldCup2014WP.Pages
         {
             base.OnNavigatedTo(e);
 
+            App.Toast = this.toast;
+
             LoadSplashImage();
             LoadBanner();
-            LoadEpg(false);
+            if (ReloatEpgList)
+            {
+                LoadEpg(true);
+                ReloatEpgList = false;
+            }
             LoadRecommendation();
             LoadAuthorList();
             LoadNews();

@@ -6,6 +6,7 @@ using WorldCup2014WP.DataContext;
 using WorldCup2014WP.Models;
 using Microsoft.Phone.Shell;
 using System.Windows;
+using System;
 
 namespace WorldCup2014WP.Pages
 {
@@ -55,6 +56,10 @@ namespace WorldCup2014WP.Pages
                 this.noData.Visibility = System.Windows.Visibility.Collapsed;
                 foreach (var item in list)
                 {
+                    if (item.StartTime <= DateTime.Now)
+                    {
+                        item.Expired = true;
+                    }
                     subscriptionList.Add(item);
                 }
             }
@@ -82,6 +87,7 @@ namespace WorldCup2014WP.Pages
             subscriptionList.Remove(epg);
             toast.ShowMessage("成功取消预约。");
             CheckNoData();
+            HomePage.ReloatEpgList = true;
         }
 
         #endregion

@@ -134,11 +134,20 @@ namespace WorldCup2014WP.Models
                 int second = int.Parse(timeArr[2]);
 
                 DateTime goodResult = new DateTime(year, month, day, hour, minute, second);
-                goodResult.AddDays(extraDayCount);
+                if (extraDayCount>0)
+                {
+                    goodResult = goodResult.AddDays(extraDayCount);
+                }
                 return goodResult;
             }
         }
 
-
+        private bool expired = false;
+        [IgnoreDataMember]
+        public bool Expired
+        {
+            get { return expired; }
+            set { SetProperty(ref this.expired, value); }
+        }
     }
 }

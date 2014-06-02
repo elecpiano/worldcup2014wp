@@ -344,7 +344,8 @@ namespace WorldCup2014WP.Pages
 
         private void mySubscription_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-
+            string naviStr = "/Pages/MySubscriptionPage.xaml";
+            NavigationService.Navigate(new Uri(naviStr, UriKind.Relative));
         }
 
         private void guessHistory_Tap(object sender, System.Windows.Input.GestureEventArgs e)
