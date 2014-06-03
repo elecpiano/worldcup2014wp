@@ -196,6 +196,7 @@
     <Compile Include="Infrastructures\BindableBase.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\AlbumItem.cs" />
+    <Compile Include="Models\GuessResult.cs" />
     <Compile Include="Models\Goal.cs" />
     <Compile Include="Models\Diary.cs" />
     <Compile Include="Models\Schedule.cs" />
@@ -237,6 +238,9 @@
     </Compile>
     <Compile Include="Pages\GameDataPage.xaml.cs">
       <DependentUpon>GameDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GuessResultPage.xaml.cs">
+      <DependentUpon>GuessResultPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TeamPage.xaml.cs">
       <DependentUpon>TeamPage.xaml</DependentUpon>
@@ -356,10 +360,12 @@
     <Content Include="Assets\Images\PlayButton48.png" />
     <Content Include="Assets\Images\PlayButton99.png" />
     <Content Include="Assets\Images\SnsShareDefaultImage.jpg" />
+    <Content Include="Assets\Images\Sorry.png" />
     <Content Include="Assets\Images\Subscribe.png" />
     <Content Include="Assets\Images\UnSubscribe.png" />
     <Content Include="Assets\Images\UserDefault.png" />
     <Content Include="Assets\Images\Video.png" />
+    <Content Include="Assets\Images\WinGold.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -509,6 +515,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\GameDataPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\GuessResultPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

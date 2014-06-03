@@ -13,7 +13,6 @@ namespace WorldCup2014WP.Models
 
         [DataMember(Name = "data")]
         public UserInfoData Data { get; set; }
-
     }
 
     [DataContract]
