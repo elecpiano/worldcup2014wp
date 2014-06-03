@@ -375,6 +375,9 @@
     <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Tiles\icon100x100.png" />
+    <Content Include="Assets\Tiles\icon159x159.png" />
+    <Content Include="Assets\Tiles\icon336x336.png" />
     <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

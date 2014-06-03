@@ -77,7 +77,7 @@ namespace WorldCup2014WP.Pages
         private void DiaryItem_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             DiaryItem item = sender.GetDataContext<DiaryItem>();
-            NewsHandler.OnNewsTap(this, item.ID,string.Empty, item.Name);
+            NewsHandler.OnNewsTap(this, item.ID,string.Empty, item.Image, item.Name);
         }
 
     }

@@ -26,7 +26,7 @@
                 <phone:Pivot.HeaderTemplate>
                     <DataTemplate>
                         <Grid Height="48" Margin="0,0,0,-24">
-                            <TextBlock Text="{Binding}" Style="{StaticResource CategoryPage_PivotHeader_Text_Style}"/>
+                            <TextBlock Text="{Binding}" Style="{StaticResource HomePage_PivotHeader_Text_Style}"/>
                         </Grid>
                     </DataTemplate>
                 </phone:Pivot.HeaderTemplate>
@@ -48,7 +48,7 @@
                 <phone:PivotItem Header="关于">
                     <Grid Margin="12,0,12,0">
                         <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="索契冬奥会" Style="{StaticResource SettingsPage_Title_Style}" HorizontalAlignment="Center"/>
+                            <TextBlock Text="2014巴西世界杯" Style="{StaticResource SettingsPage_Title_Style}" HorizontalAlignment="Center"/>
                             <TextBlock Style="{StaticResource SettingsPage_Description_Style}" HorizontalAlignment="Center"
                                        Text="Version 1.0" Margin="0,0,0,32"/>
                             <TextBlock Style="{StaticResource SettingsPage_Description_Style}" HorizontalAlignment="Center"
