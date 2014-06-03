@@ -83,4 +83,32 @@ namespace WorldCup2014WP.Models
         public string OptionName { get; set; }
     }
 
+    [DataContract]
+    public class GuessFromUser
+    {
+        [DataMember(Name = "code")]
+        public string Code { get; set; }
+
+        [DataMember(Name = "msg")]
+        public string Message { get; set; }
+
+        [DataMember(Name = "data")]
+        public GuessFromUser_Data data { get; set; }
+    }
+
+    [DataContract]
+    public class GuessFromUser_Data
+    {
+        [DataMember(Name = "msg")]
+        public string Message { get; set; }
+    }
+
+    public class GuessMakingArgument
+    {
+        public string GameID { get; set; }
+        public GuessGameOption Option { get; set; }
+        public int Gold { get; set; }
+
+    }
+
 }

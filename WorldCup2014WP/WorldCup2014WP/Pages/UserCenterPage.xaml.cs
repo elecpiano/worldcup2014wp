@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
 using WorldCup2014WP.Utility;
 using WorldCup2014WP.Models;
 using System.Windows.Threading;
@@ -32,6 +27,7 @@ namespace WorldCup2014WP.Pages
         {
             base.OnNavigatedTo(e);
             SetUserInfo();
+            UpdateUserInfo();
         }
 
         #endregion
@@ -113,6 +109,16 @@ namespace WorldCup2014WP.Pages
         private void ChangePassword_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
 
+        }
+
+        private void ToChangeNickname_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            ShowPopup("VSChangeNickname");
+        }
+
+        private void ChangeNickname_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            ChangeNickname();
         }
 
         private void sendActivationCode_Click(object sender, RoutedEventArgs e)
@@ -234,7 +240,6 @@ namespace WorldCup2014WP.Pages
                 userImage.DataContext = App.User.Image;
                 userName.Text = App.User.NickName;
                 goldPanel.Visibility = Visibility.Visible;
-                UpdateUserInfo();
             }
             else
             {
@@ -329,7 +334,58 @@ namespace WorldCup2014WP.Pages
             userInfoLoader.UserLoad("getuserinfo", param, true, Constants.USER_MODULE, Constants.USER_INFO_FILE_NAME,
                 result =>
                 {
-                    gold.Text = result.Data.Gold.ToString();
+                    if (result.Code != "200")
+                    {
+                        MessageBox.Show(result.Message);
+                    }
+                    else
+                    {
+                        if (result.Data != null)
+                        {
+                            gold.Text = result.Data.Gold.ToString();
+                        }
+                    }
+                });
+        }
+
+        private void ChangeNickname()
+        {
+            if (loginLoader.Busy)
+            {
+                return;
+            }
+
+            string newName = newNickname.Text.Trim();
+
+            if (string.IsNullOrEmpty(newName))
+            {
+                ClosePopup();
+                return;
+            }
+
+            string param = "&name=" + newName + "&sid=" + App.User.SessionID;
+
+            //load
+            loginLoader.UserLoad("changenickname", param, false, string.Empty, string.Empty,
+                result =>
+                {
+                    if (result.Code == "200")
+                    {
+                        userName.Text = newName;
+
+                        //save user
+                        var user = App.User;
+                        user.NickName = newName;
+                        App.UpdateUser(user);
+                        ClosePopup();
+                    }
+                    else
+                    {
+                        MessageBox.Show(result.Message);
+                    }
+
+                    //not busy
+                    //snowNews.IsBusy = false;
                 });
         }
 
@@ -369,6 +425,8 @@ namespace WorldCup2014WP.Pages
 
         #endregion
 
+        #region Tiles
+
         private void mySubscription_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             string naviStr = "/Pages/MySubscriptionPage.xaml";
@@ -377,8 +435,18 @@ namespace WorldCup2014WP.Pages
 
         private void guessHistory_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-
+            if (App.IsLoggedIn)
+            {
+                string naviStr = "/Pages/GuessResultPage.xaml";
+                NavigationService.Navigate(new Uri(naviStr, UriKind.Relative));
+            }
+            else
+            {
+                MessageBox.Show("请登录");
+            }
         }
+
+        #endregion
 
     }
 }

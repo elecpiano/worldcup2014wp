@@ -31,7 +31,7 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Grid Height="100" Margin="24,0,0,0">
+                            <Grid Height="110" Margin="24,0,24,0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="90"/>
                                     <ColumnDefinition Width="*"/>
@@ -40,7 +40,8 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <Image Source="/Assets/Images/WinGold.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                <Image Source="/Assets/Images/WinGold.png" Stretch="None" Grid.RowSpan="2"
+                                       HorizontalAlignment="Left" VerticalAlignment="Center" 
                                        Visibility="{Binding IsWin}"/>
                                 <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding Content}" Style="{StaticResource NewsList_ItemTitle_Text_Style}"/>
                                 <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Time}" 

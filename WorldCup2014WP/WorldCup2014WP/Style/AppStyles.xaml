@@ -489,14 +489,15 @@
     </Style>
 
     <Style x:Key="Guess_Option_Title_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
-        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontSize" Value="18"/>
         <Setter Property="Foreground" Value="#ff000000"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="2,2,2,2"/>
     </Style>
 
     <Style x:Key="Guess_Option_Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockStyleBase}">
-        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="FontSize" Value="22"/>
         <Setter Property="Foreground" Value="#ff000000"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>

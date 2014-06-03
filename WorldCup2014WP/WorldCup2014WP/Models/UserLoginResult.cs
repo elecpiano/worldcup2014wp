@@ -31,5 +31,14 @@ namespace WorldCup2014WP.Models
 
         [DataMember(Name = "exp")]
         public string Exp { get; set; }
+
+        [IgnoreDataMember]
+        public int GoldInt
+        {
+            get
+            {
+                return int.Parse(this.Gold);
+            }
+        }
     }
 }

@@ -39,7 +39,7 @@ namespace WorldCup2014WP.Pages
 
         #region Data
 
-        GenericDataLoader<GameResultList> dataLoader = new GenericDataLoader<GameResultList>();
+        GenericDataLoader<GuessResultList> dataLoader = new GenericDataLoader<GuessResultList>();
 
         private void LoadData()
         {

@@ -41,6 +41,7 @@ namespace WorldCup2014WP.Pages
         #region Guess Data
 
         ListDataLoader<GuessGame> guessLoader = new ListDataLoader<GuessGame>();
+        GenericDataLoader<GuessFromUser> guessMakingLoader = new GenericDataLoader<GuessFromUser>();
 
         private void LoadGuess()
         {
@@ -58,10 +59,49 @@ namespace WorldCup2014WP.Pages
                     {
                         GuessControl control = new GuessControl();
                         control.DataContext = item;
+                        control.MakeGuess += MakeGuess;
 
                         PivotItem pivotItem = new PivotItem() { Header = "竞猜" + index.ToString() };
                         pivotItem.Content = control;
                         pivot.Items.Add(pivotItem);
+                    }
+                });
+        }
+
+        void MakeGuess(object sender, GuessMakingArgument arg)
+        {
+            if (arg.Gold > App.User.GoldInt)
+            {
+                MessageBox.Show("积分不够");
+                return;
+            }
+
+            string confirmMessage = string.Format("您确定要猜 {0} 吗？(消耗积分{1})", arg.Option.OptionName, arg.Gold);
+            MessageBoxResult dialogResult = MessageBox.Show(confirmMessage, "竞猜", MessageBoxButton.OKCancel);
+            if (dialogResult == MessageBoxResult.Cancel)
+            {
+                return;
+            }
+
+            if (guessMakingLoader.Busy)
+            {
+                return;
+            }
+
+            string param = string.Format("&id={0}&qid={1}&gold={2}&sid={3}",
+                new object[] { arg.GameID, arg.Option.ID, arg.Gold, App.User.SessionID });
+
+            //load
+            guessMakingLoader.Load("playgame", param, false, string.Empty, string.Empty,
+                result =>
+                {
+                    if (result.Code == "200")
+                    {
+                        MessageBox.Show(result.data.Message);
+                    }
+                    else
+                    {
+                        MessageBox.Show(result.Message);
                     }
                 });
         }
@@ -92,6 +132,11 @@ namespace WorldCup2014WP.Pages
                 result =>
                 {
                     gold.Text = result.Data.Gold.ToString();
+
+                    //save user
+                    var user = App.User;
+                    user.Gold = result.Data.Gold.ToString();
+                    App.UpdateUser(user);
                 });
         }
 

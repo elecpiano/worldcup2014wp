@@ -42,4 +42,5 @@ namespace WorldCup2014WP.Models
         [DataMember(Name = "gold")]
         public int Gold { get; set; }
     }
+
 }

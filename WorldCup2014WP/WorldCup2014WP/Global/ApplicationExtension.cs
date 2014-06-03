@@ -101,6 +101,11 @@ namespace WorldCup2014WP
             }
         }
 
+        public void UpdateUser(UserLoginResult user)
+        {
+            UpdateSetting(KEY_USER, user);
+        }
+
         public bool IsLoggedIn
         {
             get

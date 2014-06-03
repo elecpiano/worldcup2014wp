@@ -30,7 +30,7 @@ namespace WorldCup2014WP.Models
     }
 
     [DataContract]
-    public class GameResultList
+    public class GuessResultList
     {
         [DataMember(Name = "msg")]
         public string Message { get; set; }
@@ -39,6 +39,6 @@ namespace WorldCup2014WP.Models
         public string Code { get; set; }
 
         [DataMember(Name = "data")]
-        public GameResult[] Data { get; set; }
+        public GuessResult[] Data { get; set; }
     }
 }
