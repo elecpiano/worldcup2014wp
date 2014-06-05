@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="zh-Hans" />
-  <App xmlns="" ProductID="{51ae1e12-f37f-4571-a5a2-2614e8aec87b}" Title="2014巴西世界杯" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="CCTV5" Description="2014巴西世界杯" Publisher="CCTV5" PublisherID="{0b69e0b9-69e0-405b-bc04-a7c7b57c0b69}">
+  <App xmlns="" ProductID="{51ae1e12-f37f-4571-a5a2-2614e8aec87b}" Title="CCTV5" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="CCTV5" Description="CCTV5" Publisher="CCTV5" PublisherID="{0b69e0b9-69e0-405b-bc04-a7c7b57c0b69}">
     <IconPath IsRelative="true" IsResource="false">Assets\Tiles\icon100x100.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
@@ -19,7 +19,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon159x159.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon336x336.png</BackgroundImageURI>
-          <Title>2014巴西世界杯</Title>
+          <Title>CCTV5</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>

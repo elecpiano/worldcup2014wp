@@ -115,6 +115,7 @@ namespace WorldCup2014WP.Pages
             subscriptionList.Clear();
             toast.ShowMessage("成功取消全部预约。");
             CheckNoData();
+            HomePage.ReloatEpgList = true;
         }
 
         #endregion

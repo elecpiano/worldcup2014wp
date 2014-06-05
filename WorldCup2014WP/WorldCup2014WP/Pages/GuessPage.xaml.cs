@@ -98,6 +98,7 @@ namespace WorldCup2014WP.Pages
                     if (result.Code == "200")
                     {
                         MessageBox.Show(result.data.Message);
+                        UpdateUserInfo();
                     }
                     else
                     {
