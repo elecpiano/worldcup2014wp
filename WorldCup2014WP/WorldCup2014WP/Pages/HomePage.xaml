@@ -284,7 +284,7 @@
                                 <RowDefinition Height="180"/>
                                 <RowDefinition Height="180"/>
                                 <RowDefinition Height="180"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="180"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="180"/>
@@ -316,22 +316,6 @@
                                 </Grid>
                             </controls:ContentButton>
 
-                            <!--stadium-->
-                            <controls:ContentButton Grid.Row="3" Grid.Column="0" Margin="0,0,8,8"  
-                                                Tap="stadium_Tap">
-                                <Grid Background="{StaticResource App_Theme_Color}">
-                                    <TextBlock Text="球场巡礼" Style="{StaticResource Tile_Text_Style}"/>
-                                </Grid>
-                            </controls:ContentButton>
-
-                            <!--team-->
-                            <controls:ContentButton Grid.Row="3" Grid.Column="1" Margin="0,0,8,8" 
-                                                Tap="team_Tap">
-                                <Grid Background="{StaticResource App_Theme_Color}">
-                                    <TextBlock Text="球队巡礼" Style="{StaticResource Tile_Text_Style}"/>
-                                </Grid>
-                            </controls:ContentButton>
-
                             <!--magma-->
                             <controls:ContentButton Grid.Row="2" Grid.Column="0" Margin="0,0,8,8" 
                                                 Tap="magma_Tap">
@@ -348,7 +332,31 @@
                                 </Grid>
                             </controls:ContentButton>
 
-                            <controls:Bubbles x:Name="bubbles" Grid.RowSpan="4" Grid.ColumnSpan="2" Width="400" HorizontalAlignment="Left"/>
+                            <!--stadium-->
+                            <controls:ContentButton Grid.Row="3" Grid.Column="0" Margin="0,0,8,8"  
+                                                Tap="stadium_Tap">
+                                <Grid Background="{StaticResource App_Theme_Color}">
+                                    <TextBlock Text="球场巡礼" Style="{StaticResource Tile_Text_Style}"/>
+                                </Grid>
+                            </controls:ContentButton>
+
+                            <!--team-->
+                            <controls:ContentButton Grid.Row="3" Grid.Column="1" Margin="0,0,8,8" 
+                                                Tap="team_Tap">
+                                <Grid Background="{StaticResource App_Theme_Color}">
+                                    <TextBlock Text="球队巡礼" Style="{StaticResource Tile_Text_Style}"/>
+                                </Grid>
+                            </controls:ContentButton>
+
+                            <!--statistics-->
+                            <controls:ContentButton Grid.Row="4" Grid.Column="0" Margin="0,0,8,8"  
+                                                Tap="statistics_Tap">
+                                <Grid Background="{StaticResource App_Theme_Color}">
+                                    <TextBlock Text="数据世界杯" Style="{StaticResource Tile_Text_Style}"/>
+                                </Grid>
+                            </controls:ContentButton>
+
+                            <controls:Bubbles x:Name="bubbles" Grid.RowSpan="5" Grid.ColumnSpan="2" Width="400" HorizontalAlignment="Left"/>
                         </Grid>
                     </ScrollViewer>
                 </phone:PanoramaItem>

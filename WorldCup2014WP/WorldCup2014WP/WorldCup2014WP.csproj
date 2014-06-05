@@ -201,6 +201,7 @@
     <Compile Include="Models\Diary.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Score.cs" />
+    <Compile Include="Models\StatisticsAddress.cs" />
     <Compile Include="Models\ShareResult.cs" />
     <Compile Include="Models\Guess.cs" />
     <Compile Include="Models\UserInfo.cs" />
@@ -241,6 +242,9 @@
     </Compile>
     <Compile Include="Pages\GuessResultPage.xaml.cs">
       <DependentUpon>GuessResultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StatisticsPage.xaml.cs">
+      <DependentUpon>StatisticsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TeamPage.xaml.cs">
       <DependentUpon>TeamPage.xaml</DependentUpon>
@@ -522,6 +526,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\GuessResultPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\StatisticsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

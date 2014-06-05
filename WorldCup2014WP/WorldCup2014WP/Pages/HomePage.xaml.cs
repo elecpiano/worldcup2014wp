@@ -561,6 +561,11 @@ namespace WorldCup2014WP.Pages
             NavigationService.Navigate(new Uri("/Pages/GuessPage.xaml", UriKind.Relative));
         }
 
+        private void statistics_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/StatisticsPage.xaml", UriKind.Relative));
+        }
+
         #endregion
 
     }
