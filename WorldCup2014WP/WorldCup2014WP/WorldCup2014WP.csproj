@@ -234,6 +234,9 @@
     <Compile Include="Pages\DiaryListPage.xaml.cs">
       <DependentUpon>DiaryListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DiaryPage.xaml.cs">
+      <DependentUpon>DiaryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MagmaListPage.xaml.cs">
       <DependentUpon>MagmaListPage.xaml</DependentUpon>
     </Compile>
@@ -514,6 +517,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\DiaryListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\DiaryPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

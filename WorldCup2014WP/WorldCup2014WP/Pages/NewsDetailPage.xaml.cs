@@ -15,6 +15,8 @@ namespace WorldCup2014WP.Pages
 {
     public partial class NewsDetailPage : PhoneApplicationPage
     {
+        #region Property
+
         App App { get { return App.Current as App; } }
 
         private string newsID = string.Empty;
@@ -25,6 +27,8 @@ namespace WorldCup2014WP.Pages
         private const int WECHAT_IMAGE_SIZE_MAX = 1024 * 32;
 
         private bool TryGetShareResultOnNavigatedTo = false;
+
+        #endregion
 
         #region Lifecycle
 

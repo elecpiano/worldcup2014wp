@@ -134,7 +134,7 @@
                 </phone:PanoramaItem>
 
                 <!--author list-->
-                <phone:PanoramaItem Header="我在现场">
+                <!--<phone:PanoramaItem Header="我在现场">
                     <Grid>
                         <ScrollViewer x:Name="authorListScrollViewer">
                             <ItemsControl x:Name="authorListBox" Margin="12,0,0,0">
@@ -189,7 +189,7 @@
                             </ItemsControl>
                         </ScrollViewer>
                     </Grid>
-                </phone:PanoramaItem>
+                </phone:PanoramaItem>-->
 
                 <!--news-->
                 <phone:PanoramaItem Header="新闻">
@@ -356,7 +356,15 @@
                                 </Grid>
                             </controls:ContentButton>
 
-                            <controls:Bubbles x:Name="bubbles" Grid.RowSpan="5" Grid.ColumnSpan="2" Width="400" HorizontalAlignment="Left"/>
+                            <!--diary-->
+                            <controls:ContentButton Grid.Row="4" Grid.Column="1" Margin="0,0,8,8"  
+                                                Tap="diary_Tap">
+                                <Grid Background="{StaticResource App_Theme_Color}">
+                                    <TextBlock Text="我在巴西" Style="{StaticResource Tile_Text_Style}"/>
+                                </Grid>
+                            </controls:ContentButton>
+
+                            <!--<controls:Bubbles x:Name="bubbles" Grid.RowSpan="5" Grid.ColumnSpan="2" Width="400" HorizontalAlignment="Left"/>-->
                         </Grid>
                     </ScrollViewer>
                 </phone:PanoramaItem>

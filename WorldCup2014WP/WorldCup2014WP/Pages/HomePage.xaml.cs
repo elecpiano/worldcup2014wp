@@ -33,7 +33,7 @@ namespace WorldCup2014WP.Pages
             InitEpgList();
             newsListBox.ItemsSource = newsList;
             recommendationNewsListBox.ItemsSource = recommendationNewsList;
-            authorListBox.ItemsSource = authorList;
+            //authorListBox.ItemsSource = authorList;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -50,10 +50,10 @@ namespace WorldCup2014WP.Pages
                 ReloatEpgList = false;
             }
             LoadRecommendation();
-            LoadAuthorList();
+            //LoadAuthorList();
             LoadNews();
             //fadeAnimation.InstanceFade(this.contentPanel, 0d, 1d, Constants.NAVIGATION_DURATION, null);
-            this.bubbles.IsBusy = true;
+            //this.bubbles.IsBusy = true;
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
@@ -457,6 +457,8 @@ namespace WorldCup2014WP.Pages
 
         #region Author
 
+        /********************************************************
+
         GenericDataLoader<AuthorList> authorListLoader = new GenericDataLoader<AuthorList>();
         ObservableCollection<Author> authorList = new ObservableCollection<Author>();
 
@@ -496,6 +498,8 @@ namespace WorldCup2014WP.Pages
                 NaviParam.AUTHOR_FACE, author.Face);
             NavigationService.Navigate(new Uri(naviString, UriKind.Relative));
         }
+
+        ********************************************************/
 
         #endregion
 
@@ -564,6 +568,11 @@ namespace WorldCup2014WP.Pages
         private void statistics_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/StatisticsPage.xaml", UriKind.Relative));
+        }
+
+        private void diary_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/DiaryPage.xaml", UriKind.Relative));
         }
 
         #endregion

@@ -1,0 +1,80 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="WorldCup2014WP.Pages.DiaryPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:WorldCup2014WP.Controls"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--top bar-->
+        <Image Source="/Assets/Images/TopBar.png" Stretch="Uniform"/>
+
+        <!--content-->
+        <Grid x:Name="contentPanel" Grid.Row="1">
+            <ScrollViewer x:Name="authorListScrollViewer">
+                <ItemsControl x:Name="authorListBox" Margin="24,12,24,12">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <controls:ContentButton Margin="0,0,0,12" Tap="Author_Tap" Height="300">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Width="80" Height="80" Margin="0,0,0,0" Style="{StaticResource Image_Border_Style}" VerticalAlignment="Top">
+                                        <controls:FadingImage Stretch="UniformToFill" Source="{Binding Face}"/>
+                                    </Border>
+                                    <StackPanel Grid.Column="1" Margin="12,0,12,0">
+                                        <TextBlock Text="{Binding Name}" Style="{StaticResource AuthorList_AuthorName_Text_Style}"/>
+                                        <TextBlock Text="{Binding Title}" Style="{StaticResource AuthorList_Title_Text_Style}"/>
+                                        <ItemsControl ItemsSource="{Binding Images}" Margin="0,0,0,10">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Horizontal"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <controls:FadingImage Stretch="UniformToFill" Source="{Binding Image}" Width="100" Height="80" Margin="0,0,8,0"/>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                        <Grid>
+                                            <TextBlock Text="{Binding Date, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" 
+                                                               Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                                            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                                <TextBlock Text="阅读:" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                                                <TextBlock Text="{Binding ViewCount}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                                                <TextBlock Text="赞:" Style="{StaticResource NewsList_ItemTime_Text_Style}" Margin="12,0,0,0"/>
+                                                <TextBlock Text="{Binding LoveCount}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                                            </StackPanel>
+                                        </Grid>
+                                    </StackPanel>
+                                    <Rectangle Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource Item_SplitBar_Bottom_Style}"/>
+                                </Grid>
+                            </controls:ContentButton>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
