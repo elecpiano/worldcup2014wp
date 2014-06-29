@@ -42,6 +42,10 @@ namespace WorldCup2014WP.Controls
             calendarLoader.Load("getcalendar", string.Empty, true, Constants.CALENDAR_MODULE, Constants.CALENDAR_FILE_NAME,
                 result =>
                 {
+                    if (result==null)
+                    {
+                        return;
+                    }
                     PopulateCalendar(result);
                     //snow1.IsBusy = false;
                 });

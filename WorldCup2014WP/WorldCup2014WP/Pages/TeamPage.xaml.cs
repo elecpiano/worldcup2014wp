@@ -49,6 +49,14 @@ namespace WorldCup2014WP.Pages
             dataLoader.Load("getteamlist", string.Empty, true, Constants.TEAM_MODULE, Constants.TEAM_FILE_NAME,
                 result =>
                 {
+                    if (result == null)
+                    {
+                        return;
+                    }
+                    if (result.NewsGroups == null)
+                    {
+                        return;
+                    }
                     scrollViewer.ScrollToVerticalOffset(0);
                     listBox.ItemsSource = result.NewsGroups;
                 });

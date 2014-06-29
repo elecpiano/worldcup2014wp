@@ -46,6 +46,14 @@ namespace WorldCup2014WP.Pages
             authorListLoader.Load("getauthorlist", string.Empty, true, Constants.AUTHOR_MODULE, Constants.AUTHOR_FILE_NAME,
                 result =>
                 {
+                    if (result ==null)
+                    {
+                        return;
+                    }
+                    if (result.data ==null)
+                    {
+                        return;
+                    }
                     authorListScrollViewer.ScrollToVerticalOffset(0);
                     authorList.Clear();
 

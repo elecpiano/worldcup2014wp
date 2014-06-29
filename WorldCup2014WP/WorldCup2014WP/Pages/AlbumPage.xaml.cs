@@ -67,6 +67,14 @@ namespace WorldCup2014WP.Pages
             albumloader.Load("getalbum", "&id=" + id, true, Constants.ALBUM_MODULE, string.Format(Constants.ALBUM_FILE_NAME_FORMAT, id),
                 album =>
                 {
+                    if (album==null)
+                    {
+                        return;
+                    }
+                    if (album.Items ==null)
+                    {
+                        return;
+                    }
                     albumItems.Clear();
                     foreach (var item in album.Items)
                     {

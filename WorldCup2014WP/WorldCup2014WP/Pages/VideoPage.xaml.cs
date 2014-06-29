@@ -49,6 +49,14 @@ namespace WorldCup2014WP.Pages
             dataLoader.Load("getvod", "&id=" + vodID, false, Constants.VOD_MODULE, string.Format(Constants.VOD_FILE_NAME_FORMAT, vodID),
                 data => 
                 {
+                    if (data==null)
+                    {
+                        return;
+                    }
+                    if (data.Videos==null)
+                    {
+                        return;
+                    }
                     if (snow1 != null)
                     {
                         snow1.IsBusy = false;

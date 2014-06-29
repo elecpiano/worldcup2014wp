@@ -65,6 +65,14 @@ namespace WorldCup2014WP.Pages
             dataLoader.Load("getdiarylist", "&id=" + authorId, true, Constants.DIARY_MODULE, string.Format(Constants.DIARY_LIST_FILE_NAME_FORMAT, authorId),
                 result =>
                 {
+                    if (result==null)
+                    {
+                        return;
+                    }
+                    if (result.data ==null)
+                    {
+                        return;
+                    }
                     coverImage.DataContext = result.BigImage;
                     diaryListBox.ItemsSource = result.data;
                     //not busy

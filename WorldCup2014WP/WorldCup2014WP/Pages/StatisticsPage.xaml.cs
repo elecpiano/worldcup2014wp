@@ -37,6 +37,14 @@ namespace WorldCup2014WP.Pages
             dataLoader.Load("getconfig", string.Empty, false, string.Empty, string.Empty,
                 result =>
                 {
+                    if (result==null)
+                    {
+                        return;
+                    }
+                    if (result.URL==null)
+                    {
+                        return;
+                    }
                     Uri uri = new Uri(result.URL);
                     browser.Navigate(uri);
                 });

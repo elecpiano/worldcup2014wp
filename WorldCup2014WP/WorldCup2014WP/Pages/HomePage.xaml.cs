@@ -82,6 +82,14 @@ namespace WorldCup2014WP.Pages
             splashLoader.Load("getsplash", string.Empty, true, Constants.SPLASH_MODULE, Constants.SPLASH_FILE_NAME,
                 splash =>
                 {
+                    if (splash==null)
+                    {
+                        return;
+                    }
+                    if (splash.Image==null)
+                    {
+                        return;
+                    }
                     if (openedSplashImageSource == splash.Image)
                     {
                         return;
@@ -149,6 +157,10 @@ namespace WorldCup2014WP.Pages
             bannerLoader.Load("getbanner", string.Empty, true, Constants.BANNER_MODULE, Constants.BANNER_FILE_NAME,
                 list =>
                 {
+                    if (list==null)
+                    {
+                        return;
+                    }
                     if (list.Count > 0)
                     {
                         theBanner = list[0];
@@ -333,6 +345,15 @@ namespace WorldCup2014WP.Pages
             newsLoader.Load("getnewslist", "&page=" + newsPageIndex.ToString(), true, Constants.NEWS_MODULE, string.Format(Constants.NEWS_LIST_FILE_NAME_FORMAT, newsPageIndex),
                 list =>
                 {
+                    if (list==null)
+                    {
+                        return;
+                    }
+                    if (list.data==null)
+                    {
+                        return;
+                    }
+
                     newsPageCount = list.TotalPageCount;
 
                     //remove more button
@@ -438,7 +459,20 @@ namespace WorldCup2014WP.Pages
             recommendationLoader.Load("getrecommends", string.Empty, true, Constants.RECOMMENDATION_MODULE, Constants.RECOMMENDATION_FILE_NAME,
                 result =>
                 {
-                    recommendationSlideShow.SetItemsSource(result.focus);
+                    if (result==null)
+                    {
+                        return;
+                    }
+
+                    if (result.focus!=null)
+                    {
+                        recommendationSlideShow.SetItemsSource(result.focus);
+                    }
+
+                    if (result.data==null)
+                    {
+                        return;
+                    }
 
                     recommendationNewsListScrollViewer.ScrollToVerticalOffset(0);
                     recommendationNewsList.Clear();

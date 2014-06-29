@@ -52,10 +52,21 @@ namespace WorldCup2014WP.Pages
             subjectLoader.Load("getsubject", "&id=" + subjectID, true, Constants.SUBJECT_MODULE, string.Format(Constants.SUBJECT_FILE_NAME_FORMAT, subjectID),
                 result =>
                 {
-                    focusSlideShow.SetItemsSource(result.FocusList);
+                    if (result == null)
+                    {
+                        return;
+                    }
+                    if (result.FocusList != null)
+                    {
+                        focusSlideShow.SetItemsSource(result.FocusList);
+                    }
 
-                    scrollViewer.ScrollToVerticalOffset(0);
-                    newsGroupListBox.ItemsSource = result.NewsGroups;
+                    if (result.NewsGroups != null)
+                    {
+                        scrollViewer.ScrollToVerticalOffset(0);
+                        newsGroupListBox.ItemsSource = result.NewsGroups;
+                    }
+
                     //subjectNewsList.Clear();
 
                     //foreach (var item in result.data)

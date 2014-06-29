@@ -69,6 +69,10 @@ namespace WorldCup2014WP.Pages
             liveLoader.Load("getlivepage", "&id=" + liveID, true, Constants.LIVE_MODULE, string.Format(Constants.LIVE_FILE_NAME_FORMAT, liveID),
                 data =>
                 {
+                    if (data==null)
+                    {
+                        return;
+                    }
                     PopulateScore(data);
                     PopulateRankList(data);
                     PopulateLineItems(data);

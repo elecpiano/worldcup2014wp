@@ -52,6 +52,16 @@ namespace WorldCup2014WP.Pages
             newsLoader.Load("getmagmalist", string.Empty, true, Constants.MAGMA_MODULE, Constants.MAGMA_LIST_FILE_NAME,
                 list =>
                 {
+                    if (list==null)
+                    {
+                        return;
+                    }
+
+                    if (list.data==null)
+                    {
+                        return;
+                    }
+
                     newsPageCount = list.TotalPageCount;
 
                     //remove more button

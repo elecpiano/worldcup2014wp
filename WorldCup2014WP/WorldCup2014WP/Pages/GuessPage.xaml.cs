@@ -54,6 +54,10 @@ namespace WorldCup2014WP.Pages
             guessLoader.Load("getgamelist", string.Empty, true, Constants.GUESS_MODULE, Constants.GUESS_FILE_NAME,
                 result =>
                 {
+                    if (result==null)
+                    {
+                        return;
+                    }
                     int index = 1;
                     foreach (var item in result)
                     {
@@ -95,6 +99,11 @@ namespace WorldCup2014WP.Pages
             guessMakingLoader.Load("playgame", param, false, string.Empty, string.Empty,
                 result =>
                 {
+                    if (result == null)
+                    {
+                        return;
+                    }
+                    
                     if (result.Code == "200")
                     {
                         MessageBox.Show(result.data.Message);

@@ -81,6 +81,10 @@ namespace WorldCup2014WP.Pages
             scoreLoader.Load("getscore", string.Empty, true, Constants.GAME_DATA_MODULE, Constants.SCORE_FILE_NAME,
                 result =>
                 {
+                    if (result==null)
+                    {
+                        return;
+                    }
                     scoreListBox.ItemsSource = result;
                     scoreScrollViewer.ScrollToVerticalOffset(0);
                     //snow1.IsBusy = false;
@@ -105,6 +109,10 @@ namespace WorldCup2014WP.Pages
             goalLoader.Load("getgoal", string.Empty, true, Constants.GAME_DATA_MODULE, Constants.GOAL_FILE_NAME,
                 result =>
                 {
+                    if (result==null)
+                    {
+                        return;
+                    }
                     foreach (var item in result)
                     {
                         item.Index = result.IndexOf(item);
@@ -134,6 +142,10 @@ namespace WorldCup2014WP.Pages
             scheduleLoader.Load("getschedule", string.Empty, true, Constants.GAME_DATA_MODULE, Constants.SCHEDULE_FILE_NAME,
                 result =>
                 {
+                    if (result==null)
+                    {
+                        return;
+                    }
                     scheduleListBox.ItemsSource = result;
                     scheduleScrollViewer.ScrollToVerticalOffset(0);
                     //snow1.IsBusy = false;

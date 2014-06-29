@@ -58,6 +58,10 @@ namespace WorldCup2014WP.Pages
             stadiumLoader.Load("getstadiumlist", string.Empty, true, Constants.STADIUM_MODULE, Constants.STADIUM_LIST_FILE_NAME,
                 list =>
                 {
+                    if (list==null)
+                    {
+                        return;
+                    }
                     stadiumList.Clear();
                     foreach (var item in list)
                     {

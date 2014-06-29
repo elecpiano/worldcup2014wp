@@ -50,6 +50,14 @@ namespace WorldCup2014WP.Pages
             htmlLoader.Load("getstadiumdetail", "&id=" + stadiumID, true, Constants.STADIUM_MODULE, string.Format(Constants.STADIUM_DETAIL_FILE_NAME_FORMAT, stadiumID),
                 html =>
                 {
+                    if (html==null)
+                    {
+                        return;
+                    }
+                    if (html.Content==null)
+                    {
+                        return;
+                    }
                     string title = @"<h2 align=""center"">" + stadiumName + "</h2>";
                     string htmlContent = html.Content.Insert(html.Content.IndexOf("</style>") + 8, title);
                     htmlContent = htmlContent.Replace("max-width: 100%;", "width: 100%;");
