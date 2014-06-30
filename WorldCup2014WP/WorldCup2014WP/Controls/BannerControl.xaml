@@ -15,7 +15,7 @@
         <controls:ContentButton Tap="banner_Tap">
             <Grid>
                 <Image Source="{Binding Image}" Stretch="UniformToFill"/>
-                <StackPanel VerticalAlignment="Center" Margin="12,0,12,0">
+                <StackPanel VerticalAlignment="Center" Margin="12,0,12,0" Visibility="Collapsed">
                     <Grid HorizontalAlignment="Center">
                         <TextBlock Text="{Binding Title}" Style="{StaticResource Banner_Title_Style}" Foreground="#ff000000" Margin="1,1,0,0"/>
                         <TextBlock Text="{Binding Title}" Style="{StaticResource Banner_Title_Style}"/>

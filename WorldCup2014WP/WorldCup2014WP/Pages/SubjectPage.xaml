@@ -37,7 +37,6 @@
                                 <VirtualizingStackPanel/>
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
-                        
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -49,6 +48,11 @@
                                         <TextBlock Text="{Binding GroupTitle}" Style="{StaticResource SubjectPage_Category_Title_Style}"/>
                                     </Grid>
                                     <ItemsControl Grid.Row="1" ItemsSource="{Binding NewsList}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <VirtualizingStackPanel/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <controls:NewsDataTemplateSelector Content="{Binding}" HorizontalContentAlignment="Stretch">
@@ -61,11 +65,11 @@
                                                                         <ColumnDefinition Width="*"/>
                                                                     </Grid.ColumnDefinitions>
                                                                     <Border Width="120" Height="100" Margin="24,0,0,0" Style="{StaticResource Image_Border_Style}">
-                                                                        <controls:FadingImage Stretch="UniformToFill" Source="{Binding Image}"/>
+                                                                        <Image Stretch="UniformToFill" Source="{Binding Image}"/>
                                                                     </Border>
                                                                     <StackPanel Grid.Column="1" Margin="12,0,24,0">
                                                                         <TextBlock Text="{Binding Title}" Style="{StaticResource NewsList_ItemTitle_Text_Style}"/>
-                                                                        <TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                                                                        <!--<TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>-->
                                                                     </StackPanel>
                                                                 </Grid>
                                                             </controls:ContentButton>
@@ -87,7 +91,7 @@
                                                                     </Border>
                                                                     <StackPanel Grid.Column="1" Margin="12,0,24,0">
                                                                         <TextBlock Text="{Binding Title}" Style="{StaticResource NewsList_ItemTitle_Text_Style}"/>
-                                                                        <TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>
+                                                                        <!--<TextBlock Text="{Binding Time, Converter={StaticResource DateTimeToStringConverter}, ConverterParameter='yyyy-MM-dd hh:mm'}" Style="{StaticResource NewsList_ItemTime_Text_Style}"/>-->
                                                                     </StackPanel>
                                                                 </Grid>
                                                             </controls:ContentButton>

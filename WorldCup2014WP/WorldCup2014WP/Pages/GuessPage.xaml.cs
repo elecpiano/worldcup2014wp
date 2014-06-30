@@ -68,12 +68,19 @@ namespace WorldCup2014WP.Pages
                         PivotItem pivotItem = new PivotItem() { Header = "竞猜" + index.ToString() };
                         pivotItem.Content = control;
                         pivot.Items.Add(pivotItem);
+                        index++;
                     }
                 });
         }
 
         void MakeGuess(object sender, GuessMakingArgument arg)
         {
+            if (!App.IsLoggedIn)
+            {
+                MessageBox.Show("请登录");
+                return;
+            }
+
             if (arg.Gold > App.User.GoldInt)
             {
                 MessageBox.Show("积分不够");

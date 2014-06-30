@@ -18,7 +18,8 @@ namespace WorldCup2014WP.Utility
 
         public static string GetApiPostfix()
         {
-            return string.Empty;
+            return Constants.API_POSTFIX;
+            //return string.Empty;
 
             string timestamp = ((DateTime.Now - DT_MIN).Ticks / TimeSpan.TicksPerMillisecond).ToString();
             string param = string.Format(SIGN_PARAM_FORMAT, TOKEN, PRIVATE_KEY, timestamp);

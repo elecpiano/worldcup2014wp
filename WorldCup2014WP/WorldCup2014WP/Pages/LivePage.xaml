@@ -39,10 +39,20 @@
                 <!--title panel-->
                 <Grid Grid.Row="0" Height="180" Background="#ffffffff">
                     <controls:FadingImage x:Name="titleImage" Stretch="UniformToFill"/>
-                    <TextBlock x:Name="titleTextBlock2" Style="{StaticResource LivePage_Title_Text_Style}"
-                               VerticalAlignment="Bottom" Margin="25,0,23,23" Foreground="#ff000000"/>
-                    <TextBlock x:Name="titleTextBlock1" Style="{StaticResource LivePage_Title_Text_Style}"
-                               VerticalAlignment="Bottom" Margin="24,0,24,24" />
+                    <Grid VerticalAlignment="Bottom">
+                        <Rectangle IsHitTestVisible="False">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" >
+                                    <GradientStop Offset="0"/>
+                                    <GradientStop Color="#80000000" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <TextBlock x:Name="titleTextBlock2" Style="{StaticResource LivePage_Title_Text_Style}"
+                               Margin="25,13,23,9" Foreground="#ff000000"/>
+                        <TextBlock x:Name="titleTextBlock1" Style="{StaticResource LivePage_Title_Text_Style}"
+                               Margin="24,12,24,10" />
+                    </Grid>
                 </Grid>
 
                 <!--score panel-->
@@ -56,8 +66,8 @@
                     </Grid.ColumnDefinitions>
                     <Rectangle Grid.ColumnSpan="5" Style="{StaticResource Item_SplitBar_Bottom_Style}"/>
 
-                    <Image Grid.Column="0" Source="{Binding Image1}" HorizontalAlignment="Right" Margin="0,12,24,12" Width="64" Height="64" Stretch="Uniform"/>
-                    <Image Grid.Column="4" Source="{Binding Image2}" HorizontalAlignment="Left" Margin="24,12,24,12" Width="64" Height="64" Stretch="Uniform"/>
+                    <Image Grid.Column="0" Source="{Binding Image1}" HorizontalAlignment="Right" Margin="12,12,12,12" Width="64" Height="64" Stretch="Uniform"/>
+                    <Image Grid.Column="4" Source="{Binding Image2}" HorizontalAlignment="Left" Margin="12,12,12,12" Width="64" Height="64" Stretch="Uniform"/>
 
                     <TextBlock Grid.Column="1" Text="{Binding Score1}" Style="{StaticResource LivePage_Score_Text_Style}"/>
                     <TextBlock Grid.Column="3" Text="{Binding Score2}" Style="{StaticResource LivePage_Score_Text_Style}"/>

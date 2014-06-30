@@ -92,7 +92,7 @@ namespace WorldCup2014WP.Controls
 
         public void LoadEpg(string date)
         {
-            if (epgLoader.Busy)
+            if (epgLoader.Loaded || epgLoader.Busy)
             {
                 return;
             }
@@ -130,9 +130,14 @@ namespace WorldCup2014WP.Controls
 
         private void EpgItem_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
+            EPG epg = sender.GetDataContext<EPG>();
+            if (epg.ShowLivePage==0)
+            {
+                return;
+            }
+
             if (HostingPage != null)
             {
-                EPG epg = sender.GetDataContext<EPG>();
                 string[] paramArray = new string[] { NaviParam.LIVE_ID, epg.ID, NaviParam.LIVE_IMAGE, epg.Image, NaviParam.LIVE_TITLE, epg.Description };
                 string naviStr = string.Format("/Pages/LivePage.xaml?{0}={1}&{2}={3}&{4}={5}", paramArray);
                 HostingPage.NavigationService.Navigate(new Uri(naviStr, UriKind.Relative));
